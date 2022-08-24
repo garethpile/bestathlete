@@ -1,0 +1,13 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "api": {
+      "360dslBE": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
+}

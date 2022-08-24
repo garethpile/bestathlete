@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "crypto-js": "^4.1.1",
+    "follow-redirects": "^1.15.1",
+    "https": "^1.0.0",
+    "moment": "^2.29.4",
+    "oauth-signature": "^1.5.0",
+    "punycode": "^2.1.1",
+    "querystring": "^0.2.1",
+    "uri-js": "^4.4.1",
+    "url": "^0.11.0"
+  }
+}
