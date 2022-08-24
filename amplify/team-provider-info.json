@@ -10,6 +10,14 @@
       "StackName": "amplify-bestathlete-dev-45931",
       "StackId": "arn:aws:cloudformation:eu-west-1:732439976770:stack/amplify-bestathlete-dev-45931/8a14f180-2369-11ed-8463-02a1b23680bd",
       "AmplifyAppId": "d3rr5mq3t5kkrx"
+    },
+    "categories": {
+      "function": {
+        "bestathletetest": {
+          "deploymentBucketName": "amplify-bestathlete-dev-45931-deployment",
+          "s3Key": "amplify-builds/bestathletetest-554c6c30376331594f67-build.zip"
+        }
+      }
     }
   }
 }
