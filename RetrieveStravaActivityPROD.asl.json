@@ -1,0 +1,115 @@
+{
+  "Comment": "Retrieve Strava Activity Step Function PROD ",
+  "StartAt": "Get Strava Activity",
+  "States": {
+    "Get Strava Activity": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "Format",
+          "States": {
+            "Format": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslStravaTransformInput-prod",
+              "ResultPath": "$.stravaActivityPushNotificationFormatted",
+              "Next": "Retrieve Strava Token"
+            },
+            "Retrieve Strava Token": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::dynamodb:getItem",
+              "Parameters": {
+                "TableName": "360dslPartyStrava",
+                "Key": {
+                  "PartyId": {
+                    "S.$": "$.stravaActivityPushNotificationFormatted.owner_id"
+                  }
+                }
+              },
+              "ResultPath": "$.stravaTokenData",
+              "Next": "Refresh Strava Token"
+            },
+            "Refresh Strava Token": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslStravaRefreshStravaToken-prod",
+              "ResultPath": "$.stravaTokenDataRefreshed",
+              "Next": "Retrieve Strava Activity"
+            },
+            "Retrieve Strava Activity": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslRetrieveStravaActivity-prod",
+              "ResultPath": "$.stravaActivityDetails",
+              "Next": "Insert Strava Activity"
+            },
+            "Insert Strava Activity": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslWriteStravaActivity-prod",
+              "ResultPath": "$.stravaActivityInsertDB",
+              "Next": "Notify And Retrieve TP Activity"
+            },
+            "Notify And Retrieve TP Activity": {
+              "Type": "Parallel",
+              "End": true,
+              "Branches": [
+                {
+                  "StartAt": "Get Strava Athlete Profile",
+                  "States": {
+                    "Get Strava Athlete Profile": {
+                      "Type": "Task",
+                      "Resource": "arn:aws:lambda:${region}:${account}:function:360dslStravaGetAthlete-prod",
+                      "ResultPath": "$.stravaAthleteProfile",
+                      "Next": "Start RetrieveTPActivity Step Function"
+                    },
+                    "Start RetrieveTPActivity Step Function": {
+                      "Comment": "Start RetrieveTPActivity Step Function",
+                      "Type": "Task",
+                      "Resource": "arn:aws:states:::states:startExecution",
+                      "Parameters": {
+                        "StateMachineArn": "arn:aws:states:${region}:${account}:stateMachine:RetrieveTPActivity",
+                        "Input": {
+                          "NeedCallback": false,
+                          "Data.$": "$",
+                          "AWS_STEP_FUNCTIONS_STARTED_BY_EXECUTION_ID.$": "$$.Execution.Id"
+                        }
+                      },
+                      "End": true
+                    }
+                  }
+                },
+                {
+                  "StartAt": "Send message to SNS",
+                  "States": {
+                    "Send message to SNS": {
+                      "Type": "Task",
+                      "Resource": "arn:aws:states:::sns:publish",
+                      "Parameters": {
+                        "Message.$": "States.Format('{} {} finished a {} called {} on {}. Distance: {}m', $.stravaTokenData.Item.FirstName.S, $.stravaTokenData.Item.LastName.S, $.stravaActivityDetails.type, $.stravaActivityDetails.name, $.stravaActivityDetails.start_date, $.stravaActivityDetails.distance )",
+                        "TopicArn": "arn:aws:sns:${region}:${account}:StravaActivityReceived"
+                      },
+                      "End": true
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "Next": "Success",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Comment": "Send Error",
+          "Next": "Fail"
+        }
+      ]
+    },
+    "Fail": {
+      "Type": "Fail"
+    },
+    "Success": {
+      "Type": "Succeed"
+    }
+  }
+}
