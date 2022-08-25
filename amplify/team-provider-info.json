@@ -1,19 +1,20 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-bestathlete-dev-61600-authRole",
-      "UnauthRoleArn": "arn:aws:iam::732439976770:role/amplify-bestathlete-dev-61600-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::732439976770:role/amplify-bestathlete-dev-61600-authRole",
+      "AuthRoleName": "amplify-uberpmtauto-dev-160711-authRole",
+      "UnauthRoleArn": "arn:aws:iam::287509267405:role/amplify-uberpmtauto-dev-160711-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::287509267405:role/amplify-uberpmtauto-dev-160711-authRole",
       "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-bestathlete-dev-61600-deployment",
-      "UnauthRoleName": "amplify-bestathlete-dev-61600-unauthRole",
-      "StackName": "amplify-bestathlete-dev-61600",
-      "StackId": "arn:aws:cloudformation:eu-west-1:732439976770:stack/amplify-bestathlete-dev-61600/a2ade620-242c-11ed-8bc4-0a9edb2568a1",
-      "AmplifyAppId": "d2ajp9hlbfim4h"
+      "DeploymentBucketName": "amplify-uberpmtauto-dev-160711-deployment",
+      "UnauthRoleName": "amplify-uberpmtauto-dev-160711-unauthRole",
+      "StackName": "amplify-uberpmtauto-dev-160711",
+      "StackId": "arn:aws:cloudformation:eu-west-1:287509267405:stack/amplify-uberpmtauto-dev-160711/92a50580-2b4c-11ec-99b5-0a5266e15941",
+      "AmplifyAppId": "d17i02hy46ugty"
     },
     "categories": {
       "auth": {
-        "360dslbe919a24f3": {}
+        "360dslbe919a24f3": {},
+        "uberpmtautof052f645": {}
       },
       "function": {
         "360dslRetrieveStravaActivity": {
