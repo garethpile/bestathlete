@@ -1,0 +1,64 @@
+{
+  "Comment": "Retrieve TP Activity Step Function - PROD ",
+  "StartAt": "Get TP Activity",
+  "States": {
+    "Get TP Activity": {
+      "Type": "Parallel",
+      "Next": "Success",
+      "Branches": [
+        {
+          "StartAt": "Retrieve TP Token",
+          "States": {
+            "Retrieve TP Token": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::dynamodb:getItem",
+              "Parameters": {
+                "TableName": "360dslPartyTP",
+                "Key": {
+                  "LastName": {
+                    "S.$": "States.Format('{}{}', $.Data.stravaTokenData.Item.LastName.S, $.Data.stravaTokenData.Item.FirstName.S)"
+                  }
+                }
+              },
+              "ResultPath": "$.tpTokenData",
+              "Next": "Refresh TP Token"
+            },
+            "Refresh TP Token": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslTPRefreshTPToken-prod",
+              "ResultPath": "$.tpTokenData",
+              "Next": "Retrieve TP Activity"
+            },
+            "Retrieve TP Activity": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslTPGetActivity-prod",
+              "ResultPath": "$.tpActivityDetails",
+              "Next": "Create Workout ACTIVITIESTP"
+            },
+            "Create Workout ACTIVITIESTP": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslTPcreateACTIVITIESTP-prod",
+              "ResultPath": "$.tpActivityInsertDB",
+              "End": true
+            }
+          }
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Comment": "Send Error",
+          "Next": "Fail"
+        }
+      ]
+    },
+    "Success": {
+      "Type": "Succeed"
+    },
+    "Fail": {
+      "Type": "Fail"
+    }
+  }
+}
