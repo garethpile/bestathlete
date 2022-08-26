@@ -6048,7 +6048,7 @@
     "picocolors" "^1.0.0"
     "postcss-value-parser" "^4.2.0"
 
-"aws-amplify@3.x.x || 4.x.x":
+"aws-amplify@^4.3.33", "aws-amplify@3.x.x || 4.x.x":
   "integrity" "sha512-N9R8TKmIegyXXPeXr1RV7H2w+yULSqfu4TumHa5Xe69lFVLNlG78xV/dUcwJqtENcq+k9AMkNIB5uQsuiuTemw=="
   "resolved" "https://registry.npmjs.org/aws-amplify/-/aws-amplify-4.3.33.tgz"
   "version" "4.3.33"
