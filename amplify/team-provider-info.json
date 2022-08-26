@@ -1,20 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-uberpmtauto-dev-160711-authRole",
-      "UnauthRoleArn": "arn:aws:iam::287509267405:role/amplify-uberpmtauto-dev-160711-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::287509267405:role/amplify-uberpmtauto-dev-160711-authRole",
+      "AuthRoleName": "amplify-bestathlete-dev-61600-authRole",
+      "UnauthRoleArn": "arn:aws:iam::732439976770:role/amplify-bestathlete-dev-61600-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::732439976770:role/amplify-bestathlete-dev-61600-authRole",
       "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-uberpmtauto-dev-160711-deployment",
-      "UnauthRoleName": "amplify-uberpmtauto-dev-160711-unauthRole",
-      "StackName": "amplify-uberpmtauto-dev-160711",
-      "StackId": "arn:aws:cloudformation:eu-west-1:287509267405:stack/amplify-uberpmtauto-dev-160711/92a50580-2b4c-11ec-99b5-0a5266e15941",
-      "AmplifyAppId": "d17i02hy46ugty"
+      "DeploymentBucketName": "amplify-bestathlete-dev-61600-deployment",
+      "UnauthRoleName": "amplify-bestathlete-dev-61600-unauthRole",
+      "StackName": "amplify-bestathlete-dev-61600",
+      "StackId": "arn:aws:cloudformation:eu-west-1:732439976770:stack/amplify-bestathlete-dev-61600/a2ade620-242c-11ed-8bc4-0a9edb2568a1",
+      "AmplifyAppId": "d2ajp9hlbfim4h"
     },
     "categories": {
       "auth": {
-        "360dslbe919a24f3": {},
-        "uberpmtautof052f645": {}
+        "360dslbe919a24f3": {}
       },
       "function": {
         "360dslRetrieveStravaActivity": {
@@ -177,67 +176,67 @@
       "function": {
         "360dslRetrieveStravaActivity": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslRetrieveStravaActivity-733937373935796d7247-build.zip"
+          "s3Key": "amplify-builds/360dslRetrieveStravaActivity-427a6c75424473684842-build.zip"
         },
         "360dslRetrieveStravaToken": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslRetrieveStravaToken-564c6638526d584b7354-build.zip"
+          "s3Key": "amplify-builds/360dslRetrieveStravaToken-485571525869704a2b73-build.zip"
         },
         "360dslWriteStravaActivity": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslWriteStravaActivity-79784e4b6e796a584b55-build.zip"
+          "s3Key": "amplify-builds/360dslWriteStravaActivity-6672386e785645455637-build.zip"
         },
         "360dslStravaOauthExchange": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslStravaOauthExchange-455471547177536d564a-build.zip"
+          "s3Key": "amplify-builds/360dslStravaOauthExchange-77395a6348353535567a-build.zip"
         },
         "360dslStravaOathCallbackValidation": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslStravaOathCallbackValidation-365a6c346c5353683278-build.zip"
+          "s3Key": "amplify-builds/360dslStravaOathCallbackValidation-416b6e523450634c784c-build.zip"
         },
         "360dslPartyUpdate": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslPartyUpdate-534a3974444d3574796c-build.zip"
+          "s3Key": "amplify-builds/360dslPartyUpdate-39677458794f5a6e3963-build.zip"
         },
         "360dslStravaTransformInput": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslStravaTransformInput-4b6d6a52677050634230-build.zip"
+          "s3Key": "amplify-builds/360dslStravaTransformInput-353654376a393647734e-build.zip"
         },
         "360dslStravaRefreshStravaToken": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslStravaRefreshStravaToken-437271455972554e6675-build.zip"
+          "s3Key": "amplify-builds/360dslStravaRefreshStravaToken-4c5a75556b4261435a57-build.zip"
         },
         "360dslTPOauthExchange": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslTPOauthExchange-663137637843766c4e6e-build.zip"
+          "s3Key": "amplify-builds/360dslTPOauthExchange-4b66352b56743644496a-build.zip"
         },
         "360dslPartyTPMaintain": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslPartyTPMaintain-796c6f3051704c657730-build.zip"
+          "s3Key": "amplify-builds/360dslPartyTPMaintain-4b783661577253544263-build.zip"
         },
         "360dslPartyStravaMaintain": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslPartyStravaMaintain-594a6755526751422b37-build.zip"
+          "s3Key": "amplify-builds/360dslPartyStravaMaintain-6f53614275444e457469-build.zip"
         },
         "360dslTPRefreshTPToken": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslTPRefreshTPToken-446e762b3241526f4e64-build.zip"
+          "s3Key": "amplify-builds/360dslTPRefreshTPToken-4a2b342b2f4267734261-build.zip"
         },
         "360dslTPGetActivity": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslTPGetActivity-77747549655164644144-build.zip"
+          "s3Key": "amplify-builds/360dslTPGetActivity-325647392b2f44745679-build.zip"
         },
         "360dslStravaGetAthlete": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslStravaGetAthlete-6170734c42336566474d-build.zip"
+          "s3Key": "amplify-builds/360dslStravaGetAthlete-587449437a7271633742-build.zip"
         },
         "360dslTPcreateACTIVITIESTP": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslTPcreateACTIVITIESTP-6d594d494b4475456a73-build.zip"
+          "s3Key": "amplify-builds/360dslTPcreateACTIVITIESTP-7675495841636a686344-build.zip"
         },
         "360dslTPCreateWorkout": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslTPCreateWorkout-6843705062506348532f-build.zip"
+          "s3Key": "amplify-builds/360dslTPCreateWorkout-774b6d6634494c486645-build.zip"
         },
         "360dslStravaNotificationCreate": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
@@ -245,7 +244,7 @@
         },
         "360dslPartyGarminMaintain": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslPartyGarminMaintain-423533494f6248725a74-build.zip"
+          "s3Key": "amplify-builds/360dslPartyGarminMaintain-79776b47564156433757-build.zip"
         },
         "360dslGarminOauthTransformInput": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
@@ -269,11 +268,11 @@
         },
         "360dslGarminOauthReqTok": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthReqTok-4c6d6571752f744a4567-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthReqTok-7038766d4c6868676f37-build.zip"
         },
         "360dslGarminOauthReqUserAccTok": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthReqUserAccTok-7536386f6f4d4b326c32-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthReqUserAccTok-526158565239567a5033-build.zip"
         },
         "360dslGarminNotificationActivityManual": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
@@ -293,7 +292,7 @@
         },
         "360dslGarminNotificationActivityDetails": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslGarminNotificationActivityDetails-4153457a376366463055-build.zip"
+          "s3Key": "amplify-builds/360dslGarminNotificationActivityDetails-756b79444c4972523571-build.zip"
         },
         "360dslGarminNotificationSleeps": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
@@ -301,11 +300,11 @@
         },
         "360dslStravaGetActivityZones": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslStravaGetActivityZones-2f363836534b3265796e-build.zip"
+          "s3Key": "amplify-builds/360dslStravaGetActivityZones-4b766a39757874473468-build.zip"
         },
         "360dslLayer01": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslLayer01-LambdaLayerVersion2239cd50-build.zip"
+          "s3Key": "amplify-builds/360dslLayer01-LambdaLayerVersione03b840a-build.zip"
         }
       },
       "hosting": {

@@ -1,0 +1,15 @@
+{
+  "permissions": [
+    {
+      "type": "Public"
+    }
+  ],
+  "runtimes": [
+    {
+      "value": "nodejs",
+      "name": "NodeJS",
+      "layerExecutablePath": "nodejs",
+      "runtimePluginId": "amplify-nodejs-function-runtime-provider"
+    }
+  ]
+}
