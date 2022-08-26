@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/notificationactivity": {
+      "name": "/notificationactivity",
+      "lambdaFunction": "360dslStravaTransformInput",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/oauthexchange": {
+      "name": "/oauthexchange",
+      "lambdaFunction": "360dslStravaOauthExchange",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

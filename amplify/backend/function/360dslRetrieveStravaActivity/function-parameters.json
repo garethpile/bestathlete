@@ -1,0 +1,17 @@
+{
+  "lambdaLayers": [
+    {
+      "type": "ExternalLayer",
+      "arn": {
+        "Fn::Sub": "arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:360dslLayer01:2"
+      }
+    }
+  ],
+  "permissions": {
+    "storage": {
+      "CUSTOMER3RDPARTY:@model(appsync)": [
+        "create"
+      ]
+    }
+  }
+}
