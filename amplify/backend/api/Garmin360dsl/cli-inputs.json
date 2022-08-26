@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "paths": {
+    "/notificationbodycomposition": {
+      "name": "/notificationbodycomposition",
+      "lambdaFunction": "360dslGarminNotificationBodyComposition",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/requesttoken": {
+      "name": "/requesttoken",
+      "lambdaFunction": "360dslGarminOauthReqTok",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/callback": {
+      "name": "/callback",
+      "lambdaFunction": "360dslGarminOauthCallback",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/oauthconfirm": {
+      "name": "/oauthconfirm",
+      "lambdaFunction": "360dslGarminOauthStartStepFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/notificationactivitymanual": {
+      "name": "/notificationactivitymanual",
+      "lambdaFunction": "360dslGarminNotificationActivityManual",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/notificationactivity": {
+      "name": "/notificationactivity",
+      "lambdaFunction": "360dslGarminNotificationActivity",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/notificationactivitydetails": {
+      "name": "/notificationactivitydetails",
+      "lambdaFunction": "360dslGarminNotificationActivityDetails",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/notificationsleeps": {
+      "name": "/notificationsleeps",
+      "lambdaFunction": "360dslGarminNotificationSleeps",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

@@ -1,0 +1,196 @@
+type ACTIVITIESGARMIN
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(
+    name: "activitiesgarminByGarminAccountId"
+    fields: ["GarminAccountId"]
+    queryField: "activitiesgarminByGarminAccountId"
+  )
+  @key(
+    name: "activitiesgarminByGarminActivityStartTime"
+    fields: ["GarminActivityStartTime"]
+    queryField: "activitiesgarminByGarminActivityStartTime"
+  ) {
+  id: ID!
+  UserId360DSL: String
+  GarminAccountId: String
+  GarminActivityId: String
+  GarminActivityDescription: String
+  GarminActivityType: String
+  GarminActivityStartTime: Int
+  GarminActivityDistance: Float
+  GarminActivityDuration: Int
+  GarminAveragePaceInMinutesPerKilometer: Float
+  GarminActiveKilocalories: Int
+  GarminAverageHeartRateInBeatsPerMinute: Int
+  GarminActivity: AWSJSON
+  GarminActivityRPE: Int
+  GarminActivityFatigue: Int
+  GarminActivityAthleteFeedback: Boolean
+  GarminActivityAthleteEffort: String
+  GarminActivityAthleteBody: String
+}
+
+type CUSTOMER3RDPARTY
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(name: "byCUSTOMER360DSL", fields: ["customer360dslID"]) {
+  id: ID!
+  Application: String!
+  ApplicationSync: Boolean!
+  ApplicationRefreshToken: String
+  ApplicationTokenExpiryDate: AWSDateTime
+  ApplicationAccessToken: String
+  customer360dslID: ID
+}
+
+type ACTIVITIESTP @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  UserId360DSL: String
+  TPActivityId: String!
+  TPActivityOwnerId: String!
+  TPActivityDescription: String!
+  TPActivityType: String!
+  TPActivityDate: AWSDate!
+  TPActivityMovingTime: Float!
+  TPActivityDistance: Float!
+  TPActivityAverageHeartRate: Float
+  TPActivityTSS: Float
+  TPActivityCalories: Float
+  TPActivityElevationGain: Float
+  TPActivityAverageSpeed: Float
+  TPActivityAverageCadence: Float
+  TPActivityAverageTemp: Float
+  ACTIVITIES360DSL: ACTIVITIES360DSL @connection
+  TPActivityLocation: String
+  TPActivity: AWSJSON
+}
+
+type ACTIVITIESSTRAVA @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  UserId360DSL: String
+  StravaActivityId: String!
+  StravaActivityOwnerId: String!
+  StravaActivityDescription: String!
+  StravaActivityType: String!
+  StravaActivityDate: AWSDateTime!
+  StravaActivityMovingTime: Int!
+  StravaActivityDistance: Float!
+  StravaActivityAverageHeartRate: Float
+  StravaActivitySufferScore: Int
+  StravaActivityCalories: Int
+  StravaActivityElevationGain: Int
+  StravaActivityAverageSpeed: Float
+  StravaActivityAverageCadence: Float
+  StravaActivityAvergeTemp: Float
+  StravaActivityLocation: String
+  StravaActivity: AWSJSON
+  StravaActivityZones: AWSJSON
+}
+
+type ACTIVITIES360DSL @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  UserId360DSL: String
+  ActivityDescription: String!
+  ActivityType: String!
+  ActivityDate: AWSDateTime!
+  ActivityMovingTime: Int!
+  ActivityDistance: Float!
+  ACTIVITIES360DSLCUSTOMER360DSLS: [ACTIVITIES360DSLCUSTOMER360DSL]
+    @connection(keyName: "byACTIVITIES360DSL", fields: ["id"])
+  ACTIVITIESSTRAVA: ACTIVITIESSTRAVA @connection
+  ActivityAverageHeartRate: Int
+  ActivityStressScore: Int
+  ActivityCalories: Int
+  ActivityElevationGain: Int
+  ActivityAverageSpeed: Float
+  ActivityAverageCadence: Int
+  ActivityAverageTemp: Float
+  ActivityLocation: String
+  ActivityRPE: Int
+  ActivityFatigueLevel: String
+  ActivityPhysicalLevel: String
+}
+
+type CUSTOMER360DSL
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(
+    name: "customer360dslByEmail"
+    fields: ["EmailAddress"]
+    queryField: "customer360dslByEmail"
+  ) {
+  id: ID!
+  UserId360DSL: String
+  LastName: String
+  FirstName: String
+  EmailAddress: AWSEmail
+  MobileNumber: AWSPhone
+  Male: Boolean
+  DateOfBirth: AWSDate
+  Country: String
+  TrainingDays: TrainingDays
+  NonTrainingPeriod: [NonTrainingPeriod]
+  ThirdPartyApplications: [ThirdPartyApplications]
+  MetricsDateCapture: AWSDate
+  MetricSick: String
+  MetricInjury: String
+  MetricSleep: String
+  MetricWorkLifeBalance: String
+  activities360dsls: [ACTIVITIES360DSLCUSTOMER360DSL]
+    @connection(keyName: "byCUSTOMER360DSL", fields: ["id"])
+  CUSTOMER3RDPARTIES: [CUSTOMER3RDPARTY]
+    @connection(keyName: "byCUSTOMER360DSL", fields: ["id"])
+}
+
+
+
+type TrainingDays {
+  MondayTrain: Boolean
+  MondayTrainHours: Int
+  TuesdayTrain: Boolean
+  TuesdayTrainHours: Int
+  WednesdayTrain: Boolean
+  WednesdayTrainHours: Int
+  ThursdayTrain: Boolean
+  ThursdayTrainHours: Int
+  FridayTrain: Boolean
+  FridayTrainHours: Int
+  SaturdayTrain: Boolean
+  SaturdayTrainHours: Int
+  SundayTrain: Boolean
+  SundayTrainHours: Int
+}
+
+type NonTrainingPeriod {
+  valid: Boolean
+  startDate: AWSDate
+  endDate: AWSDate
+}
+
+type ThirdPartyApplications {
+  application: String!
+  applicationSync: Boolean!
+  applicationRefreshToken: String
+  applicationTokenExpiryDate: AWSDateTime
+  applicationAccessToken: String
+}
+
+type ACTIVITIES360DSLCUSTOMER360DSL
+  @model(queries: null)
+  @key(
+    name: "byACTIVITIES360DSL"
+    fields: ["activities360dslID", "customer360dslID"]
+  )
+  @key(
+    name: "byCUSTOMER360DSL"
+    fields: ["customer360dslID", "activities360dslID"]
+  )
+  @auth(rules: [{ allow: public }, { allow: public }]) {
+  id: ID!
+  activities360dslID: ID!
+  customer360dslID: ID!
+  activities360dsl: ACTIVITIES360DSL!
+    @connection(fields: ["activities360dslID"])
+  customer360dsl: CUSTOMER360DSL! @connection(fields: ["customer360dslID"])
+}
