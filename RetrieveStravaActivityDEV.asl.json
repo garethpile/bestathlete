@@ -83,7 +83,7 @@
                       "Resource": "arn:aws:states:::sns:publish",
                       "Parameters": {
                         "Message.$": "States.Format('{} {} finished a {} called {} on {}. Distance: {}m', $.stravaTokenData.Item.FirstName.S, $.stravaTokenData.Item.LastName.S, $.stravaActivityDetails.type, $.stravaActivityDetails.name, $.stravaActivityDetails.start_date, $.stravaActivityDetails.distance )",
-                        "TopicArn": "arn:aws:sns:eu-west-1:732439976770:StravaActivityReceived"
+                        "TopicArn": "arn:aws:sns:us-east-1:732439976770:StravaActivityReceived"
                       },
                       "End": true
                     }
