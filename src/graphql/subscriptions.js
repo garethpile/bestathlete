@@ -161,6 +161,13 @@ export const onCreateACTIVITIESTP = /* GraphQL */ `
       TPActivityAverageSpeed
       TPActivityAverageCadence
       TPActivityAverageTemp
+      TPActivityLocation
+      TPActivity
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       ACTIVITIES360DSL {
         id
         UserId360DSL
@@ -169,10 +176,22 @@ export const onCreateACTIVITIESTP = /* GraphQL */ `
         ActivityDate
         ActivityMovingTime
         ActivityDistance
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
+        ActivityAverageHeartRate
+        ActivityStressScore
+        ActivityCalories
+        ActivityElevationGain
+        ActivityAverageSpeed
+        ActivityAverageCadence
+        ActivityAverageTemp
+        ActivityLocation
+        ActivityRPE
+        ActivityFatigueLevel
+        ActivityPhysicalLevel
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
         ACTIVITIESSTRAVA {
           id
           UserId360DSL
@@ -199,30 +218,11 @@ export const onCreateACTIVITIESTP = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        ActivityAverageHeartRate
-        ActivityStressScore
-        ActivityCalories
-        ActivityElevationGain
-        ActivityAverageSpeed
-        ActivityAverageCadence
-        ActivityAverageTemp
-        ActivityLocation
-        ActivityRPE
-        ActivityFatigueLevel
-        ActivityPhysicalLevel
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        ACTIVITIES360DSLCUSTOMER360DSLS {
+          nextToken
+          startedAt
+        }
       }
-      TPActivityLocation
-      TPActivity
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -245,6 +245,13 @@ export const onUpdateACTIVITIESTP = /* GraphQL */ `
       TPActivityAverageSpeed
       TPActivityAverageCadence
       TPActivityAverageTemp
+      TPActivityLocation
+      TPActivity
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       ACTIVITIES360DSL {
         id
         UserId360DSL
@@ -253,10 +260,22 @@ export const onUpdateACTIVITIESTP = /* GraphQL */ `
         ActivityDate
         ActivityMovingTime
         ActivityDistance
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
+        ActivityAverageHeartRate
+        ActivityStressScore
+        ActivityCalories
+        ActivityElevationGain
+        ActivityAverageSpeed
+        ActivityAverageCadence
+        ActivityAverageTemp
+        ActivityLocation
+        ActivityRPE
+        ActivityFatigueLevel
+        ActivityPhysicalLevel
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
         ACTIVITIESSTRAVA {
           id
           UserId360DSL
@@ -283,30 +302,11 @@ export const onUpdateACTIVITIESTP = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        ActivityAverageHeartRate
-        ActivityStressScore
-        ActivityCalories
-        ActivityElevationGain
-        ActivityAverageSpeed
-        ActivityAverageCadence
-        ActivityAverageTemp
-        ActivityLocation
-        ActivityRPE
-        ActivityFatigueLevel
-        ActivityPhysicalLevel
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        ACTIVITIES360DSLCUSTOMER360DSLS {
+          nextToken
+          startedAt
+        }
       }
-      TPActivityLocation
-      TPActivity
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -329,6 +329,13 @@ export const onDeleteACTIVITIESTP = /* GraphQL */ `
       TPActivityAverageSpeed
       TPActivityAverageCadence
       TPActivityAverageTemp
+      TPActivityLocation
+      TPActivity
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       ACTIVITIES360DSL {
         id
         UserId360DSL
@@ -337,10 +344,22 @@ export const onDeleteACTIVITIESTP = /* GraphQL */ `
         ActivityDate
         ActivityMovingTime
         ActivityDistance
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
+        ActivityAverageHeartRate
+        ActivityStressScore
+        ActivityCalories
+        ActivityElevationGain
+        ActivityAverageSpeed
+        ActivityAverageCadence
+        ActivityAverageTemp
+        ActivityLocation
+        ActivityRPE
+        ActivityFatigueLevel
+        ActivityPhysicalLevel
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
         ACTIVITIESSTRAVA {
           id
           UserId360DSL
@@ -367,30 +386,11 @@ export const onDeleteACTIVITIESTP = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        ActivityAverageHeartRate
-        ActivityStressScore
-        ActivityCalories
-        ActivityElevationGain
-        ActivityAverageSpeed
-        ActivityAverageCadence
-        ActivityAverageTemp
-        ActivityLocation
-        ActivityRPE
-        ActivityFatigueLevel
-        ActivityPhysicalLevel
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        ACTIVITIES360DSLCUSTOMER360DSLS {
+          nextToken
+          startedAt
+        }
       }
-      TPActivityLocation
-      TPActivity
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -494,20 +494,22 @@ export const onCreateACTIVITIES360DSL = /* GraphQL */ `
       ActivityDate
       ActivityMovingTime
       ActivityDistance
-      ACTIVITIES360DSLCUSTOMER360DSLS {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      ActivityAverageHeartRate
+      ActivityStressScore
+      ActivityCalories
+      ActivityElevationGain
+      ActivityAverageSpeed
+      ActivityAverageCadence
+      ActivityAverageTemp
+      ActivityLocation
+      ActivityRPE
+      ActivityFatigueLevel
+      ActivityPhysicalLevel
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       ACTIVITIESSTRAVA {
         id
         UserId360DSL
@@ -534,22 +536,20 @@ export const onCreateACTIVITIES360DSL = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      ActivityAverageHeartRate
-      ActivityStressScore
-      ActivityCalories
-      ActivityElevationGain
-      ActivityAverageSpeed
-      ActivityAverageCadence
-      ActivityAverageTemp
-      ActivityLocation
-      ActivityRPE
-      ActivityFatigueLevel
-      ActivityPhysicalLevel
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      ACTIVITIES360DSLCUSTOMER360DSLS {
+        items {
+          id
+          activities360dslID
+          customer360dslID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -563,20 +563,22 @@ export const onUpdateACTIVITIES360DSL = /* GraphQL */ `
       ActivityDate
       ActivityMovingTime
       ActivityDistance
-      ACTIVITIES360DSLCUSTOMER360DSLS {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      ActivityAverageHeartRate
+      ActivityStressScore
+      ActivityCalories
+      ActivityElevationGain
+      ActivityAverageSpeed
+      ActivityAverageCadence
+      ActivityAverageTemp
+      ActivityLocation
+      ActivityRPE
+      ActivityFatigueLevel
+      ActivityPhysicalLevel
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       ACTIVITIESSTRAVA {
         id
         UserId360DSL
@@ -603,22 +605,20 @@ export const onUpdateACTIVITIES360DSL = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      ActivityAverageHeartRate
-      ActivityStressScore
-      ActivityCalories
-      ActivityElevationGain
-      ActivityAverageSpeed
-      ActivityAverageCadence
-      ActivityAverageTemp
-      ActivityLocation
-      ActivityRPE
-      ActivityFatigueLevel
-      ActivityPhysicalLevel
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      ACTIVITIES360DSLCUSTOMER360DSLS {
+        items {
+          id
+          activities360dslID
+          customer360dslID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -632,20 +632,22 @@ export const onDeleteACTIVITIES360DSL = /* GraphQL */ `
       ActivityDate
       ActivityMovingTime
       ActivityDistance
-      ACTIVITIES360DSLCUSTOMER360DSLS {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      ActivityAverageHeartRate
+      ActivityStressScore
+      ActivityCalories
+      ActivityElevationGain
+      ActivityAverageSpeed
+      ActivityAverageCadence
+      ActivityAverageTemp
+      ActivityLocation
+      ActivityRPE
+      ActivityFatigueLevel
+      ActivityPhysicalLevel
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       ACTIVITIESSTRAVA {
         id
         UserId360DSL
@@ -672,22 +674,20 @@ export const onDeleteACTIVITIES360DSL = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      ActivityAverageHeartRate
-      ActivityStressScore
-      ActivityCalories
-      ActivityElevationGain
-      ActivityAverageSpeed
-      ActivityAverageCadence
-      ActivityAverageTemp
-      ActivityLocation
-      ActivityRPE
-      ActivityFatigueLevel
-      ActivityPhysicalLevel
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      ACTIVITIES360DSLCUSTOMER360DSLS {
+        items {
+          id
+          activities360dslID
+          customer360dslID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -736,20 +736,11 @@ export const onCreateCUSTOMER360DSL = /* GraphQL */ `
       MetricInjury
       MetricSleep
       MetricWorkLifeBalance
-      activities360dsls {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       CUSTOMER3RDPARTIES {
         items {
           id
@@ -768,11 +759,20 @@ export const onCreateCUSTOMER360DSL = /* GraphQL */ `
         nextToken
         startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      activities360dsls {
+        items {
+          id
+          activities360dslID
+          customer360dslID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -821,20 +821,11 @@ export const onUpdateCUSTOMER360DSL = /* GraphQL */ `
       MetricInjury
       MetricSleep
       MetricWorkLifeBalance
-      activities360dsls {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       CUSTOMER3RDPARTIES {
         items {
           id
@@ -853,11 +844,20 @@ export const onUpdateCUSTOMER360DSL = /* GraphQL */ `
         nextToken
         startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      activities360dsls {
+        items {
+          id
+          activities360dslID
+          customer360dslID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -906,20 +906,11 @@ export const onDeleteCUSTOMER360DSL = /* GraphQL */ `
       MetricInjury
       MetricSleep
       MetricWorkLifeBalance
-      activities360dsls {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       CUSTOMER3RDPARTIES {
         items {
           id
@@ -938,11 +929,20 @@ export const onDeleteCUSTOMER360DSL = /* GraphQL */ `
         nextToken
         startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      activities360dsls {
+        items {
+          id
+          activities360dslID
+          customer360dslID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -952,6 +952,11 @@ export const onCreateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
       id
       activities360dslID
       customer360dslID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       activities360dsl {
         id
         UserId360DSL
@@ -960,10 +965,22 @@ export const onCreateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         ActivityDate
         ActivityMovingTime
         ActivityDistance
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
+        ActivityAverageHeartRate
+        ActivityStressScore
+        ActivityCalories
+        ActivityElevationGain
+        ActivityAverageSpeed
+        ActivityAverageCadence
+        ActivityAverageTemp
+        ActivityLocation
+        ActivityRPE
+        ActivityFatigueLevel
+        ActivityPhysicalLevel
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
         ACTIVITIESSTRAVA {
           id
           UserId360DSL
@@ -990,22 +1007,10 @@ export const onCreateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        ActivityAverageHeartRate
-        ActivityStressScore
-        ActivityCalories
-        ActivityElevationGain
-        ActivityAverageSpeed
-        ActivityAverageCadence
-        ActivityAverageTemp
-        ActivityLocation
-        ActivityRPE
-        ActivityFatigueLevel
-        ActivityPhysicalLevel
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        ACTIVITIES360DSLCUSTOMER360DSLS {
+          nextToken
+          startedAt
+        }
       }
       customer360dsl {
         id
@@ -1050,25 +1055,20 @@ export const onCreateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         MetricInjury
         MetricSleep
         MetricWorkLifeBalance
-        activities360dsls {
-          nextToken
-          startedAt
-        }
-        CUSTOMER3RDPARTIES {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        CUSTOMER3RDPARTIES {
+          nextToken
+          startedAt
+        }
+        activities360dsls {
+          nextToken
+          startedAt
+        }
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -1078,6 +1078,11 @@ export const onUpdateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
       id
       activities360dslID
       customer360dslID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       activities360dsl {
         id
         UserId360DSL
@@ -1086,10 +1091,22 @@ export const onUpdateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         ActivityDate
         ActivityMovingTime
         ActivityDistance
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
+        ActivityAverageHeartRate
+        ActivityStressScore
+        ActivityCalories
+        ActivityElevationGain
+        ActivityAverageSpeed
+        ActivityAverageCadence
+        ActivityAverageTemp
+        ActivityLocation
+        ActivityRPE
+        ActivityFatigueLevel
+        ActivityPhysicalLevel
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
         ACTIVITIESSTRAVA {
           id
           UserId360DSL
@@ -1116,22 +1133,10 @@ export const onUpdateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        ActivityAverageHeartRate
-        ActivityStressScore
-        ActivityCalories
-        ActivityElevationGain
-        ActivityAverageSpeed
-        ActivityAverageCadence
-        ActivityAverageTemp
-        ActivityLocation
-        ActivityRPE
-        ActivityFatigueLevel
-        ActivityPhysicalLevel
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        ACTIVITIES360DSLCUSTOMER360DSLS {
+          nextToken
+          startedAt
+        }
       }
       customer360dsl {
         id
@@ -1176,25 +1181,20 @@ export const onUpdateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         MetricInjury
         MetricSleep
         MetricWorkLifeBalance
-        activities360dsls {
-          nextToken
-          startedAt
-        }
-        CUSTOMER3RDPARTIES {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        CUSTOMER3RDPARTIES {
+          nextToken
+          startedAt
+        }
+        activities360dsls {
+          nextToken
+          startedAt
+        }
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -1204,6 +1204,11 @@ export const onDeleteACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
       id
       activities360dslID
       customer360dslID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       activities360dsl {
         id
         UserId360DSL
@@ -1212,10 +1217,22 @@ export const onDeleteACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         ActivityDate
         ActivityMovingTime
         ActivityDistance
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
+        ActivityAverageHeartRate
+        ActivityStressScore
+        ActivityCalories
+        ActivityElevationGain
+        ActivityAverageSpeed
+        ActivityAverageCadence
+        ActivityAverageTemp
+        ActivityLocation
+        ActivityRPE
+        ActivityFatigueLevel
+        ActivityPhysicalLevel
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
         ACTIVITIESSTRAVA {
           id
           UserId360DSL
@@ -1242,22 +1259,10 @@ export const onDeleteACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        ActivityAverageHeartRate
-        ActivityStressScore
-        ActivityCalories
-        ActivityElevationGain
-        ActivityAverageSpeed
-        ActivityAverageCadence
-        ActivityAverageTemp
-        ActivityLocation
-        ActivityRPE
-        ActivityFatigueLevel
-        ActivityPhysicalLevel
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        ACTIVITIES360DSLCUSTOMER360DSLS {
+          nextToken
+          startedAt
+        }
       }
       customer360dsl {
         id
@@ -1302,25 +1307,20 @@ export const onDeleteACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         MetricInjury
         MetricSleep
         MetricWorkLifeBalance
-        activities360dsls {
-          nextToken
-          startedAt
-        }
-        CUSTOMER3RDPARTIES {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        CUSTOMER3RDPARTIES {
+          nextToken
+          startedAt
+        }
+        activities360dsls {
+          nextToken
+          startedAt
+        }
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
     }
   }
 `;

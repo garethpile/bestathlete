@@ -10,7 +10,7 @@
           "States": {
             "Format": {
               "Type": "Task",
-              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslStravaTransformInput-prod",
+              "Resource": "arn:aws:lambda:eu-west-1:732439976770:function:360dslStravaTransformInput-prod",
               "ResultPath": "$.stravaActivityPushNotificationFormatted",
               "Next": "Retrieve Strava Token"
             },
@@ -30,19 +30,19 @@
             },
             "Refresh Strava Token": {
               "Type": "Task",
-              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslStravaRefreshStravaToken-prod",
+              "Resource": "arn:aws:lambda:eu-west-1:732439976770:function:360dslStravaRefreshStravaToken-prod",
               "ResultPath": "$.stravaTokenDataRefreshed",
               "Next": "Retrieve Strava Activity"
             },
             "Retrieve Strava Activity": {
               "Type": "Task",
-              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslRetrieveStravaActivity-prod",
+              "Resource": "arn:aws:lambda:eu-west-1:732439976770:function:360dslRetrieveStravaActivity-prod",
               "ResultPath": "$.stravaActivityDetails",
               "Next": "Insert Strava Activity"
             },
             "Insert Strava Activity": {
               "Type": "Task",
-              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslWriteStravaActivity-prod",
+              "Resource": "arn:aws:lambda:eu-west-1:732439976770:function:360dslWriteStravaActivity-prod",
               "ResultPath": "$.stravaActivityInsertDB",
               "Next": "Notify And Retrieve TP Activity"
             },
@@ -55,7 +55,7 @@
                   "States": {
                     "Get Strava Athlete Profile": {
                       "Type": "Task",
-                      "Resource": "arn:aws:lambda:${region}:${account}:function:360dslStravaGetAthlete-prod",
+                      "Resource": "arn:aws:lambda:eu-west-1:732439976770:function:360dslStravaGetAthlete-prod",
                       "ResultPath": "$.stravaAthleteProfile",
                       "Next": "Start RetrieveTPActivity Step Function"
                     },
@@ -64,7 +64,7 @@
                       "Type": "Task",
                       "Resource": "arn:aws:states:::states:startExecution",
                       "Parameters": {
-                        "StateMachineArn": "arn:aws:states:${region}:${account}:stateMachine:RetrieveTPActivity",
+                        "StateMachineArn": "arn:aws:states:eu-west-1:732439976770:stateMachine:RetrieveTPActivity",
                         "Input": {
                           "NeedCallback": false,
                           "Data.$": "$",
@@ -83,7 +83,7 @@
                       "Resource": "arn:aws:states:::sns:publish",
                       "Parameters": {
                         "Message.$": "States.Format('{} {} finished a {} called {} on {}. Distance: {}m', $.stravaTokenData.Item.FirstName.S, $.stravaTokenData.Item.LastName.S, $.stravaActivityDetails.type, $.stravaActivityDetails.name, $.stravaActivityDetails.start_date, $.stravaActivityDetails.distance )",
-                        "TopicArn": "arn:aws:sns:${region}:${account}:StravaActivityReceived"
+                        "TopicArn": "arn:aws:sns:eu-west-1:732439976770:StravaActivityReceived"
                       },
                       "End": true
                     }
