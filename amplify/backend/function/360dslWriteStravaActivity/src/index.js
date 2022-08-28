@@ -8,6 +8,8 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 
+// Zones removed becuase only applies to Strava Accounts with Pro subscription
+
 const https = require("https");
 const AWS = require("aws-sdk");
 const urlParse = require("url").URL;
@@ -46,7 +48,7 @@ exports.handler = async (event) => {
   let activityAverageTemp;
   let activityAverageCadence;
   let activityLocation;
-  let activityZones;
+  //let activityZones;
 
   if (typeof jsonResponse.object_id !== "undefined" && typeof jsonResponse.object_id !== null) {
     //console.log("object_id found.")
@@ -103,19 +105,19 @@ exports.handler = async (event) => {
   ) {
     activityLocation = jsonResponse.location;
   }
-  if (
-    typeof event.stravaActivityZones.Payload !== "undefined" &&
-    event.stravaActivityZones.Payload !== null
-  ) {
-    activityZones = JSON.stringify(event.stravaActivityZones.Payload);
+  //if (
+    //typeof event.stravaActivityZones.Payload !== "undefined" &&
+   // event.stravaActivityZones.Payload !== null
+ // ) {
+    //activityZones = JSON.stringify(event.stravaActivityZones.Payload);
     //console.log("event.stravaActivityZones.Payload: " + activityZones);
 
-    console.log("event.stravaActivityZones.Payload STRINGIFIED: " + JSON.stringify(activityZones));
+    //console.log("event.stravaActivityZones.Payload STRINGIFIED: " + JSON.stringify(activityZones));
 
-  }
-  else{
-    console.log("event.stravaActivityZones.Payload is UNDEFINED or NULL.");
-  }
+//  }
+ // else{
+  //  console.log("event.stravaActivityZones.Payload is UNDEFINED or NULL.");
+//  }
   //console.log("Activity ID: ", activityID);
   //console.log("Athlete ID: ", ownerID);
   //console.log("Activity name: ", activityName);
@@ -173,7 +175,7 @@ exports.handler = async (event) => {
       StravaActivityType: activityType,
       StravaActivityLocation: activityLocation,
       StravaActivity:jsonResponseParse,
-      StravaActivityZones:activityZones
+      //StravaActivityZones:activityZones
     }
   };
 

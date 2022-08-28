@@ -58,7 +58,7 @@ export default function Header({user}) {
             <div> </div>
               <div>
                 <a href="../#" className="menuItems">
-                  Dashboard
+                  Dashboards
                 </a>
               </div>
 
