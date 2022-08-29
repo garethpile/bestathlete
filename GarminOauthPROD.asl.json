@@ -7,7 +7,7 @@
       "Resource": "arn:aws:states:::lambda:invoke",
       "Parameters": {
         "Payload.$": "$",
-        "FunctionName": "arn:aws:lambda:${region}:${account}:function:360dslGarminOauthReqUserAccTokGetRequestSecret-prod:$LATEST"
+        "FunctionName": "arn:aws:lambda:eu-west-1:732439976770:function:360dslGarminOauthReqUserAccTokGetRequestSecret-prod:$LATEST"
       },
       "Retry": [
         {
@@ -30,7 +30,7 @@
       "OutputPath": "$.Payload",
       "Parameters": {
         "Payload.$": "$",
-        "FunctionName": "arn:aws:lambda:${region}:${account}:function:360dslGarminOauthReqUserAccTok-prod"
+        "FunctionName": "arn:aws:lambda:eu-west-1:732439976770:function:360dslGarminOauthReqUserAccTok-prod"
       },
       "Retry": [
         {

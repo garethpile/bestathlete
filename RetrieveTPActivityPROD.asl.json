@@ -25,19 +25,19 @@
             },
             "Refresh TP Token": {
               "Type": "Task",
-              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslTPRefreshTPToken-prod",
+              "Resource": "arn:aws:lambda:eu-west-1:732439976770:function:360dslTPRefreshTPToken-prod",
               "ResultPath": "$.tpTokenData",
               "Next": "Retrieve TP Activity"
             },
             "Retrieve TP Activity": {
               "Type": "Task",
-              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslTPGetActivity-prod",
+              "Resource": "arn:aws:lambda:eu-west-1:732439976770:function:360dslTPGetActivity-prod",
               "ResultPath": "$.tpActivityDetails",
               "Next": "Create Workout ACTIVITIESTP"
             },
             "Create Workout ACTIVITIESTP": {
               "Type": "Task",
-              "Resource": "arn:aws:lambda:${region}:${account}:function:360dslTPcreateACTIVITIESTP-prod",
+              "Resource": "arn:aws:lambda:eu-west-1:732439976770:function:360dslTPcreateACTIVITIESTP-prod",
               "ResultPath": "$.tpActivityInsertDB",
               "End": true
             }
