@@ -109,7 +109,7 @@ exports.handler = function (event, context, callback) {
     var stravaTokenExchangePostURL = "https://www.strava.com/oauth/token";
 
     var m360StravaTokenUpdateURL =
-      "https://h9hcxir6wh.execute-api.eu-west-1.amazonaws.com/prod/strava";
+      "https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava";
 
     const stravaTokenrequestBody = {
       client_id: client_id,
