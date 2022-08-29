@@ -184,7 +184,7 @@
         },
         "360dslWriteStravaActivity": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslWriteStravaActivity-414645734e454e694c76-build.zip"
+          "s3Key": "amplify-builds/360dslWriteStravaActivity-4e76394e2b3267412b43-build.zip"
         },
         "360dslStravaOauthExchange": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
@@ -228,7 +228,7 @@
         },
         "360dslStravaGetAthlete": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslStravaGetAthlete-6170734c42336566474d-build.zip"
+          "s3Key": "amplify-builds/360dslStravaGetAthlete-56386a616b7679363644-build.zip"
         },
         "360dslTPcreateACTIVITIESTP": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
