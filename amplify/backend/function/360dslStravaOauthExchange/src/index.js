@@ -95,7 +95,7 @@ exports.handler = function (event, context, callback) {
     }
 
     var redirect_uri =
-      "https://8vrven0dda.execute-api.eu-west-1.amazonaws.com/prod/notificationactivity";
+      "https://lm88c7efxc.execute-api.eu-west-1.amazonaws.com/prod/notification";
     var client_id = "7947";
     var client_secret = "471581ec88f559a66972e135ec0f59221d7de7da";
     var grant_type = "authorization_code";
@@ -109,7 +109,7 @@ exports.handler = function (event, context, callback) {
     var stravaTokenExchangePostURL = "https://www.strava.com/oauth/token";
 
     var m360StravaTokenUpdateURL =
-      "https://h9hcxir6wh.execute-api.eu-west-1.amazonaws.com/prod";
+      "https://h9hcxir6wh.execute-api.eu-west-1.amazonaws.com/prod/strava";
 
     const stravaTokenrequestBody = {
       client_id: client_id,
