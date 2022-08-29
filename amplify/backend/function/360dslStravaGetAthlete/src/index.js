@@ -15,7 +15,7 @@ exports.handler = async (event, context, callback) => {
     try {
       
       strava_owner_id = eventData.owner_id;
-      strava_access_token = eventData.stravaTokenData.Item.strava_access_token.S;
+      strava_access_token = eventData.stravaTokenDataRefreshed.Item.strava_access_token.S;
       
 
     } catch (error) {
@@ -24,8 +24,8 @@ exports.handler = async (event, context, callback) => {
     }
 
   
-    //console.log("Strava Owner ID: ", strava_owner_id);
-    //console.log("Strava Access Token: ", strava_access_token);
+    console.log("Strava Owner ID: ", strava_owner_id);
+    console.log("Strava Access Token: ", strava_access_token);
  
 
    
