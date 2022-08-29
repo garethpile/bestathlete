@@ -64,7 +64,7 @@
                       "Type": "Task",
                       "Resource": "arn:aws:states:::states:startExecution",
                       "Parameters": {
-                        "StateMachineArn": "arn:aws:states:eu-west-1:732439976770:stateMachine:RetrieveTPActivity",
+                        "StateMachineArn": "arn:aws:states:eu-west-1:732439976770:stateMachine:RetrieveTPActivityDEV",
                         "Input": {
                           "NeedCallback": false,
                           "Data.$": "$",
