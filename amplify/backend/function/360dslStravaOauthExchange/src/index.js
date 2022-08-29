@@ -95,7 +95,7 @@ exports.handler = function (event, context, callback) {
     }
 
     var redirect_uri =
-      "https://6kjj2t9ega.execute-api.us-east-1.amazonaws.com/staging/notificationactivity";
+      "https://8vrven0dda.execute-api.eu-west-1.amazonaws.com/prod/notificationactivity";
     var client_id = "7947";
     var client_secret = "471581ec88f559a66972e135ec0f59221d7de7da";
     var grant_type = "authorization_code";
@@ -109,7 +109,7 @@ exports.handler = function (event, context, callback) {
     var stravaTokenExchangePostURL = "https://www.strava.com/oauth/token";
 
     var m360StravaTokenUpdateURL =
-      "https://sgsj8l5jj1.execute-api.us-east-1.amazonaws.com/staging/strava";
+      "https://h9hcxir6wh.execute-api.eu-west-1.amazonaws.com/prod";
 
     const stravaTokenrequestBody = {
       client_id: client_id,
@@ -174,7 +174,7 @@ exports.handler = function (event, context, callback) {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers": "*",
               },
-              body: `<meta http-equiv="refresh" content="0; url='https://main.d2ehwfu8n9t09f.amplifyapp.com'" />`,
+              body: `<meta http-equiv="refresh" content="0; url='https://main.d2ajp9hlbfim4h.amplifyapp.com/'" />`,
             };
             callback(null, success_response);
           })
