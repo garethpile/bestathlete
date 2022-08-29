@@ -188,7 +188,7 @@
         },
         "360dslStravaOauthExchange": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslStravaOauthExchange-455471547177536d564a-build.zip"
+          "s3Key": "amplify-builds/360dslStravaOauthExchange-4d6d63417633337a442b-build.zip"
         },
         "360dslStravaOathCallbackValidation": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
