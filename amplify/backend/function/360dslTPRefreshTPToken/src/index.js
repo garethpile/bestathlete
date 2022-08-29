@@ -44,7 +44,7 @@ exports.handler = async (event, context, callback) => {
   var tpTokenExchangeURL =
     "https://oauth.sandbox.trainingpeaks.com/oauth/token";
   var m360dslTPTokenUpdateURL =
-    "https://sgsj8l5jj1.execute-api.us-east-1.amazonaws.com/staging/tp";
+    "https://qjybc43qze.execute-api.eu-west-1.amazonaws.com/dev/tp";
 
   const tpTokenExchangeBody = {
     client_id: client_id,
@@ -53,7 +53,7 @@ exports.handler = async (event, context, callback) => {
     refresh_token: tp_refresh_token,
   };
 
-  //console.log("TP Token Exchange Request Body: ", tpTokenExchangeBody);
+  console.log("TP Token Exchange Request Body: ", tpTokenExchangeBody);
 
   const tpTokenExchangeConfig = {
     headers: {
@@ -74,7 +74,7 @@ exports.handler = async (event, context, callback) => {
       tpTokenExchangeConfig
     );
 
-    //console.log("TP Token Exchange Result Data: ", tpTokenExchangeResult.data);
+    console.log("TP Token Exchange Result Data: ", tpTokenExchangeResult.data);
 
     var tp_access_token = tpTokenExchangeResult.data.access_token;
     var tp_refresh_token = tpTokenExchangeResult.data.refresh_token;
