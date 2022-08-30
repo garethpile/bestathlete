@@ -23,7 +23,7 @@ exports.handler = (event, context, callback) => {
 
   var params = {
     stateMachineArn:
-      "arn:aws:states:us-east-1:287509267405:stateMachine:GarminOauth",
+      "arn:aws:states:eu-west-1:732439976770:stateMachine:GarminOauthPROD",
     input: `
     {
       \"garminRequestOauthToken\" : \"${garminRequestOauthToken}\",
@@ -56,7 +56,7 @@ exports.handler = (event, context, callback) => {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "*",
         },
-        body: `<meta http-equiv="refresh" content="0; url='https://main.d2ehwfu8n9t09f.amplifyapp.com/'" />`,
+        body: `<meta http-equiv="refresh" content="0; url='https://www.bestathlete.net/'" />`,
       };
 
       callback(null, success_response);
