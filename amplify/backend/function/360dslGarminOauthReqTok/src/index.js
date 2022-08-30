@@ -99,7 +99,7 @@ exports.handler = function (event, context, callback) {
       }
 
       var m360GarminTokenUpdateURL =
-        "https://sgsj8l5jj1.execute-api.us-east-1.amazonaws.com/staging/garmin";
+        "https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/garmin";
 
       const m360TokenrequestBody = {
         accountId: userId,
@@ -152,7 +152,7 @@ exports.handler = function (event, context, callback) {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "*",
         },
-        body: `<meta http-equiv="refresh" content="0; url='https://connect.garmin.com/oauthConfirm/?oauth_token=${garmin_request_oauth_token}&oauth_callback=https://7t2zui1c0h.execute-api.us-east-1.amazonaws.com/staging/oauthconfirm'" />`,
+        body: `<meta http-equiv="refresh" content="0; url='https://connect.garmin.com/oauthConfirm/?oauth_token=${garmin_request_oauth_token}&oauth_callback=https://r4hp85viv4.execute-api.eu-west-1.amazonaws.com/prod/oauthconfirm'" />`,
       };
       callback(null, success_response);
     })

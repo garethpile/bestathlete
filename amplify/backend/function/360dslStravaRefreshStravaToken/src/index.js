@@ -89,7 +89,7 @@ exports.handler = async (event, context, callback) => {
   }
 
   var m360dslStravaTokenUpdateURL =
-    "https://46t6xlzw84.execute-api.eu-west-1.amazonaws.com/dev/strava";
+    "https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava";
 
   const m360dslTokenUpdateConfig = {
     headers: {
