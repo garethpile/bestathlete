@@ -188,7 +188,7 @@
         },
         "360dslStravaOauthExchange": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslStravaOauthExchange-4d6d63417633337a442b-build.zip"
+          "s3Key": "amplify-builds/360dslStravaOauthExchange-3068444c387848526157-build.zip"
         },
         "360dslStravaOathCallbackValidation": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
@@ -204,11 +204,11 @@
         },
         "360dslStravaRefreshStravaToken": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslStravaRefreshStravaToken-437271455972554e6675-build.zip"
+          "s3Key": "amplify-builds/360dslStravaRefreshStravaToken-49772f4c35644d79322b-build.zip"
         },
         "360dslTPOauthExchange": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslTPOauthExchange-663137637843766c4e6e-build.zip"
+          "s3Key": "amplify-builds/360dslTPOauthExchange-63524a354e437a45316d-build.zip"
         },
         "360dslPartyTPMaintain": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
@@ -220,7 +220,7 @@
         },
         "360dslTPRefreshTPToken": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslTPRefreshTPToken-7777686a374339306448-build.zip"
+          "s3Key": "amplify-builds/360dslTPRefreshTPToken-4866763271476b732f2b-build.zip"
         },
         "360dslTPGetActivity": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
@@ -268,11 +268,11 @@
         },
         "360dslGarminOauthReqTok": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthReqTok-4c6d6571752f744a4567-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthReqTok-577838543548534e7546-build.zip"
         },
         "360dslGarminOauthReqUserAccTok": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthReqUserAccTok-7536386f6f4d4b326c32-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthReqUserAccTok-78367369626933713852-build.zip"
         },
         "360dslGarminNotificationActivityManual": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",

@@ -12,7 +12,7 @@ exports.handler = function (event, context, callback) {
   const tpGetAthleteProfileURL =
     "https://api.sandbox.trainingpeaks.com/v1/athlete/profile";
   const m360TPTokenUpdateURL =
-    "https://sgsj8l5jj1.execute-api.us-east-1.amazonaws.com/staging/tp";
+    "https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/tp";
 
   const tp_redirect_uri =
     "https://cisx9pt2th.execute-api.us-east-1.amazonaws.com/dev/tpnotification";

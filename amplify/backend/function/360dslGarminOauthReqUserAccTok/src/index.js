@@ -105,7 +105,7 @@ exports.handler = function (event, context, callback) {
 
 
       var m360GarminTokenUpdateURL =
-        "https://sgsj8l5jj1.execute-api.us-east-1.amazonaws.com/staging/garmin";
+        "https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/garmin";
 
       const m360TokenrequestBody = {
         accountId: garminAccountId,

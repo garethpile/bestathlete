@@ -31,7 +31,7 @@ export default function ThirdPartyCard(userId) {
 
       <div>
         <a
-          href={`https://7t2zui1c0h.execute-api.us-east-1.amazonaws.com/staging/requesttoken/?userId=${userId}`}
+          href={` https://r4hp85viv4.execute-api.eu-west-1.amazonaws.com/prod/?userId=${userId}`}
         >
           Connect your Garmin account
         </a>

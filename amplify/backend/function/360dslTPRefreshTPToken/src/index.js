@@ -44,7 +44,7 @@ exports.handler = async (event, context, callback) => {
   var tpTokenExchangeURL =
     "https://oauth.sandbox.trainingpeaks.com/oauth/token";
   var m360dslTPTokenUpdateURL =
-    "https://qjybc43qze.execute-api.eu-west-1.amazonaws.com/dev/tp";
+    "https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/tp";
 
   const tpTokenExchangeBody = {
     client_id: client_id,
