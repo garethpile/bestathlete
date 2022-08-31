@@ -264,7 +264,7 @@
         },
         "360dslGarminOauthStartStepFunction": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthStartStepFunction-484b4e38796e3133522f-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthStartStepFunction-444774736c6135434a6c-build.zip"
         },
         "360dslGarminOauthReqTok": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",

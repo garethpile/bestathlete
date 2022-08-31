@@ -159,7 +159,7 @@ function ThirdParty() {
               }) => {
                 return (
                   <div key={id} className="cardSpacingDiv">
-                    <ThirdPartyCard/>
+                    <ThirdPartyCard userId={userId} />
                   </div>
                 );
               }
