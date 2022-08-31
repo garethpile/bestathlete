@@ -13,22 +13,22 @@ import ThirdPartyCard from "../Components/ThirdPartyCard";
 
 const { Option } = Select;
 
-function ThirdParty() {
-  const [userId, setUserId] = useState("");
+function ThirdParty(userId) {
+  //const [userId, setUserId] = useState("");
   // const { loading, error, data } = useQuery(firstQuery)
 
-  useEffect(() => {
+ // useEffect(() => {
     // Obtain current logged in Amplify user userId which needs to be passed into Garmin URL later
-    Auth.currentAuthenticatedUser({
-      bypassCache: true, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-    })
-      .then((user) => {
+   // Auth.currentAuthenticatedUser({
+  //    bypassCache: true, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+ //   })
+ //     .then((user) => {
         // userId = user.username;
-        setUserId(user.username);
-        console.log("Current userId: ", user); // This works and userId visible ...
-      })
-      .catch((err) => console.log(err));
-  }, []);
+//        setUserId(user.username);
+ //       console.log("Current userId: ", user.username); // This works and userId visible ...
+  //    })
+  //    .catch((err) => console.log(err));
+  //}, []);
 
   return (
     <div>
