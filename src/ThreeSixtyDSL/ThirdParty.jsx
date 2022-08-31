@@ -142,29 +142,35 @@ function ThirdParty() {
             >
               Connect Third Parties
             </h1>
-            {activities.map(
-              ({
-                id,
-                GarminActivityId,
-                GarminActivityType,
-                GarminActivityDescription,
-                GarminAveragePaceInMinutesPerKilometer,
-                GarminActivityStartTime,
-                GarminActivityDuration,
-                GarminActivityDistance,
-                GarminAverageHeartRateInBeatsPerMinute,
-                GarminActivityAthleteBody,
-                GarminActivityAthleteEffort,
-                _version
-              }) => {
-                return (
-                  <div key={id} className="cardSpacingDiv">
+
+            <div className="cardSpacingDiv">
                     <ThirdPartyCard userId={userId} />
                   </div>
-                );
-              }
-            )}
-          </Col>
+                  </Col>
+
+//           {activities.map(
+//              ({
+//                id,
+//                GarminActivityId,
+  //              GarminActivityType,
+  //              GarminActivityDescription,
+  //              GarminAveragePaceInMinutesPerKilometer,
+  //              GarminActivityStartTime,
+  //              GarminActivityDuration,
+  //              GarminActivityDistance,
+  //              GarminAverageHeartRateInBeatsPerMinute,
+  //              GarminActivityAthleteBody,
+ //               GarminActivityAthleteEffort,
+ //               _version
+ //             }) => {
+ //               return (
+ //                 <div key={id} className="cardSpacingDiv">
+  //                  <ThirdPartyCard userId={userId} />
+ //                 </div>
+ //               );
+ //             }
+//            )}
+
 
           <Col className="thirdCol" span={8} xs={24} sm={24}>
           
