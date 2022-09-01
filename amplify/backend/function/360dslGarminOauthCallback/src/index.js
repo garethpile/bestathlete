@@ -10,5 +10,5 @@ exports.handler = async (event) => {
         },
         "body": "Hello from 360dsl!"
       };
-      callback (null, success_response);
+      return success_response;
 };
