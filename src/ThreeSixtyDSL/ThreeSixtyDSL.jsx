@@ -76,9 +76,8 @@ function MinPerKmFraction(MinPerKm, GarminActivityType) {
 }
 
 function ThreeSixtyDSL(props) {
-
-
-//console.log("CustomerVersion (ThreeSixtyDSL) " + props.customerDataVersion);
+  let customerUserId = props.customerData.id;
+  //console.log("Customer userId: ", customerUserId);
 
   const [activities, setActivities] = React.useState([]);
 
@@ -110,7 +109,10 @@ function ThreeSixtyDSL(props) {
   async function fetchActivities() {
     try {
       const activity = await API.graphql(graphqlOperation(Activityquery));
-      console.log("Activity items returned:" + activity.data.activitiesgarminByGarminAccountId.items);
+      console.log(
+        "Activity items returned:" +
+          activity.data.activitiesgarminByGarminAccountId.items
+      );
       let sorted =
         activity.data.activitiesgarminByGarminAccountId.items.sort(
           sortDesByDate
@@ -134,21 +136,20 @@ function ThreeSixtyDSL(props) {
       <div className="bodyDiv">
         <Row>
           <Col className="firstCol" span={8} xs={24} sm={24} lg={8} xl={8}>
-          <h1
+            <h1
               style={{
                 justifyContent: "center",
                 display: "flex",
                 color: "crimson",
-                marginTop:"15px"
+                marginTop: "15px",
               }}
             >
               Activity Feedback Corner
             </h1>
-            <AthleteCard customerData={props.customerData}/>
-          <TermsConditions/>
+            <AthleteCard customerData={props.customerData} />
+            <TermsConditions />
           </Col>
           <Col className="secondCol" span={8} xs={24} sm={24} lg={8} xl={8}>
-           
             {activities.map(
               ({
                 id,
@@ -162,7 +163,7 @@ function ThreeSixtyDSL(props) {
                 GarminAverageHeartRateInBeatsPerMinute,
                 GarminActivityAthleteBody,
                 GarminActivityAthleteEffort,
-                _version
+                _version,
               }) => {
                 return (
                   <div key={id} className="cardSpacingDiv">
@@ -191,7 +192,10 @@ function ThreeSixtyDSL(props) {
           </Col>
 
           <Col className="thirdCol" span={8} xs={24} sm={24}>
-            <AthleteFeedback userId={userId} customerData={props.customerData}/>
+            <AthleteFeedback
+              userId={userId}
+              customerData={props.customerData}
+            />
             <div
               style={{
                 marginRight: "40px",
@@ -199,7 +203,6 @@ function ThreeSixtyDSL(props) {
                 marginLeft: "40px",
               }}
             ></div>
-           
           </Col>
         </Row>
       </div>

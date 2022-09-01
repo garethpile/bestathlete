@@ -63,7 +63,7 @@ const LandingPage = () => {
             {redirect ? <Profile /> :
             <Routes>
                 <Route path="/Profile" element={<Profile />} />
-                <Route path="/ThirdParty" element={<ThirdParty userId={userId}/>} />
+                <Route path="/ThirdParty" element={<ThirdParty customerData={customer}/>} />
                 <Route exact path="/" element={<ThreeSixtyDSL customerData={customer}/>} />
             </Routes>
             }
