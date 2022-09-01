@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Card } from "antd";
 import IconButton from "@mui/material/IconButton";
 import { Avatar } from "antd";

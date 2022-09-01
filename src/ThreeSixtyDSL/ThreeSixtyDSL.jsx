@@ -1,38 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./ThreeSixtyDSL.css";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import moment from "moment";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import PedalBikeIcon from "@mui/icons-material/PedalBike";
 import "antd/dist/antd.min.css";
-import { Avatar } from "antd";
-import { Card } from "antd";
-import Divider from "@mui/material/Divider";
-import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import { Row, Col } from "antd";
-import { Button, Tooltip } from "antd";
-import { EyeOutlined } from "@ant-design/icons";
-import PoolIcon from "@mui/icons-material/Pool";
-import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
 import { Auth, API, graphqlOperation } from "aws-amplify";
 import { Activityquery } from "../Apollo/queries";
-import { Select } from "antd";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import TermsConditions from "../Components/TermsConditions";
 import AthleteFeedback from "../Components/AthleteFeedback";
-import ThirdPartyCard from "../Components/ThirdPartyCard";
 import AthleteCard from "../Components/AthleteCard";
 import ActivityCard from "../Components/ActivityCard";
-import Header from "../Components/Header";
-const { Option } = Select;
+
+/*const { Option } = Select;
 
 function secondsToHms(d) {
   d = Number(d);
@@ -74,9 +51,9 @@ function MinPerKmFraction(MinPerKm, GarminActivityType) {
       return "-";
   }
 }
-
+*/
 function ThreeSixtyDSL(props) {
-  let customerUserId = props.customerData.id;
+  //let customerUserId = props.customerData.id;
   //console.log("Customer userId: ", customerUserId);
 
   const [activities, setActivities] = React.useState([]);
@@ -120,7 +97,7 @@ function ThreeSixtyDSL(props) {
       sorted = sorted.filter(
         (exr) =>
           !exr.GarminActivityAthleteFeedback ||
-          exr.GarminActivityAthleteFeedback != 1
+          exr.GarminActivityAthleteFeedback !== 1
       );
       setActivities(sorted.slice(0, 10));
     } catch (err) {
