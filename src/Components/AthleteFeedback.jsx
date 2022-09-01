@@ -192,7 +192,7 @@ export default function AthleteFeedback(props) {
             </Select>
           </Box>
           <p></p>
-          <Button onClick={() => updateAthleteMetrics(props.userId,props.customerData._version)}>Save</Button>
+          <Button onClick={() => updateAthleteMetrics(props.customerData.id,props.customerData._version)}>Save</Button>
         </Col>
       </Row>
     </Card>

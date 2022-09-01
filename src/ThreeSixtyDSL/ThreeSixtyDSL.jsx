@@ -9,70 +9,8 @@ import AthleteFeedback from "../Components/AthleteFeedback";
 import AthleteCard from "../Components/AthleteCard";
 import ActivityCard from "../Components/ActivityCard";
 
-/*const { Option } = Select;
-
-function secondsToHms(d) {
-  d = Number(d);
-  var h = Math.floor(d / 3600);
-  var m = Math.floor((d % 3600) / 60);
-  var s = Math.floor((d % 3600) % 60);
-
-  var hDisplay = h > 0 ? h + (h == 1 ? ":" : ":") : "";
-  var mDisplay = m > 0 ? m + (m == 1 ? ":" : ":") : "";
-  var sDisplay = s > 0 ? s + (s == 1 ? ":" : "") : "";
-  return hDisplay + mDisplay + sDisplay;
-}
-
-function MinPerKmFraction(MinPerKm, GarminActivityType) {
-  switch (GarminActivityType) {
-    case "LAP_SWIMMING":
-      MinPerKm = Number(MinPerKm);
-      var SecPerHundred = (MinPerKm / 10) * 60;
-      var Mins = Math.floor(SecPerHundred / 60);
-      var Secs = Math.floor(SecPerHundred - Mins * 60);
-      return Mins + ":" + Secs;
-    case "STRENGTH_TRAINING":
-      return "-";
-    case "RUNNING": {
-      MinPerKm = Number(MinPerKm);
-      var mins = Math.floor(MinPerKm / 1);
-      var fraction = Math.floor((MinPerKm - mins) * 60);
-      return mins + ":" + fraction;
-    }
-    case "CYCLING":
-      MinPerKm = Number(MinPerKm);
-      var KmPerHr = (1 / MinPerKm) * 60;
-      return KmPerHr.toFixed(2);
-    case "VIRTUAL_RIDE":
-      MinPerKm = Number(MinPerKm);
-      var KmPerHr = (1 / MinPerKm) * 60;
-      return KmPerHr.toFixed(2);
-    default:
-      return "-";
-  }
-}
-*/
 function ThreeSixtyDSL(props) {
-  //let customerUserId = props.customerData.id;
-  //console.log("Customer userId: ", customerUserId);
-
   const [activities, setActivities] = React.useState([]);
-
-  const [userId, setUserId] = useState("");
-  // const { loading, error, data } = useQuery(firstQuery)
-
-  useEffect(() => {
-    // Obtain current logged in Amplify user userId which needs to be passed into Garmin URL later
-    Auth.currentAuthenticatedUser({
-      bypassCache: true, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-    })
-      .then((user) => {
-        // userId = user.username;
-        setUserId(user.username);
-        console.log("Current userId: ", user); // This works and userId visible ...
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   const sortDesByDate = (a, b) => {
     if (new Date(a.updatedAt) > new Date(b.updatedAt)) {
@@ -169,10 +107,7 @@ function ThreeSixtyDSL(props) {
           </Col>
 
           <Col className="thirdCol" span={8} xs={24} sm={24}>
-            <AthleteFeedback
-              userId={userId}
-              customerData={props.customerData}
-            />
+            <AthleteFeedback customerData={props.customerData} />
             <div
               style={{
                 marginRight: "40px",
