@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+
 import "./ThreeSixtyDSL.css";
 import "antd/dist/antd.min.css";
 import { Row, Col } from "antd";
-import { Auth } from "aws-amplify";
-import { Select } from "antd";
 import ThirdPartyCard from "../Components/ThirdPartyCard";
 
-const { Option } = Select;
+
 
 function ThirdParty(props) {
   let customerUserId = props.customerData.id;

@@ -1,7 +1,6 @@
 import React, {useEffect , useState} from "react";
 import { Auth, API, graphqlOperation } from "aws-amplify";
-import { createCustomer360DSL, getCustomerByID } from "../Apollo/queries";
-import {Navigate } from "react-router-dom"
+import {  getCustomerByID } from "../Apollo/queries";
 
 import Header from "../Components/Header"
 import {
@@ -29,9 +28,6 @@ const LandingPage = () => {
       if(!customerData.data.getCUSTOMER360DSL){
         console.log("Customer does not exist ....")
         setRedirect(true);
-        // const createCustomer = await API.graphql(graphqlOperation(createCustomer360DSL , {id, EmailAddress}));
-        // console.log("createCustomer : ", createCustomer);
-
       }
       console.log("Customer exsists ....");
       setCustomer(customerData.data.getCUSTOMER360DSL);
