@@ -1,12 +1,10 @@
 import React from "react";
 import { Card } from "antd";
 
-
-export default function ThirdPartyCard(userId) {
-   
+export default function ThirdPartyCard(props) {
+  let customerUserId = props.customerData.id;
+  //console.log("Customer userId: ", customerUserId);
   return (
-   
-
     <Card className="maincardDiv">
       <b
         style={{
@@ -31,12 +29,11 @@ export default function ThirdPartyCard(userId) {
 
       <div>
         <a
-          href={` https://r4hp85viv4.execute-api.eu-west-1.amazonaws.com/prod/requesttoken?userId=${userId}`}
+          href={` https://r4hp85viv4.execute-api.eu-west-1.amazonaws.com/prod/requesttoken?userId=${customerUserId}`}
         >
           Connect your Garmin account
         </a>
       </div>
     </Card>
- 
   );
 }
