@@ -192,36 +192,6 @@ export const onCreateACTIVITIESTP = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        ACTIVITIESSTRAVA {
-          id
-          UserId360DSL
-          StravaActivityId
-          StravaActivityOwnerId
-          StravaActivityDescription
-          StravaActivityType
-          StravaActivityDate
-          StravaActivityMovingTime
-          StravaActivityDistance
-          StravaActivityAverageHeartRate
-          StravaActivitySufferScore
-          StravaActivityCalories
-          StravaActivityElevationGain
-          StravaActivityAverageSpeed
-          StravaActivityAverageCadence
-          StravaActivityAvergeTemp
-          StravaActivityLocation
-          StravaActivity
-          StravaActivityZones
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
       }
     }
   }
@@ -276,36 +246,6 @@ export const onUpdateACTIVITIESTP = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        ACTIVITIESSTRAVA {
-          id
-          UserId360DSL
-          StravaActivityId
-          StravaActivityOwnerId
-          StravaActivityDescription
-          StravaActivityType
-          StravaActivityDate
-          StravaActivityMovingTime
-          StravaActivityDistance
-          StravaActivityAverageHeartRate
-          StravaActivitySufferScore
-          StravaActivityCalories
-          StravaActivityElevationGain
-          StravaActivityAverageSpeed
-          StravaActivityAverageCadence
-          StravaActivityAvergeTemp
-          StravaActivityLocation
-          StravaActivity
-          StravaActivityZones
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
       }
     }
   }
@@ -360,36 +300,6 @@ export const onDeleteACTIVITIESTP = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        ACTIVITIESSTRAVA {
-          id
-          UserId360DSL
-          StravaActivityId
-          StravaActivityOwnerId
-          StravaActivityDescription
-          StravaActivityType
-          StravaActivityDate
-          StravaActivityMovingTime
-          StravaActivityDistance
-          StravaActivityAverageHeartRate
-          StravaActivitySufferScore
-          StravaActivityCalories
-          StravaActivityElevationGain
-          StravaActivityAverageSpeed
-          StravaActivityAverageCadence
-          StravaActivityAvergeTemp
-          StravaActivityLocation
-          StravaActivity
-          StravaActivityZones
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
       }
     }
   }
@@ -537,16 +447,6 @@ export const onCreateACTIVITIES360DSL = /* GraphQL */ `
         updatedAt
       }
       ACTIVITIES360DSLCUSTOMER360DSLS {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
@@ -606,16 +506,6 @@ export const onUpdateACTIVITIES360DSL = /* GraphQL */ `
         updatedAt
       }
       ACTIVITIES360DSLCUSTOMER360DSLS {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
@@ -675,16 +565,6 @@ export const onDeleteACTIVITIES360DSL = /* GraphQL */ `
         updatedAt
       }
       ACTIVITIES360DSLCUSTOMER360DSLS {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
@@ -727,9 +607,13 @@ export const onCreateCUSTOMER360DSL = /* GraphQL */ `
       ThirdPartyApplications {
         application
         applicationSync
-        applicationRefreshToken
-        applicationTokenExpiryDate
-        applicationAccessToken
+        applicationPartyId
+        applicationRequestOauthToken
+        applicationRequestOauthSecret
+        applicationUserOauthToken
+        applicationUserOauthSecret
+        applicationUserOauthRefreshToken
+        applicationUserOauthTokenExpiryDate
       }
       MetricsDateCapture
       MetricSick
@@ -742,34 +626,10 @@ export const onCreateCUSTOMER360DSL = /* GraphQL */ `
       createdAt
       updatedAt
       CUSTOMER3RDPARTIES {
-        items {
-          id
-          Application
-          ApplicationSync
-          ApplicationRefreshToken
-          ApplicationTokenExpiryDate
-          ApplicationAccessToken
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
       activities360dsls {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
@@ -812,9 +672,13 @@ export const onUpdateCUSTOMER360DSL = /* GraphQL */ `
       ThirdPartyApplications {
         application
         applicationSync
-        applicationRefreshToken
-        applicationTokenExpiryDate
-        applicationAccessToken
+        applicationPartyId
+        applicationRequestOauthToken
+        applicationRequestOauthSecret
+        applicationUserOauthToken
+        applicationUserOauthSecret
+        applicationUserOauthRefreshToken
+        applicationUserOauthTokenExpiryDate
       }
       MetricsDateCapture
       MetricSick
@@ -827,34 +691,10 @@ export const onUpdateCUSTOMER360DSL = /* GraphQL */ `
       createdAt
       updatedAt
       CUSTOMER3RDPARTIES {
-        items {
-          id
-          Application
-          ApplicationSync
-          ApplicationRefreshToken
-          ApplicationTokenExpiryDate
-          ApplicationAccessToken
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
       activities360dsls {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
@@ -897,9 +737,13 @@ export const onDeleteCUSTOMER360DSL = /* GraphQL */ `
       ThirdPartyApplications {
         application
         applicationSync
-        applicationRefreshToken
-        applicationTokenExpiryDate
-        applicationAccessToken
+        applicationPartyId
+        applicationRequestOauthToken
+        applicationRequestOauthSecret
+        applicationUserOauthToken
+        applicationUserOauthSecret
+        applicationUserOauthRefreshToken
+        applicationUserOauthTokenExpiryDate
       }
       MetricsDateCapture
       MetricSick
@@ -912,34 +756,10 @@ export const onDeleteCUSTOMER360DSL = /* GraphQL */ `
       createdAt
       updatedAt
       CUSTOMER3RDPARTIES {
-        items {
-          id
-          Application
-          ApplicationSync
-          ApplicationRefreshToken
-          ApplicationTokenExpiryDate
-          ApplicationAccessToken
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
       activities360dsls {
-        items {
-          id
-          activities360dslID
-          customer360dslID
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
         nextToken
         startedAt
       }
@@ -981,36 +801,6 @@ export const onCreateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        ACTIVITIESSTRAVA {
-          id
-          UserId360DSL
-          StravaActivityId
-          StravaActivityOwnerId
-          StravaActivityDescription
-          StravaActivityType
-          StravaActivityDate
-          StravaActivityMovingTime
-          StravaActivityDistance
-          StravaActivityAverageHeartRate
-          StravaActivitySufferScore
-          StravaActivityCalories
-          StravaActivityElevationGain
-          StravaActivityAverageSpeed
-          StravaActivityAverageCadence
-          StravaActivityAvergeTemp
-          StravaActivityLocation
-          StravaActivity
-          StravaActivityZones
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
       }
       customer360dsl {
         id
@@ -1022,34 +812,6 @@ export const onCreateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         Male
         DateOfBirth
         Country
-        TrainingDays {
-          MondayTrain
-          MondayTrainHours
-          TuesdayTrain
-          TuesdayTrainHours
-          WednesdayTrain
-          WednesdayTrainHours
-          ThursdayTrain
-          ThursdayTrainHours
-          FridayTrain
-          FridayTrainHours
-          SaturdayTrain
-          SaturdayTrainHours
-          SundayTrain
-          SundayTrainHours
-        }
-        NonTrainingPeriod {
-          valid
-          startDate
-          endDate
-        }
-        ThirdPartyApplications {
-          application
-          applicationSync
-          applicationRefreshToken
-          applicationTokenExpiryDate
-          applicationAccessToken
-        }
         MetricsDateCapture
         MetricSick
         MetricInjury
@@ -1060,14 +822,6 @@ export const onCreateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        CUSTOMER3RDPARTIES {
-          nextToken
-          startedAt
-        }
-        activities360dsls {
-          nextToken
-          startedAt
-        }
       }
     }
   }
@@ -1107,36 +861,6 @@ export const onUpdateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        ACTIVITIESSTRAVA {
-          id
-          UserId360DSL
-          StravaActivityId
-          StravaActivityOwnerId
-          StravaActivityDescription
-          StravaActivityType
-          StravaActivityDate
-          StravaActivityMovingTime
-          StravaActivityDistance
-          StravaActivityAverageHeartRate
-          StravaActivitySufferScore
-          StravaActivityCalories
-          StravaActivityElevationGain
-          StravaActivityAverageSpeed
-          StravaActivityAverageCadence
-          StravaActivityAvergeTemp
-          StravaActivityLocation
-          StravaActivity
-          StravaActivityZones
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
       }
       customer360dsl {
         id
@@ -1148,34 +872,6 @@ export const onUpdateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         Male
         DateOfBirth
         Country
-        TrainingDays {
-          MondayTrain
-          MondayTrainHours
-          TuesdayTrain
-          TuesdayTrainHours
-          WednesdayTrain
-          WednesdayTrainHours
-          ThursdayTrain
-          ThursdayTrainHours
-          FridayTrain
-          FridayTrainHours
-          SaturdayTrain
-          SaturdayTrainHours
-          SundayTrain
-          SundayTrainHours
-        }
-        NonTrainingPeriod {
-          valid
-          startDate
-          endDate
-        }
-        ThirdPartyApplications {
-          application
-          applicationSync
-          applicationRefreshToken
-          applicationTokenExpiryDate
-          applicationAccessToken
-        }
         MetricsDateCapture
         MetricSick
         MetricInjury
@@ -1186,14 +882,6 @@ export const onUpdateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        CUSTOMER3RDPARTIES {
-          nextToken
-          startedAt
-        }
-        activities360dsls {
-          nextToken
-          startedAt
-        }
       }
     }
   }
@@ -1233,36 +921,6 @@ export const onDeleteACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        ACTIVITIESSTRAVA {
-          id
-          UserId360DSL
-          StravaActivityId
-          StravaActivityOwnerId
-          StravaActivityDescription
-          StravaActivityType
-          StravaActivityDate
-          StravaActivityMovingTime
-          StravaActivityDistance
-          StravaActivityAverageHeartRate
-          StravaActivitySufferScore
-          StravaActivityCalories
-          StravaActivityElevationGain
-          StravaActivityAverageSpeed
-          StravaActivityAverageCadence
-          StravaActivityAvergeTemp
-          StravaActivityLocation
-          StravaActivity
-          StravaActivityZones
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        ACTIVITIES360DSLCUSTOMER360DSLS {
-          nextToken
-          startedAt
-        }
       }
       customer360dsl {
         id
@@ -1274,34 +932,6 @@ export const onDeleteACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         Male
         DateOfBirth
         Country
-        TrainingDays {
-          MondayTrain
-          MondayTrainHours
-          TuesdayTrain
-          TuesdayTrainHours
-          WednesdayTrain
-          WednesdayTrainHours
-          ThursdayTrain
-          ThursdayTrainHours
-          FridayTrain
-          FridayTrainHours
-          SaturdayTrain
-          SaturdayTrainHours
-          SundayTrain
-          SundayTrainHours
-        }
-        NonTrainingPeriod {
-          valid
-          startDate
-          endDate
-        }
-        ThirdPartyApplications {
-          application
-          applicationSync
-          applicationRefreshToken
-          applicationTokenExpiryDate
-          applicationAccessToken
-        }
         MetricsDateCapture
         MetricSick
         MetricInjury
@@ -1312,14 +942,6 @@ export const onDeleteACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        CUSTOMER3RDPARTIES {
-          nextToken
-          startedAt
-        }
-        activities360dsls {
-          nextToken
-          startedAt
-        }
       }
     }
   }

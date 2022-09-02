@@ -30,9 +30,13 @@ export declare class NonTrainingPeriod {
 export declare class ThirdPartyApplications {
   readonly application: string;
   readonly applicationSync: boolean;
-  readonly applicationRefreshToken?: string | null;
-  readonly applicationTokenExpiryDate?: string | null;
-  readonly applicationAccessToken?: string | null;
+  readonly applicationPartyId?: string | null;
+  readonly applicationRequestOauthToken?: string | null;
+  readonly applicationRequestOauthSecret?: string | null;
+  readonly applicationUserOauthToken?: string | null;
+  readonly applicationUserOauthSecret?: string | null;
+  readonly applicationUserOauthRefreshToken?: string | null;
+  readonly applicationUserOauthTokenExpiryDate?: string | null;
   constructor(init: ModelInit<ThirdPartyApplications>);
 }
 

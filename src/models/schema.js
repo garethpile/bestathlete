@@ -1210,29 +1210,57 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "applicationRefreshToken": {
-                    "name": "applicationRefreshToken",
+                "applicationPartyId": {
+                    "name": "applicationPartyId",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "applicationTokenExpiryDate": {
-                    "name": "applicationTokenExpiryDate",
+                "applicationRequestOauthToken": {
+                    "name": "applicationRequestOauthToken",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "applicationRequestOauthSecret": {
+                    "name": "applicationRequestOauthSecret",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "applicationUserOauthToken": {
+                    "name": "applicationUserOauthToken",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "applicationUserOauthSecret": {
+                    "name": "applicationUserOauthSecret",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "applicationUserOauthRefreshToken": {
+                    "name": "applicationUserOauthRefreshToken",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "applicationUserOauthTokenExpiryDate": {
+                    "name": "applicationUserOauthTokenExpiryDate",
                     "isArray": false,
                     "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "applicationAccessToken": {
-                    "name": "applicationAccessToken",
-                    "isArray": false,
-                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 }
             }
         }
     },
-    "version": "efd44df107fc9c610b90f51fd9d7202f"
+    "version": "b6656e0197525b507eac4d65ea32c9a9"
 };

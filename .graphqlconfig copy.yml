@@ -1,6 +1,6 @@
 projects:
-  360dslBE:
-    schemaPath: amplify/backend/api/360dslBE/build/schema.graphql
+  bestathlete:
+    schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.js
     excludes:
@@ -10,6 +10,6 @@ projects:
         codeGenTarget: javascript
         generatedFileName: ''
         docsFilePath: src/graphql
-        region: eu-west-1
-        apiId: null
-        maxDepth: 2
+extensions:
+  amplify:
+    version: 3
