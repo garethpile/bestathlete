@@ -171,9 +171,13 @@ type NonTrainingPeriod {
 type ThirdPartyApplications {
   application: String!
   applicationSync: Boolean!
-  applicationRefreshToken: String
-  applicationTokenExpiryDate: AWSDateTime
-  applicationAccessToken: String
+  applicationPartyId:String
+  applicationRequestOauthToken: String
+  applicationRequestOauthSecret: String
+  applicationUserOauthToken: String
+  applicationUserOauthSecret: String
+  applicationUserOauthRefreshToken: String
+  applicationUserOauthTokenExpiryDate: AWSDateTime
 }
 
 type ACTIVITIES360DSLCUSTOMER360DSL
