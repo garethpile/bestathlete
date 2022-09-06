@@ -187,6 +187,8 @@ export const onCreateACTIVITIESTP = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt
@@ -241,6 +243,8 @@ export const onUpdateACTIVITIESTP = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt
@@ -295,6 +299,8 @@ export const onDeleteACTIVITIESTP = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt
@@ -415,6 +421,8 @@ export const onCreateACTIVITIES360DSL = /* GraphQL */ `
       ActivityRPE
       ActivityFatigueLevel
       ActivityPhysicalLevel
+      ActivityStravaActivityId
+      ActivityStravaOwnerId
       _version
       _deleted
       _lastChangedAt
@@ -474,6 +482,8 @@ export const onUpdateACTIVITIES360DSL = /* GraphQL */ `
       ActivityRPE
       ActivityFatigueLevel
       ActivityPhysicalLevel
+      ActivityStravaActivityId
+      ActivityStravaOwnerId
       _version
       _deleted
       _lastChangedAt
@@ -533,6 +543,8 @@ export const onDeleteACTIVITIES360DSL = /* GraphQL */ `
       ActivityRPE
       ActivityFatigueLevel
       ActivityPhysicalLevel
+      ActivityStravaActivityId
+      ActivityStravaOwnerId
       _version
       _deleted
       _lastChangedAt
@@ -796,6 +808,8 @@ export const onCreateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt
@@ -856,6 +870,8 @@ export const onUpdateACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt
@@ -916,6 +932,8 @@ export const onDeleteACTIVITIES360DSLCUSTOMER360DSL = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt

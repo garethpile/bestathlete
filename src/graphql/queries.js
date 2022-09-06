@@ -329,6 +329,8 @@ export const getACTIVITIESTP = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt
@@ -555,6 +557,8 @@ export const getACTIVITIES360DSL = /* GraphQL */ `
       ActivityRPE
       ActivityFatigueLevel
       ActivityPhysicalLevel
+      ActivityStravaActivityId
+      ActivityStravaOwnerId
       _version
       _deleted
       _lastChangedAt
@@ -623,6 +627,8 @@ export const listACTIVITIES360DSLs = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt
@@ -666,6 +672,8 @@ export const syncACTIVITIES360DSLS = /* GraphQL */ `
         ActivityRPE
         ActivityFatigueLevel
         ActivityPhysicalLevel
+        ActivityStravaActivityId
+        ActivityStravaOwnerId
         _version
         _deleted
         _lastChangedAt

@@ -110,6 +110,9 @@ type ACTIVITIES360DSL @model @auth(rules: [{ allow: public }]) {
   ActivityRPE: Int
   ActivityFatigueLevel: String
   ActivityPhysicalLevel: String
+  ActivityStravaActivityId: String
+  ActivityStravaOwnerId:String
+
 }
 
 type CUSTOMER360DSL
