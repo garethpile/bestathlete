@@ -526,6 +526,29 @@
           ]
         }
       ]
+    },
+    "activities360dslMaintain": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "360dslBE",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "360dslLayer01",
+          "attributes": [
+            "Arn"
+          ]
+        }
+      ]
     }
   },
   "hosting": {
