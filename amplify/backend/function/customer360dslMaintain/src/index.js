@@ -169,7 +169,7 @@ exports.handler = async (event) => {
   req.headers["Content-Type"] = "application/json";
   req.body = JSON.stringify({
     query: graphqlQuery,
-    operationName: "createACTIVITIES360DSL",
+    operationName: "CreateACTIVITIES360DSL",
     variables: item,
   });
 
