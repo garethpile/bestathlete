@@ -120,6 +120,8 @@ export declare class ACTIVITIES360DSL {
   readonly ActivityRPE?: number | null;
   readonly ActivityFatigueLevel?: string | null;
   readonly ActivityPhysicalLevel?: string | null;
+  readonly ActivityStravaActivityId?: string | null;
+  readonly ActivityStravaOwnerId?: string | null;
   constructor(init: ModelInit<ACTIVITIES360DSL>);
   static copyOf(source: ACTIVITIES360DSL, mutator: (draft: MutableModel<ACTIVITIES360DSL>) => MutableModel<ACTIVITIES360DSL> | void): ACTIVITIES360DSL;
 }

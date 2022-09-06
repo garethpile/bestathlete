@@ -585,6 +585,20 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "ActivityStravaActivityId": {
+                    "name": "ActivityStravaActivityId",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityStravaOwnerId": {
+                    "name": "ActivityStravaOwnerId",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 }
             },
             "syncable": true,
@@ -1262,5 +1276,5 @@ export const schema = {
             }
         }
     },
-    "version": "b6656e0197525b507eac4d65ea32c9a9"
+    "version": "2a00eb549bd4ea0b95dacee06a6cd3f1"
 };
