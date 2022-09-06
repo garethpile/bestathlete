@@ -99,7 +99,7 @@ type ACTIVITIES360DSL @model @auth(rules: [{ allow: public }]) {
   ACTIVITIES360DSLCUSTOMER360DSLS: [ACTIVITIES360DSLCUSTOMER360DSL]
     @connection(keyName: "byACTIVITIES360DSL", fields: ["id"])
   ACTIVITIESSTRAVA: ACTIVITIESSTRAVA @connection
-  ActivityAverageHeartRate: Int
+  ActivityAverageHeartRate: Float
   ActivityStressScore: Int
   ActivityCalories: Int
   ActivityElevationGain: Int
