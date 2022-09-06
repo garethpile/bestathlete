@@ -139,7 +139,7 @@ exports.handler = async (event) => {
   const req = new AWS.HttpRequest(appsyncUrl, region);
 
   //console.log(typeof jsonResponse);
-  let jsonResponseParse = JSON.stringify(jsonResponse);
+  //let jsonResponseParse = JSON.stringify(jsonResponse);
 
   const item = {
     input: {
