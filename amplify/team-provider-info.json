@@ -146,7 +146,11 @@
         },
         "360dslLayer01": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslLayer01-LambdaLayerVersion5e0b822e-build.zip"
+          "s3Key": "amplify-builds/360dslLayer01-LambdaLayerVersionb3a94ae0-build.zip"
+        },
+        "activities360dslMaintain": {
+          "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
+          "s3Key": "amplify-builds/activities360dslMaintain-494c6c6f357a415a2b48-build.zip"
         }
       },
       "hosting": {
