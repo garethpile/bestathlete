@@ -8,7 +8,7 @@ import { createCustomer360DSL, getCustomerByID } from "../Apollo/queries";
 
 
 
-const Profile = () => {
+const Profile = ({setRedirect}) => {
     const [customer, setCustomer] = useState("");
     const [user, setUser] = useState({
         id: "",
@@ -115,7 +115,8 @@ const Profile = () => {
 
 
             }));
-        console.log("createCustomer : ", createCustomer);
+            setRedirect(false)
+            window.location.reload()
         }
         else {
             alert(`Please fill all the fields`)
