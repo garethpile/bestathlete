@@ -30,7 +30,7 @@
         },
         "360dslStravaOauthExchange": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslStravaOauthExchange-59764250706943686f78-build.zip"
+          "s3Key": "amplify-builds/360dslStravaOauthExchange-71794966517876587576-build.zip"
         },
         "360dslStravaOathCallbackValidation": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
@@ -58,7 +58,7 @@
         },
         "360dslPartyStravaMaintain": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/360dslPartyStravaMaintain-6f53614275444e457469-build.zip"
+          "s3Key": "amplify-builds/360dslPartyStravaMaintain-426f5279733067372f6b-build.zip"
         },
         "360dslTPRefreshTPToken": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
