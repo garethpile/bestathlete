@@ -20,23 +20,19 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersionb3a94ae0": {
+    "LambdaLayerVersion6e209186": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": {
-          "Ref": "runtimes"
-        },
+        "CompatibleRuntimes": [
+          "nodejs12.x"
+        ],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
           },
-          "S3Key": {
-            "Ref": "s3Key"
-          }
+          "S3Key": "amplify-builds/360dslLayer01-LambdaLayerVersion6e209186-build.zip"
         },
-        "Description": {
-          "Ref": "description"
-        },
+        "Description": "Updated layer version 2022-09-07T20:59:14.455Z",
         "LayerName": {
           "Fn::Sub": [
             "360dslLayer01-${env}",
@@ -51,13 +47,11 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPublicb3a94ae0": {
+    "LambdaLayerPermissionPublic6e209186": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
-        "LayerVersionArn": {
-          "Ref": "LambdaLayerVersionb3a94ae0"
-        },
+        "LayerVersionArn": "arn:aws:lambda:eu-west-1:732439976770:layer:360dslLayer01-dev:25",
         "Principal": "*"
       }
     }
@@ -65,7 +59,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersionb3a94ae0"
+        "Ref": "LambdaLayerVersion6e209186"
       }
     }
   }
