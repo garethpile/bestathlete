@@ -1,8 +1,34 @@
+
+
+/* Amplify Params - DO NOT EDIT
+  API_360DSLBE_ACTIVITIESSTRAVATABLE_ARN
+  API_360DSLBE_ACTIVITIESSTRAVATABLE_NAME
+  API_360DSLBE_GRAPHQLAPIENDPOINTOUTPUT
+  API_360DSLBE_GRAPHQLAPIIDOUTPUT
+  API_360DSLBE_GRAPHQLAPIKEYOUTPUT
+  ENV
+  REGION
+Amplify Params - DO NOT EDIT */
+
+// Zones removed becuase only applies to Strava Accounts with Pro subscription
+
 "use strict";
 
 const AWS = require("aws-sdk");
+
+//const urlParse = require("url").URL;
+const appsyncUrl = "https://egrryqwz6vhpxptr6x2yofgz3i.appsync-api.eu-west-1.amazonaws.com/graphql"
+//const appsyncUrl = process.env.API_360DSLBE_GRAPHQLAPIENDPOINTOUTPUT;
+//console.log("Appsyncurl: ",appsyncUrl);
+//const region = process.env.REGION;
+//const endpoint = new urlParse(appsyncUrl).hostname.toString();
+//const graphqlQuery = require("./query.js").mutation;
+//const apiKey = process.env.API_360DSLBE_GRAPHQLAPIKEYOUTPUT;
+//console.log("Apikey: ",apiKey);
+
+
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
-const https = require("https");
+//const https = require("https");
 const axios = require("axios");
 const qsTP = require("querystring");
 
@@ -15,7 +41,7 @@ exports.handler = function (event, context, callback) {
     console.log(queryString);
   } catch (error) {
     const error_description =
-      "Error extracting querparameters from event object: " + error;
+      "Error extracting query parameters from event object: " + error;
 
     console.log(error_description);
 
@@ -78,7 +104,7 @@ exports.handler = function (event, context, callback) {
       code = event.queryStringParameters.code;
       console.log(code);
     } catch (error) {
-      // Log and return the error ...
+     
       const error_description = "Invalid code provided in request: " + error;
 
       console.log(error_description);
@@ -116,7 +142,7 @@ exports.handler = function (event, context, callback) {
       client_secret: client_secret,
       grant_type: grant_type,
       redirect_uri: redirect_uri,
-      code: code,
+      code: code
     };
 
     console.log("Strava Token Exchange Request Body: ", stravaTokenrequestBody);
@@ -132,7 +158,7 @@ exports.handler = function (event, context, callback) {
         "Content-Type": "application/json",
       },
     };
-
+    console.log("Calling Strava Token Exchange")
     axios
       .post(
         stravaTokenExchangePostURL,
@@ -149,38 +175,92 @@ exports.handler = function (event, context, callback) {
         var last_name = result.data.athlete.lastname;
         var first_name = result.data.athlete.firstname;
 
-        const m360TokenrequestBody = {
-          PartyId: party_id,
-          LastName: last_name,
-          FirstName: first_name,
-          strava_access_token: strava_access_token,
-          strava_refresh_token: strava_refresh_token,
-          strava_expires_at: expires_at,
+        const customer360dslConfig = {
+          headers: {
+            "Content-Type": "application/json",
+            "z-api-key":"da2-j5c646c3brc65itis22lvrilvi"
+          },
         };
-
+        console.log("Calling listCustomer360DSL using FirstName & LastName ....");
         axios
           .post(
-            m360StravaTokenUpdateURL,
-            m360TokenrequestBody,
-            m360TPTokenconfig
-          )
-          .then((m360Result) => {
-            console.log("m360 TOKEN UPDATE RESULT.DATA: ", m360Result.data);
+            appsyncUrl,
+            {
+              query: `query listCustomer360LastFirstName ($FirstName: String, $LastName : String) {
+                listCUSTOMER360DSLs(filter: {FirstName: {eq: $FirstName}, LastName: {eq: $LastName}}) {
+                  nextToken
+                  startedAt
+                  items {
+                    id
+                    FirstName
+                    LastName
+                    EmailAddress
+                  }
+                }
+              }
 
-            const success_response = {
-              statusCode: 200,
-              headers: {
-                "Content-Type": "text/html",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "*",
+            
+              `,
+              variables: {
+                FirstName: first_name,
+                LastName: last_name,
               },
-              body: `<meta http-equiv="refresh" content="0; url='https://www.bestathlete.net/'" />`,
+            },
+            customer360dslConfig
+          )
+          .then((customer360dslResult) => {
+            console.log("Customer360DSL result: ", customer360dslResult);
+
+            const m360TokenrequestBody = {
+              PartyId: party_id,
+              LastName: last_name,
+              FirstName: first_name,
+              strava_access_token: strava_access_token,
+              strava_refresh_token: strava_refresh_token,
+              strava_expires_at: expires_at,
             };
-            callback(null, success_response);
+             
+            console.log("Calling 360dslParty to update Strava info ...");
+            axios
+              .post(
+                m360StravaTokenUpdateURL,
+                m360TokenrequestBody,
+                m360TPTokenconfig
+              )
+              .then((m360Result) => {
+                console.log("m360 TOKEN UPDATE RESULT.DATA: ", m360Result.data);
+
+                const success_response = {
+                  statusCode: 200,
+                  headers: {
+                    "Content-Type": "text/html",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Headers": "*",
+                  },
+                  body: `<meta http-equiv="refresh" content="0; url='https://www.bestathlete.net/'" />`,
+                };
+                callback(null, success_response);
+              })
+              .catch((error) => {
+                const error_description =
+                  "ERROR invoking m360 TOKEN UPDATE POST: " + error;
+
+                console.log(error_description);
+
+                const error_response = {
+                  statusCode: 400,
+                  headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Headers": "*",
+                  },
+                  body: error_description,
+                };
+                callback(null, error_response);
+              });
           })
           .catch((error) => {
             const error_description =
-              "ERROR invoking m360 TOKEN UPDATE POST: " + error;
+              "ERROR retrieving Customer360DSL ID: " + error;
 
             console.log(error_description);
 
@@ -214,3 +294,4 @@ exports.handler = function (event, context, callback) {
       });
   }
 };
+
