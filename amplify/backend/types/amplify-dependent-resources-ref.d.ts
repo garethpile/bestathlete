@@ -223,7 +223,7 @@ export type AmplifyDependentResourcesAttributes = {
             "Region": "string",
             "LambdaExecutionRole": "string"
         },
-        "customer360dslMaintain": {
+        "activities360dslMaintain": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",

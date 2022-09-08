@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
   BrowserRouter,
+  Navigate
 } from "react-router-dom";
 import ThreeSixtyDSL from "../ThreeSixtyDSL/ThreeSixtyDSL";
 import ThirdParty from "../ThreeSixtyDSL/ThirdParty";
@@ -55,7 +56,7 @@ const LandingPage = () => {
     <BrowserRouter>
       <Header user={userId}></Header>
       {redirect ? (
-        <Profile />
+        <Profile setRedirect={setRedirect} />
       ) : (
         <Routes>
           <Route path="/Profile" element={<Profile />} />
@@ -67,6 +68,11 @@ const LandingPage = () => {
             exact
             path="/"
             element={<ThreeSixtyDSL customerData={customer} />}
+          />
+          <Route
+            exact
+            path="*"
+            element={<Navigate to="/" />}
           />
         </Routes>
       )}

@@ -512,7 +512,7 @@ export const schema = {
                 "ActivityAverageHeartRate": {
                     "name": "ActivityAverageHeartRate",
                     "isArray": false,
-                    "type": "Int",
+                    "type": "Float",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -1276,5 +1276,5 @@ export const schema = {
             }
         }
     },
-    "version": "2a00eb549bd4ea0b95dacee06a6cd3f1"
+    "version": "7a74c615611f538ae650920eff6585ed"
 };
