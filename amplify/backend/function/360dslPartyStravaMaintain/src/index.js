@@ -51,7 +51,7 @@ module.exports.handler = (event, context, callback) => {
         strava_access_token: StravaAccessToken,
         strava_refresh_token: StravaRefreshToken,
         strava_expires_at: StravaExpiresAt,
-        customer360dslId: Customer360dslId
+        customer360dslId: Customer360dslId,
         updateAt: new Date().getTime(),
       },
     };
