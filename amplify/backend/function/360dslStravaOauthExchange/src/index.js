@@ -1,4 +1,10 @@
-
+/* Amplify Params - DO NOT EDIT
+	API_360DSLBE_GRAPHQLAPIENDPOINTOUTPUT
+	API_360DSLBE_GRAPHQLAPIIDOUTPUT
+	API_360DSLBE_GRAPHQLAPIKEYOUTPUT
+	ENV
+	REGION
+Amplify Params - DO NOT EDIT */
 
 /* Amplify Params - DO NOT EDIT
   API_360DSLBE_ACTIVITIESSTRAVATABLE_ARN
@@ -16,15 +22,16 @@ Amplify Params - DO NOT EDIT */
 
 const AWS = require("aws-sdk");
 
-//const urlParse = require("url").URL;
-const appsyncUrl = "https://egrryqwz6vhpxptr6x2yofgz3i.appsync-api.eu-west-1.amazonaws.com/graphql"
-//const appsyncUrl = process.env.API_360DSLBE_GRAPHQLAPIENDPOINTOUTPUT;
-//console.log("Appsyncurl: ",appsyncUrl);
+const urlParse = require("url").URL;
+//const appsyncUrl = "https://kaollob2lrg2tb2f7hhax4rg3e.appsync-api.eu-west-1.amazonaws.com/graphql";
+//const appsyncUrl = "https://egrryqwz6vhpxptr6x2yofgz3i.appsync-api.eu-west-1.amazonaws.com/graphql"
+const appsyncUrl = process.env.API_360DSLBE_GRAPHQLAPIENDPOINTOUTPUT;
+console.log("Appsyncurl: ",appsyncUrl);
 //const region = process.env.REGION;
-//const endpoint = new urlParse(appsyncUrl).hostname.toString();
+const endpoint = new urlParse(appsyncUrl).hostname.toString();
 //const graphqlQuery = require("./query.js").mutation;
-//const apiKey = process.env.API_360DSLBE_GRAPHQLAPIKEYOUTPUT;
-//console.log("Apikey: ",apiKey);
+const apiKey = process.env.API_360DSLBE_GRAPHQLAPIKEYOUTPUT;
+console.log("Apikey: ",apiKey);
 
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
@@ -178,7 +185,7 @@ exports.handler = function (event, context, callback) {
         const customer360dslConfig = {
           headers: {
             "Content-Type": "application/json",
-            "z-api-key":"da2-j5c646c3brc65itis22lvrilvi"
+            "x-api-key":apiKey
           },
         };
         console.log("Calling listCustomer360DSL using FirstName & LastName ....");
@@ -209,7 +216,11 @@ exports.handler = function (event, context, callback) {
             customer360dslConfig
           )
           .then((customer360dslResult) => {
-            console.log("Customer360DSL result: ", customer360dslResult);
+            //console.log("Customer360DSL result: ", customer360dslResult);
+
+            var customer360dslId = customer360dslResult.data.data.listCUSTOMER360DSLs.items[0].id;
+
+            console.log("customer360dslId: ",customer360dslId )
 
             const m360TokenrequestBody = {
               PartyId: party_id,
@@ -218,6 +229,7 @@ exports.handler = function (event, context, callback) {
               strava_access_token: strava_access_token,
               strava_refresh_token: strava_refresh_token,
               strava_expires_at: expires_at,
+              customer360dslId:customer360dslId
             };
              
             console.log("Calling 360dslParty to update Strava info ...");

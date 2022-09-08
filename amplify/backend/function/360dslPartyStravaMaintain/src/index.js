@@ -7,9 +7,6 @@ module.exports.handler = (event, context, callback) => {
   var body;
 
   try {
-    //console.log(event);
-    //console.log(event.body);
-    //console.log(typeof event.body);
     body = JSON.parse(event.body);
   } catch (error) {
     throw new Error("event.body not present: ", error);
@@ -20,14 +17,14 @@ module.exports.handler = (event, context, callback) => {
 
   try {
     // Strava update ....
-    //console.log(event.body);
-
+   
     var StravaAccessToken;
     var StravaRefreshToken;
     var StravaPartyId;
     var StravaExpiresAt;
     var StravaLastName;
     var StravaFirstName;
+    var Customer360dslId;
 
     try {
       StravaPartyId = body.PartyId;
@@ -37,6 +34,7 @@ module.exports.handler = (event, context, callback) => {
       StravaFirstName = body.FirstName;
       StravaAccessToken = body.strava_access_token;
       StravaRefreshToken = body.strava_refresh_token;
+      Customer360dslId = body.customer360dslId;
     } catch (error) {
       errorMessage = "Error retrieving Strava token parameters: " + error;
       console.log(errorMessage);
@@ -53,6 +51,7 @@ module.exports.handler = (event, context, callback) => {
         strava_access_token: StravaAccessToken,
         strava_refresh_token: StravaRefreshToken,
         strava_expires_at: StravaExpiresAt,
+        customer360dslId: Customer360dslId
         updateAt: new Date().getTime(),
       },
     };
