@@ -93,6 +93,7 @@ type ACTIVITIESSTRAVA
   StravaActivityLocation: String
   StravaActivity: AWSJSON
   StravaActivityZones: AWSJSON
+  StravaActivityAthleteFeedback: Boolean
 }
 
 type ACTIVITIES360DSL @model @auth(rules: [{ allow: public }]) {
