@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Auth, API, graphqlOperation } from "aws-amplify";
-import { getCustomerByID } from "../Apollo/queries";
+import { getCustomerByID  } from "../Apollo/queries";
+import axios from "axios";
 
 import Header from "../Components/Header";
 import {
@@ -40,6 +41,22 @@ const LandingPage = () => {
       setRedirect(true);
     }
   };
+
+
+  const getStravaPartyId = async (customer360dslId) => {
+    try {
+        let stravaInformation = await axios.get(`https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava?customer360dslId=${customer360dslId}`);
+
+        if(stravaInformation.status === 200 && stravaInformation.data.results){
+          console.log("Strava Party Information retrieved: ", stravaInformation.data.results);
+        }
+      }
+    catch (error) {
+      console.log("Error retrieving Strava Party info ....", error);
+    }
+  };
+
+
   useEffect(() => {
     Auth.currentAuthenticatedUser({
       bypassCache: true, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
@@ -47,8 +64,11 @@ const LandingPage = () => {
       .then((user) => {
         setUserId(user.username);
         console.log("Current userId: ", user.username);
-        //console.log("Current Email address: ", user.attributes.email);
+        console.log("Get customer data of current logged in user .....");
         getCustomer(user.username);
+
+        console.log("Retrieving Strava Party Id ...");
+       getStravaPartyId(user.username);
       })
       .catch((err) => console.log(err));
   }, []);

@@ -535,6 +535,20 @@
           ]
         }
       ]
+    },
+    "360dslPartyStravaGetByCustomer360dslId": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "360dslLayer01",
+          "attributes": [
+            "Arn"
+          ]
+        }
+      ]
     }
   },
   "hosting": {
