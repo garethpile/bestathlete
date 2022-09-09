@@ -66,7 +66,14 @@ type ACTIVITIESTP @model @auth(rules: [{ allow: public }]) {
   TPActivity: AWSJSON
 }
 
-type ACTIVITIESSTRAVA @model @auth(rules: [{ allow: public }]) {
+type ACTIVITIESSTRAVA 
+@model 
+@auth(rules: [{ allow: public }])
+@key(
+    name: "StravaActivityOwnerId-index"
+    fields: ["StravaActivityOwnerId"]
+    queryField: "activitiesStravaByStravaActivityOwnerId"
+  ) {
   id: ID!
   UserId360DSL: String
   StravaActivityId: String!
