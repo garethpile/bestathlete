@@ -29,7 +29,7 @@ module.exports.handler = (event, callback) => {
     };
     return response;
   }
-  console.log("Strava Owner ID: ", customer360dslId);
+  console.log("Customer 360dsl ID: ", customer360dslId);
   // Retrieve Strava Information .....
   var params = {
     TableName: "360dslPartyStrava",
@@ -53,6 +53,8 @@ module.exports.handler = (event, callback) => {
       };
       return response;
     }
+    console.log("Data retrieved from DB ....data", data);
+console.log("Data retrieved from DB ....data.Item", data.Item);
 
     const response = {
       statusCode: 200,
