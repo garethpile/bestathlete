@@ -38,8 +38,31 @@ module.exports.handler = (event, callback) => {
 
   return dynamoDb.get(params, (error, data) => {
     if (error) {
-      callback(error);
+      const errorMessage = "Error retrieving Strava Info from DB ....: " + error;
+      var bodyData = {
+        Error: errorMessage,
+      };
+      const response = {
+        statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "*",
+          "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,",
+        },
+        body: JSON.stringify(bodyData),
+      };
+      return response;
     }
-    callback(error, data.Item);
+
+    const response = {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,",
+      },
+      body: JSON.stringify(data.Item),
+    };
+    return response;
   });
 };
