@@ -20,48 +20,7 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersion049e6698": {
-      "Type": "AWS::Lambda::LayerVersion",
-      "Properties": {
-        "CompatibleRuntimes": {
-          "Ref": "runtimes"
-        },
-        "Content": {
-          "S3Bucket": {
-            "Ref": "deploymentBucketName"
-          },
-          "S3Key": {
-            "Ref": "s3Key"
-          }
-        },
-        "Description": {
-          "Ref": "description"
-        },
-        "LayerName": {
-          "Fn::Sub": [
-            "360dslLayer01-${env}",
-            {
-              "env": {
-                "Ref": "env"
-              }
-            }
-          ]
-        }
-      },
-      "DeletionPolicy": "Delete",
-      "UpdateReplacePolicy": "Retain"
-    },
-    "LambdaLayerPermissionPublic049e6698": {
-      "Type": "AWS::Lambda::LayerVersionPermission",
-      "Properties": {
-        "Action": "lambda:GetLayerVersion",
-        "LayerVersionArn": {
-          "Ref": "LambdaLayerVersion049e6698"
-        },
-        "Principal": "*"
-      }
-    },
-    "LambdaLayerVersion296e1642": {
+    "LambdaLayerVersionde22430d": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
         "CompatibleRuntimes": [
@@ -71,9 +30,9 @@
           "S3Bucket": {
             "Ref": "deploymentBucketName"
           },
-          "S3Key": "amplify-builds/360dslLayer01-LambdaLayerVersion296e1642-build.zip"
+          "S3Key": "amplify-builds/360dslLayer01-LambdaLayerVersionde22430d-build.zip"
         },
-        "Description": "Updated layer version 2022-09-08T16:46:24.344Z",
+        "Description": "Updated layer version 2022-09-09T15:58:56.514Z",
         "LayerName": {
           "Fn::Sub": [
             "360dslLayer01-${env}",
@@ -88,11 +47,11 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPublic296e1642": {
+    "LambdaLayerPermissionPublicde22430d": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
-        "LayerVersionArn": "arn:aws:lambda:eu-west-1:732439976770:layer:360dslLayer01-dev:28",
+        "LayerVersionArn": "arn:aws:lambda:eu-west-1:732439976770:layer:360dslLayer01-dev:35",
         "Principal": "*"
       }
     }
@@ -100,7 +59,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersion049e6698"
+        "Ref": "LambdaLayerVersionde22430d"
       }
     }
   }
