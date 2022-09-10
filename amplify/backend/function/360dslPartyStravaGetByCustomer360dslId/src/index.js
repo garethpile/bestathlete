@@ -4,7 +4,7 @@ const AWS = require("aws-sdk");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const atob = require("atob");
 
-module.exports = (event, callback) => {
+module.exports.handler = (event, callback) => {
   var queryString;
   var customer360dslId = "";
 
