@@ -47,8 +47,8 @@ const LandingPage = () => {
     try {
         let stravaInformation = await axios.get(`https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava?customer360dslId=${customer360dslId}`);
 
-        if(stravaInformation.status === 200 && stravaInformation.data.Items[0]){
-          console.log("Strava Party Information retrieved: ", stravaInformation.data.Items[0]);
+        if(stravaInformation.status === 200 && stravaInformation.Items[0]){
+          console.log("Strava Party Information retrieved: ", stravaInformation.Items[0]);
         }
       }
     catch (error) {
