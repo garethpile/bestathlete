@@ -4,7 +4,7 @@
 const AWS = require('aws-sdk');
 //const atob = require('atob');
 
-module.exports.get = (event, context, callback) => {
+module.exports.handler = (event, context, callback) => {
   
   try{
     const dynamoDb = new AWS.DynamoDB.DocumentClient();
