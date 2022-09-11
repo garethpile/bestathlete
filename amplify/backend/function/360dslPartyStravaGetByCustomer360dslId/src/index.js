@@ -1,4 +1,36 @@
 
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+var params = {
+  TableName: '360dslPartyStrava',
+  IndexName: 'customer360dslId-index',
+  KeyConditionExpression: 'customer360dslId = :customer_360dsl_Id',
+  ExpressionAttributeValues: { ':customer_360dsl_Id': customer360dslId  }
+
+};
+
+
+async function queryItems(){
+  try {
+    const data = await docClient.query(params).promise()
+    return data
+  } catch (err) {
+    return err
+  }
+}
+
+exports.handler = async (event, context) => {
+  try {
+    const data = await queryItems()
+    return { body: JSON.stringify(data) }
+  } catch (err) {
+    return { error: err }
+  }
+}
+
+
+/*
 'use strict';
 
 const AWS = require('aws-sdk');
