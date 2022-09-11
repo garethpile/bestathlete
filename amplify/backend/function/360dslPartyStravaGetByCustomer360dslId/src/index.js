@@ -28,6 +28,9 @@ exports.handler = async (event, context) => {
     };
 
     const data = await queryItems();
+
+    console.log("Query data returned: ", data);
+    console.log("Query data returned (Stringified): ", JSON.stringify(data));
     return { body: JSON.stringify(data) };
   } catch (err) {
     return { error: err };
