@@ -2,14 +2,21 @@
 'use strict';
 
 const AWS = require('aws-sdk');
-//const atob = require('atob');
+const atob = require('atob');
 
 module.exports.handler = (event, context, callback) => {
   
+  var queryString;
+  var customer360dslId;
+  const dynamoDb = new AWS.DynamoDB.DocumentClient();
+
   try{
-    const dynamoDb = new AWS.DynamoDB.DocumentClient();
+    
+    queryString = event.queryStringParameters;
+    console.log(queryString);
+    customer360dslId = queryString["customer360dslId"];
    
-    const customer360dslId = event.pathParameters.customer360dslId;
+    // const customer360dslId = event.pathParameters.customer360dslId;
 
     
     var params = {
