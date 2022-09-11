@@ -9,7 +9,7 @@ module.exports.handler = (event, context, callback) => {
   try{
     const dynamoDb = new AWS.DynamoDB.DocumentClient();
    
-    const payId = event.pathParameters.customer360dslId;
+    const customer360dslId = event.pathParameters.customer360dslId;
 
     
     var params = {
