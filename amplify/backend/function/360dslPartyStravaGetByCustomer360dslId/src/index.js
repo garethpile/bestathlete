@@ -1,3 +1,70 @@
+
+'use strict';
+
+const AWS = require('aws-sdk');
+//const atob = require('atob');
+
+module.exports.get = (event, context, callback) => {
+  
+  try{
+    const dynamoDb = new AWS.DynamoDB.DocumentClient();
+   
+    const payId = event.pathParameters.customer360dslId;
+
+    
+    var params = {
+      TableName: '360dslPartyStrava',
+      Key: {
+        customer360dslId: customer360dslId  
+      }
+  };
+
+    return dynamoDb.get(params, (error, data) => {
+      if (error) {
+        console.log(error)
+        const response = {
+              statusCode: 500,
+              headers: {
+                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Headers" : "*",
+                "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,"
+              },
+              body: JSON.stringify(error),
+            };
+            callback(null, response);
+      }else{
+        console.log('Get Strava Info success');
+        const response = {
+            statusCode: 200,
+            headers: {
+              "Access-Control-Allow-Origin" : "*",
+              "Access-Control-Allow-Headers" : "*",
+              "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,"
+            },
+            body: JSON.stringify(data)
+          };
+
+            callback(null, response);
+      }
+    });
+  }
+  catch(error){
+      console.log(error);
+      const response = {
+      statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Headers" : "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,"
+      }
+      ,body:JSON.stringify(error)
+    };
+    callback(null, response);
+  } 
+};
+
+/*
+
 "use strict";
 
 const AWS = require("aws-sdk");
@@ -68,3 +135,5 @@ console.log("Data retrieved from DB ....data.Item", data.Item);
     return response;
   });
 };
+
+*/
