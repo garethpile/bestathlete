@@ -23,7 +23,7 @@ module.exports.handler = (event, context, callback) => {
       TableName: '360dslPartyStrava',
       IndexName: 'customer360dslId-index',
       KeyConditionExpression: 'customer360dslId = :customer_360dsl_Id',
-      ExpressionAttributeValues: { ':customer_360dsl_Id': { S: customer360dslId } }
+      ExpressionAttributeValues: { ':customer_360dsl_Id': customer360dslId  }
     
   };
 
