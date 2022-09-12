@@ -19,11 +19,13 @@ import { updateStravaActivity } from "../Apollo/queries";
 const { Option } = Select;
 
 const iconDictionary = {
-  LAP_SWIMMING: <PoolIcon fontSize="large" />,
-  STRENGTH_TRAINING: <FitnessCenterIcon fontSize="large" />,
-  RUNNING: <DirectionsRunIcon fontSize="large" />,
-  CYCLING: <DirectionsBikeIcon fontSize="large" />,
-  VIRTUAL_RIDE: <PedalBikeIcon fontSize="large" />,
+  Swim: <PoolIcon fontSize="large" />,
+  WeightTraining: <FitnessCenterIcon fontSize="large" />,
+  Workout: <FitnessCenterIcon fontSize="large" />,
+  Run: <DirectionsRunIcon fontSize="large" />,
+  Hike: <DirectionsRunIcon fontSize="large" />,
+  Ride: <DirectionsBikeIcon fontSize="large" />,
+  VirtualRide: <PedalBikeIcon fontSize="large" />,
 };
 function secondsToHms(d) {
   d = Number(d);
@@ -39,25 +41,25 @@ function secondsToHms(d) {
 
 function MinPerKmFraction(MinPerKm, StravaActivityType) {
   switch (StravaActivityType) {
-    case "LAP_SWIMMING":
+    case "Swim":
       MinPerKm = Number(MinPerKm);
       var SecPerHundred = (MinPerKm / 10) * 60;
       var Mins = Math.floor(SecPerHundred / 60);
       var Secs = Math.floor(SecPerHundred - Mins * 60);
       return Mins + ":" + Secs;
-    case "STRENGTH_TRAINING":
+    case "WeightTraining":
       return "-";
-    case "RUNNING": {
+    case "Run": {
       MinPerKm = Number(MinPerKm);
       var mins = Math.floor(MinPerKm / 1);
       var fraction = Math.floor((MinPerKm - mins) * 60);
       return mins + ":" + fraction;
     }
-    case "CYCLING":
+    case "Ride":
       MinPerKm = Number(MinPerKm);
       var KmPerHr = (1 / MinPerKm) * 60;
       return KmPerHr.toFixed(2);
-    case "VIRTUAL_RIDE":
+    case "VirtualRide":
       MinPerKm = Number(MinPerKm);
       var KmPerHr = (1 / MinPerKm) * 60;
       return KmPerHr.toFixed(2);
