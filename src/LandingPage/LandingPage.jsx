@@ -21,6 +21,8 @@ const LandingPage = () => {
   const [redirect, setRedirect] = useState(false);
   let customerDataVersion = 0;
 
+  const stravaPartyId;
+
   const getCustomer = async (id) => {
     try {
       const customerData = await API.graphql(
@@ -46,8 +48,10 @@ const LandingPage = () => {
   const getStravaPartyId = async (customer360dslId) => {
     try {
         let stravaInformation = await axios.get(`https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava?customer360dslId=${customer360dslId}`);
-        console.log("Strava Party Information retrieved: ", stravaInformation);
-        console.log("Strava Party Information Item[0] retrieved: ", stravaInformation.Items[0]);
+        console.log("Strava Party Information retrieved: ", stravaInformation.body);
+        console.log("Strava Party Information Item[0] retrieved: ", stravaInformation.body.Items[0]);
+        stravaPartyId = stravaInformation.body.Items[0].PartyId;
+        console.log("Strava Party Id retrieved: ", stravaInformation.body.Items[0].PartyId);
       }
     catch (error) {
       console.log("Error retrieving Strava Party info ....", error);
