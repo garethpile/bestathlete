@@ -23,7 +23,7 @@ export const Activityquery = `query MyQuery {
   }`;
 
   export const StravaActivityQuery = `query activitiesStravaByStravaActivityOwnerId ($StravaActivityOwnerId: String) {
-    activitiesStravaByStravaActivityOwnerId(StravaActivityOwnerId: $StravaActivityOwnerId){
+    activitiesStravaByStravaActivityOwnerId(StravaActivityOwnerId: $StravaActivityOwnerId,filter: {StravaActivityAthleteFeedback: {eq: false}}){
         items {
           id
           StravaActivityAthleteFeedback
