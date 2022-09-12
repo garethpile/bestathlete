@@ -25,6 +25,7 @@ export const Activityquery = `query MyQuery {
   export const StravaActivityQuery = `query activitiesStravaByStravaActivityOwnerId ($StravaActivityOwnerId: String) {
     activitiesStravaByStravaActivityOwnerId(StravaActivityOwnerId: $StravaActivityOwnerId){
         items {
+          id
           StravaActivityAthleteFeedback
           StravaActivityAverageCadence
           StravaActivityAverageHeartRate
