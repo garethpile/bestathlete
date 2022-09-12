@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./ThreeSixtyDSL.css";
 import "antd/dist/antd.min.css";
 import { Row, Col } from "antd";
-import { Auth, API, graphqlOperation } from "aws-amplify";
-import { Activityquery } from "../Apollo/queries";
+import { API, graphqlOperation } from "aws-amplify";
+import { StravaActivityQuery } from "../Apollo/queries";
 import TermsConditions from "../Components/TermsConditions";
 import AthleteFeedback from "../Components/AthleteFeedback";
 import AthleteCard from "../Components/AthleteCard";
-import ActivityCard from "../Components/ActivityCard";
+import ActivityCardStrava from "../Components/ActivityCardStrava";
 
 function ThreeSixtyDSL(props) {
+
+  console.log( props.stravaData);
   const [activities, setActivities] = React.useState([]);
 
   const sortDesByDate = (a, b) => {
@@ -21,21 +23,21 @@ function ThreeSixtyDSL(props) {
     }
     return 0;
   };
-  async function fetchActivities() {
+  async function fetchActivities(stravaPartyId) {
     try {
-      const activity = await API.graphql(graphqlOperation(Activityquery));
+      const stravaActivities = await API.graphql(graphqlOperation(StravaActivityQuery,{StravaActivityOwnerId: stravaPartyId }));
       console.log(
-        "Activity items returned:" +
-          activity.data.activitiesgarminByGarminAccountId.items
+        "Strava activity items returned:" +
+        stravaActivities.data.activitiesStravaByStravaActivityOwnerId.items
       );
       let sorted =
-        activity.data.activitiesgarminByGarminAccountId.items.sort(
+      stravaActivities.data.activitiesStravaByStravaActivityOwnerId.items.sort(
           sortDesByDate
         );
       sorted = sorted.filter(
         (exr) =>
-          !exr.GarminActivityAthleteFeedback ||
-          exr.GarminActivityAthleteFeedback !== 1
+          !exr.StravaActivityAthleteFeedback ||
+          exr.StravaActivityAthleteFeedback !== 1
       );
       setActivities(sorted.slice(0, 10));
     } catch (err) {
@@ -43,7 +45,8 @@ function ThreeSixtyDSL(props) {
     }
   }
   useEffect(() => {
-    fetchActivities();
+    console.log("props.stravaData.PartyId: ", props.stravaData.PartyId);
+    fetchActivities(props.stravaData.PartyId);
   }, []);
   return (
     <div>
@@ -68,37 +71,36 @@ function ThreeSixtyDSL(props) {
             {activities.map(
               ({
                 id,
-                GarminActivityId,
-                GarminActivityType,
-                GarminActivityDescription,
-                GarminAveragePaceInMinutesPerKilometer,
-                GarminActivityStartTime,
-                GarminActivityDuration,
-                GarminActivityDistance,
-                GarminAverageHeartRateInBeatsPerMinute,
-                GarminActivityAthleteBody,
-                GarminActivityAthleteEffort,
+                StravaActivityType,
+                StravaActivityDescription,
+                StravaActivityAverageSpeed,
+                StravaActivityDate,
+                StravaActivityMovingTime,
+                StravaActivityDistance,
+                StravaActivityAverageHeartRate,
+                StravaActivityAthleteBody,
+                StravaActivityAthleteEffort,
                 _version,
               }) => {
                 return (
                   <div key={id} className="cardSpacingDiv">
-                    <ActivityCard
+                    <ActivityCardStrava
                       id={id}
                       version={_version}
-                      GarminActivityType={GarminActivityType}
-                      GarminActivityDescription={GarminActivityDescription}
-                      GarminAveragePaceInMinutesPerKilometer={
-                        GarminAveragePaceInMinutesPerKilometer
+                      StravaActivityType={StravaActivityType}
+                      StravaActivityDescription={StravaActivityDescription}
+                      StravaActivityAverageSpeed={
+                        StravaActivityAverageSpeed
                       }
                       fetcchActivity={fetchActivities}
-                      GarminActivityStartTime={GarminActivityStartTime}
-                      GarminActivityDuration={GarminActivityDuration}
-                      GarminActivityDistance={GarminActivityDistance}
-                      GarminAverageHeartRateInBeatsPerMinute={
-                        GarminAverageHeartRateInBeatsPerMinute
+                      StravaActivityDate={StravaActivityDate}
+                      StravaActivityMovingTime={StravaActivityMovingTime}
+                      StravaActivityDistance={StravaActivityDistance}
+                      StravaActivityAverageHeartRate={
+                        StravaActivityAverageHeartRate
                       }
-                      GarminActivityAthleteBody={GarminActivityAthleteBody}
-                      GarminActivityAthleteEffort={GarminActivityAthleteEffort}
+                      StravaActivityAthleteBody={StravaActivityAthleteBody}
+                    StravaActivityAthleteEffort={StravaActivityAthleteEffort}
                     />
                   </div>
                 );

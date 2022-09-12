@@ -22,35 +22,31 @@ export const Activityquery = `query MyQuery {
     }
   }`;
 
-  export const activitiesStravaByStravaActivityOwnerIdQuery = `query activitiesStravaByStravaActivityOwnerIdQuery {
-    activitiesgarminByGarminAccountId(GarminAccountId: "574dc5ad1b54a9fe210170d1fd34741c",filter: {StravaActivityAthleteFeedback: {eq: false}}) {
-      nextToken
-      startedAt
-      items {
-        StravaActivityAverageCadence
-        StravaActivityAverageHeartRate
-        StravaActivityAverageSpeed
-        StravaActivityAvergeTemp
-        StravaActivityCalories
-        StravaActivityDate
-        StravaActivityDescription
-        StravaActivityDistance
-        StravaActivityElevationGain
-        StravaActivityId
-        StravaActivityLocation
-        StravaActivityMovingTime
-        StravaActivityOwnerId
-        StravaActivitySufferScore
-        StravaActivityType
-        StravaActivityZones
-        StravaActivityAthleteFeedback
-        id
-        _version
-        updatedAt
-      }
+  export const StravaActivityQuery = `query activitiesStravaByStravaActivityOwnerId ($StravaActivityOwnerId: String) {
+    activitiesStravaByStravaActivityOwnerId(StravaActivityOwnerId: $StravaActivityOwnerId){
+        items {
+          StravaActivityAthleteFeedback
+          StravaActivityAverageCadence
+          StravaActivityAverageHeartRate
+          StravaActivityAverageSpeed
+          StravaActivityAvergeTemp
+          StravaActivityCalories  
+          StravaActivityDate
+          StravaActivityDescription
+          StravaActivityDistance
+          StravaActivityElevationGain
+          StravaActivityId
+          StravaActivityLocation
+          StravaActivityMovingTime
+          StravaActivityOwnerId
+          StravaActivitySufferScore
+          StravaActivityType
+          StravaActivityZones
+          updatedAt
+          _version
+        }
     }
-  }`;
-
+}`;
 
 
 export const updateGarminActivity = `
@@ -59,6 +55,15 @@ export const updateGarminActivity = `
       GarminActivityAthleteEffort
       GarminActivityAthleteBody
       GarminActivityAthleteFeedback
+    }
+  }`;
+
+  export const updateStravaActivity = `
+  mutation updateStravaActivity ($id: ID!, $StravaActivityAthleteBody: String, $StravaActivityAthleteEffort: String, $StravaActivityAthleteFeedback: Boolean,  $_version: Int) {
+    updateACTIVITIESSTRAVA(input : {id: $id, StravaActivityAthleteBody: $StravaActivityAthleteBody, StravaActivityAthleteEffort: $StravaActivityAthleteEffort, StravaActivityAthleteFeedback:$StravaActivityAthleteFeedback,_version: $_version}) {
+      StravaActivityAthleteEffort
+      StravaActivityAthleteBody
+      StravaActivityAthleteFeedback
     }
   }`;
 
