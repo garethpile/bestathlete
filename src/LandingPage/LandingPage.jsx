@@ -21,7 +21,7 @@ const LandingPage = () => {
   const [redirect, setRedirect] = useState(false);
   let customerDataVersion = 0;
 
-  const stravaPartyId;
+  const stravaPartyId='';
 
   const getCustomer = async (id) => {
     try {
