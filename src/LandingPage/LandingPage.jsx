@@ -19,6 +19,7 @@ const LandingPage = () => {
   const [userId, setUserId] = useState("");
   const [customer, setCustomer] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [stravaInfo, setStravaInfo] = useState("");
   let customerDataVersion = 0;
 
   let stravaPartyId='';
@@ -28,16 +29,16 @@ const LandingPage = () => {
       const customerData = await API.graphql(
         graphqlOperation(getCustomerByID, { id: id })
       );
-      console.log("customerData : ", customerData.data.getCUSTOMER360DSL);
+      //console.log("customerData : ", customerData.data.getCUSTOMER360DSL);
       if (!customerData.data.getCUSTOMER360DSL) {
         console.log("Customer does not exist ....");
         setRedirect(true);
       }
-      console.log("Customer exsists ....");
+      //console.log("Customer exsists ....");
       setCustomer(customerData.data.getCUSTOMER360DSL);
       customerDataVersion = customerData.data.getCUSTOMER360DSL?._version;
-      console.log("Customer Data returned: " + JSON.stringify(customer));
-      console.log("Customer version (Landing Page): ", customerDataVersion);
+      //console.log("Customer Data returned: " + JSON.stringify(customer));
+      //console.log("Customer version (Landing Page): ", customerDataVersion);
     } catch (error) {
       console.log("Customer does not exist ....", error);
       setRedirect(true);
@@ -48,11 +49,13 @@ const LandingPage = () => {
   const getStravaPartyId = async (customer360dslId) => {
     try {
         let stravaInformation = await axios.get(`https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava?customer360dslId=${customer360dslId}`);
-        console.log("Strava Party Information retrieved: ", stravaInformation);
-        console.log("Strava Party Information body retrieved: ", stravaInformation.data.body);
-        console.log("Strava Party Information Item[0] retrieved: ", stravaInformation.data.body.Items[0]);
+        //console.log("Strava Party Information retrieved: ", stravaInformation);
+        //console.log("Strava Party Information body retrieved: ", stravaInformation.data.body);
+        //console.log("Strava Party Information Item[0] retrieved: ", stravaInformation.data.body.Items[0]);
         stravaPartyId = stravaInformation.data.body.Items[0].PartyId;
         console.log("Strava Party Id retrieved: ", stravaInformation.data.body.Items[0].PartyId);
+        setStravaInfo(stravaInformation.data.body.Items[0]);
+        console.log("stravaInfo: ", stravaInfo);
       }
     catch (error) {
       console.log("Error retrieving Strava Party info ....", error);
@@ -90,7 +93,7 @@ const LandingPage = () => {
           <Route
             exact
             path="/"
-            element={<ThreeSixtyDSL customerData={customer} />}
+            element={<ThreeSixtyDSL customerData={customer} stravaData = {stravaInfo}/>}
           />
           <Route
             exact
