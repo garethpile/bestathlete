@@ -175,6 +175,7 @@ exports.handler = async (event) => {
       StravaActivityType: activityType,
       StravaActivityLocation: activityLocation,
       StravaActivity:jsonResponseParse,
+      StravaActivityAthleteFeedback: false
       //StravaActivityZones:activityZones
     }
   };
