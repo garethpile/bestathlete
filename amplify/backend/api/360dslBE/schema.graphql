@@ -94,6 +94,11 @@ type ACTIVITIESSTRAVA
   StravaActivity: AWSJSON
   StravaActivityZones: AWSJSON
   StravaActivityAthleteFeedback: Boolean
+  StravaActivityRPE: Int
+  StravaActivityFatigue: Int
+  StravaActivityAthleteFeedback: Boolean
+  StravaActivityAthleteEffort: String
+  StravaActivityAthleteBody: String
 }
 
 type ACTIVITIES360DSL @model @auth(rules: [{ allow: public }]) {
