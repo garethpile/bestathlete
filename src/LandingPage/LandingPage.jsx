@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Auth, API, graphqlOperation } from "aws-amplify";
-import { getCustomerByID  } from "../Apollo/queries";
+import { getCustomerByID } from "../Apollo/queries";
 import axios from "axios";
 
 import Header from "../Components/Header";
@@ -9,7 +9,7 @@ import {
   Routes,
   Route,
   BrowserRouter,
-  Navigate
+  Navigate,
 } from "react-router-dom";
 import ThreeSixtyDSL from "../ThreeSixtyDSL/ThreeSixtyDSL";
 import ThirdParty from "../ThreeSixtyDSL/ThirdParty";
@@ -22,7 +22,7 @@ const LandingPage = () => {
   const [stravaInfo, setStravaInfo] = useState("");
   let customerDataVersion = 0;
 
-  let stravaPartyId='';
+  let stravaPartyId = "";
 
   const getCustomer = async (id) => {
     try {
@@ -34,34 +34,36 @@ const LandingPage = () => {
         console.log("Customer does not exist ....");
         setRedirect(true);
       }
-      //console.log("Customer exsists ....");
+      console.log("Customer exsists ....");
       setCustomer(customerData.data.getCUSTOMER360DSL);
       customerDataVersion = customerData.data.getCUSTOMER360DSL?._version;
-      //console.log("Customer Data returned: " + JSON.stringify(customer));
-      //console.log("Customer version (Landing Page): ", customerDataVersion);
+      console.log("Customer Data returned: ", customer);
+      console.log("Customer version (Landing Page): ", customerDataVersion);
     } catch (error) {
       console.log("Customer does not exist ....", error);
       setRedirect(true);
     }
   };
 
-
   const getStravaPartyId = async (customer360dslId) => {
     try {
-        let stravaInformation = await axios.get(`https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava?customer360dslId=${customer360dslId}`);
-        //console.log("Strava Party Information retrieved: ", stravaInformation);
-        //console.log("Strava Party Information body retrieved: ", stravaInformation.data.body);
-        //console.log("Strava Party Information Item[0] retrieved: ", stravaInformation.data.body.Items[0]);
-        stravaPartyId = stravaInformation.data.body.Items[0].PartyId;
-        console.log("Strava Party Id retrieved: ", stravaInformation.data.body.Items[0].PartyId);
-        setStravaInfo(stravaInformation.data.body.Items[0]);
-        console.log("stravaInfo: ", stravaInfo);
-      }
-    catch (error) {
+      let stravaInformation = await axios.get(
+        `https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava?customer360dslId=${customer360dslId}`
+      );
+      //console.log("Strava Party Information retrieved: ", stravaInformation);
+      //console.log("Strava Party Information body retrieved: ", stravaInformation.data.body);
+      //console.log("Strava Party Information Item[0] retrieved: ", stravaInformation.data.body.Items[0]);
+      stravaPartyId = stravaInformation.data.body.Items[0].PartyId;
+      console.log(
+        "Strava Party Id retrieved: ",
+        stravaInformation.data.body.Items[0].PartyId
+      );
+      setStravaInfo(stravaInformation.data.body.Items[0]);
+      console.log("stravaInfo: ", stravaInfo);
+    } catch (error) {
       console.log("Error retrieving Strava Party info ....", error);
     }
   };
-
 
   useEffect(() => {
     Auth.currentAuthenticatedUser({
@@ -72,11 +74,9 @@ const LandingPage = () => {
         console.log("Current userId: ", user.username);
         console.log("Get customer data of current logged in user .....");
         getCustomer(user.username);
-      })
-      .then((user) => {
         console.log("Retrieving Strava Party Id ...");
-       getStravaPartyId(user.username);
-  })
+        getStravaPartyId(user.username);
+      })
       .catch((err) => console.log(err));
   }, []);
   return (
@@ -94,13 +94,11 @@ const LandingPage = () => {
           <Route
             exact
             path="/"
-            element={<ThreeSixtyDSL customerData={customer} stravaData = {stravaInfo}/>}
+            element={
+              <ThreeSixtyDSL customerData={customer} stravaData={stravaInfo} />
+            }
           />
-          <Route
-            exact
-            path="*"
-            element={<Navigate to="/" />}
-          />
+          <Route exact path="*" element={<Navigate to="/" />} />
         </Routes>
       )}
     </BrowserRouter>
