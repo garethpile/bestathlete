@@ -46,10 +46,8 @@ const LandingPage = () => {
   const getStravaPartyId = async (customer360dslId) => {
     try {
         let stravaInformation = await axios.get(`https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/strava?customer360dslId=${customer360dslId}`);
-
-        if(stravaInformation.status === 200 && stravaInformation.Items[0]){
-          console.log("Strava Party Information retrieved: ", stravaInformation.Items[0]);
-        }
+        console.log("Strava Party Information retrieved: ", stravaInformation);
+        console.log("Strava Party Information Item[0] retrieved: ", stravaInformation.Items[0]);
       }
     catch (error) {
       console.log("Error retrieving Strava Party info ....", error);
