@@ -39,6 +39,14 @@ function secondsToHms(d) {
   return hDisplay + mDisplay + sDisplay;
 }
 
+function MetresPerSecondToMinsPerKm (MetresPerSecond){
+  
+  var MetresPerMinute = MetresPerSecond*60;
+  var MinutesPerKm = 1000/MetresPerMinute;
+  return MinutesPerKm;
+
+}
+
 function MinPerKmFraction(MinPerKm, StravaActivityType) {
   switch (StravaActivityType) {
     case "Swim":
@@ -113,7 +121,7 @@ export default function ActivityCardStrava(props) {
         <span className="activityHead">
           <p>{props.StravaActivityDescription}</p>
           <p className="metricValue">
-            {moment(new Date(props.StravaActivityDate* 1000)).format(
+            {moment(new Date(props.StravaActivityDate)).format(
               "DD/MM/YYYY HH:MM"
             )}
           </p>
@@ -134,9 +142,8 @@ export default function ActivityCardStrava(props) {
         <span className="metricSpan">
           <p className="metricHead">Pace</p>
           <p className="metricValue">
-            {MinPerKmFraction(
-              props.StravaActivityAverageSpeed,
-              props.StravaActivityType
+            {MetresPerSecondToMinsPerKm(
+              props.StravaActivityAverageSpeed
             )}
           </p>
         </span>
