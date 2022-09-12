@@ -31,7 +31,7 @@ exports.handler = async (event, context) => {
 
     console.log("Query data returned: ", data);
     console.log("Query data returned (Stringified): ", JSON.stringify(data));
-    return { body: JSON.stringify(data) };
+    return { body: data };
   } catch (err) {
     return { error: err };
   }
