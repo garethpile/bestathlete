@@ -72,10 +72,11 @@ const LandingPage = () => {
         console.log("Current userId: ", user.username);
         console.log("Get customer data of current logged in user .....");
         getCustomer(user.username);
-
+      })
+      .then((user) => {
         console.log("Retrieving Strava Party Id ...");
        getStravaPartyId(user.username);
-      })
+  })
       .catch((err) => console.log(err));
   }, []);
   return (
