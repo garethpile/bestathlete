@@ -96,7 +96,7 @@ type ACTIVITIESSTRAVA
   StravaActivityAthleteFeedback: Boolean
   StravaActivityRPE: Int
   StravaActivityFatigue: Int
-  StravaActivityAthleteFeedback: Boolean
+
   StravaActivityAthleteEffort: String
   StravaActivityAthleteBody: String
 }
