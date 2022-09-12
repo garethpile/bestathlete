@@ -47,7 +47,7 @@ function ThreeSixtyDSL(props) {
   useEffect(() => {
     console.log("props.stravaData.PartyId: ", props.stravaData.PartyId);
     fetchActivities(props.stravaData.PartyId);
-  }, []);
+  }, [props]);
   return (
     <div>
       {/* <Header user={userId} /> */}
