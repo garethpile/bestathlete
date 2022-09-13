@@ -6,7 +6,7 @@ import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Select } from "antd";
-import { Button} from "antd";
+import { Button } from "antd";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import PoolIcon from "@mui/icons-material/Pool";
@@ -39,12 +39,44 @@ function secondsToHms(d) {
   return hDisplay + mDisplay + sDisplay;
 }
 
-function MetresPerSecondToMinsPerKm (MetresPerSecond){
-  
-  var MetresPerMinute = MetresPerSecond*60;
-  var MinutesPerKm = 1000/MetresPerMinute;
-  return MinutesPerKm;
-
+function MetresPerSecondToMinsPerKm(MetresPerSecond, StravaActivityType) {
+  if (MetresPerSecond == 0) {
+    return "-";
+  } else if (StravaActivityType == "WeightTraining") {
+    return "-";
+  } else {
+    var MetresPerMinute = MetresPerSecond * 60;
+    var MinutesPerKm = 1000 / MetresPerMinute;
+    return MinutesPerKm;
+  }
+  /*
+            switch (StravaActivityType) {
+              case "Swim":
+                MinPerKm = Number(MinPerKm);
+                var SecPerHundred = (MinPerKm / 10) * 60;
+                var Mins = Math.floor(SecPerHundred / 60);
+                var Secs = Math.floor(SecPerHundred - Mins * 60);
+                return Mins + ":" + Secs;
+              case "WeightTraining":
+                return "-";
+              case "Run": {
+                MinPerKm = Number(MinPerKm);
+                var mins = Math.floor(MinPerKm / 1);
+                var fraction = Math.floor((MinPerKm - mins) * 60);
+                return mins + ":" + fraction;
+              }
+              case "Ride":
+                MinPerKm = Number(MinPerKm);
+                var KmPerHr = (1 / MinPerKm) * 60;
+                return KmPerHr.toFixed(2);
+              case "VirtualRide":
+                MinPerKm = Number(MinPerKm);
+                var KmPerHr = (1 / MinPerKm) * 60;
+                return KmPerHr.toFixed(2);
+              default:
+                return "-";
+            }
+          */
 }
 
 function MinPerKmFraction(MinPerKm, StravaActivityType) {
@@ -77,30 +109,30 @@ function MinPerKmFraction(MinPerKm, StravaActivityType) {
 }
 
 export default function ActivityCardStrava(props) {
-  const [dropdownActivityEffort, setDropdownActivityEffort] = React.useState("");
+  const [dropdownActivityEffort, setDropdownActivityEffort] =
+    React.useState("");
   const [dropdownActivityBody, setDropdownActivityBody] = React.useState("");
 
   async function updateActivity(id) {
     try {
-      if(!dropdownActivityBody || !dropdownActivityEffort) {
-        alert("Please Select Required Fields")
+      if (!dropdownActivityBody || !dropdownActivityEffort) {
+        alert("Please Select Required Fields");
       }
       console.log("Strava ActivityAthleteBody: " + dropdownActivityBody);
 
       const updateActivity = await API.graphql(
         graphqlOperation(updateStravaActivity, {
           // variables: {
-            id: id,
-            StravaActivityAthleteBody: dropdownActivityBody,
-            StravaActivityAthleteEffort: dropdownActivityEffort,
-            StravaActivityAthleteFeedback: true,
-            _version : props.version
+          id: id,
+          StravaActivityAthleteBody: dropdownActivityBody,
+          StravaActivityAthleteEffort: dropdownActivityEffort,
+          StravaActivityAthleteFeedback: true,
+          _version: props.version,
           // }
         })
       );
       console.log("updateActivity response: " + updateActivity);
-      props.fetcchActivity(props.StravaActivityOwnerId)
-     
+      props.fetcchActivity(props.StravaActivityOwnerId);
     } catch (err) {
       console.log("Error updating activity", err);
     }
@@ -112,10 +144,11 @@ export default function ActivityCardStrava(props) {
         <span className="activitySpan">
           <IconButton className="activityAvator">
             <Avatar shape="circle" size={60}>
-              {iconDictionary[props.StravaActivityType] || props.StravaActivityType}
+              {iconDictionary[props.StravaActivityType] ||
+                props.StravaActivityType}
             </Avatar>
           </IconButton>
-          { }
+          {}
         </span>
 
         <span className="activityHead">
@@ -137,13 +170,16 @@ export default function ActivityCardStrava(props) {
         </span>
         <span className="metricSpan">
           <p className="metricHead">Time</p>
-          <p className="metricValue">{secondsToHms(props.StravaActivityMovingTime)}</p>
+          <p className="metricValue">
+            {secondsToHms(props.StravaActivityMovingTime)}
+          </p>
         </span>
         <span className="metricSpan">
           <p className="metricHead">Pace</p>
           <p className="metricValue">
             {MetresPerSecondToMinsPerKm(
-              props.StravaActivityAverageSpeed
+              props.StravaActivityAverageSpeed,
+              props.StravayActivityType
             )}
           </p>
         </span>
@@ -163,7 +199,9 @@ export default function ActivityCardStrava(props) {
           placeholder="ActivityEffort"
           style={{ width: "100%" }}
         >
-          <Option selected disabled value="">Please Select ActivityEffort</Option>
+          <Option selected disabled value="">
+            Please Select ActivityEffort
+          </Option>
           <Option value="SuperEasy">Super easy</Option>
           <Option value="GoodSweat">Good sweat</Option>
           <Option value="Great">Great workout</Option>
@@ -180,7 +218,9 @@ export default function ActivityCardStrava(props) {
           placeholder="BodyFeedback"
           style={{ width: "100%" }}
         >
-          <Option selected disabled value="">Please Select BodyFeedback</Option>
+          <Option selected disabled value="">
+            Please Select BodyFeedback
+          </Option>
           <Option value="SuperStrong">Super strong</Option>
           <Option value="FeelGreat">Feels great</Option>
           <Option value="NotBad">Not too bad</Option>
@@ -190,11 +230,7 @@ export default function ActivityCardStrava(props) {
       </Box>
       <Divider light />
       <Box mt={1}>
-        <Button
-          onClick={() => updateActivity(props.id)}
-        >
-          Save
-        </Button>
+        <Button onClick={() => updateActivity(props.id)}>Save</Button>
       </Box>
     </Card>
   );
