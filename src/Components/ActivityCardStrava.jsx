@@ -99,6 +99,7 @@ function MinPerKmFraction(MinPerKm, StravaActivityType) {
       var mins = Math.floor(MinPerKm / 1);
       var fraction = Math.floor((MinPerKm - mins) * 60);
       if (fraction < 10){
+        console.log("Fraction leass than 10")
         fraction = "0"+ fraction;
       }
       return mins + ":" + fraction;
