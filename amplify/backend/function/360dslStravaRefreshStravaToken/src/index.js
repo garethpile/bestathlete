@@ -16,6 +16,7 @@ exports.handler = async (event, context, callback) => {
   var new_strava_expires_at;
   var strava_last_name;
   var strava_first_name;
+  var customer360DslId;
 
   var m360dslStravaRefreshTokenResult;
 
@@ -26,6 +27,7 @@ exports.handler = async (event, context, callback) => {
     strava_refresh_token = event.stravaTokenData.Item.strava_refresh_token.S;
     strava_last_name = event.stravaTokenData.Item.LastName.S;
     strava_first_name = event.stravaTokenData.Item.FirstName.S;
+    customer360DslId = event.stravaTokenData.Item.customer360dslId.S;
 
     console.log("Strava Party ID: ", strava_party_id);
     console.log("Strava Refresh Token: ", strava_refresh_token);
@@ -103,7 +105,8 @@ exports.handler = async (event, context, callback) => {
     strava_refresh_token: new_strava_refresh_token,
     strava_expires_at: new_strava_expires_at,
     LastName:strava_last_name,
-    FirstName:strava_first_name
+    FirstName:strava_first_name,
+    customer360dslId:customer360DslId
   };
 
   try {
