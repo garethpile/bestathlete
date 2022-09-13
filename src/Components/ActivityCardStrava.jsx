@@ -88,6 +88,9 @@ function MinPerKmFraction(MinPerKm, StravaActivityType) {
       var SecPerHundred = (MinPerKm / 10) * 60;
       var Mins = Math.floor(SecPerHundred / 60);
       var Secs = Math.floor(SecPerHundred - Mins * 60);
+      if (Secs < 10){
+        Secs = "0"+ Secs;
+      }
       return Mins + ":" + Secs;
     case "WeightTraining":
       return "-";
@@ -95,6 +98,9 @@ function MinPerKmFraction(MinPerKm, StravaActivityType) {
       MinPerKm = Number(MinPerKm);
       var mins = Math.floor(MinPerKm / 1);
       var fraction = Math.floor((MinPerKm - mins) * 60);
+      if (fraction < 10){
+        fraction = "0"+ fraction;
+      }
       return mins + ":" + fraction;
     }
     case "Ride":
