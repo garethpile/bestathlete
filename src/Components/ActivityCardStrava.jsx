@@ -99,7 +99,7 @@ export default function ActivityCardStrava(props) {
         })
       );
       console.log("updateActivity response: " + updateActivity);
-      props.fetcchActivity()
+      props.fetcchActivity(props.StravaActivityOwnerId)
      
     } catch (err) {
       console.log("Error updating activity", err);

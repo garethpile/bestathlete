@@ -80,6 +80,7 @@ function ThreeSixtyDSL(props) {
                 StravaActivityAverageHeartRate,
                 StravaActivityAthleteBody,
                 StravaActivityAthleteEffort,
+                StravaActivityOwnerId,
                 _version,
               }) => {
                 return (
@@ -89,18 +90,15 @@ function ThreeSixtyDSL(props) {
                       version={_version}
                       StravaActivityType={StravaActivityType}
                       StravaActivityDescription={StravaActivityDescription}
-                      StravaActivityAverageSpeed={
-                        StravaActivityAverageSpeed
-                      }
+                      StravaActivityAverageSpeed={StravaActivityAverageSpeed}
                       fetcchActivity={fetchActivities}
                       StravaActivityDate={StravaActivityDate}
                       StravaActivityMovingTime={StravaActivityMovingTime}
                       StravaActivityDistance={StravaActivityDistance}
-                      StravaActivityAverageHeartRate={
-                        StravaActivityAverageHeartRate
-                      }
+                      StravaActivityAverageHeartRate={StravaActivityAverageHeartRate}
                       StravaActivityAthleteBody={StravaActivityAthleteBody}
-                    StravaActivityAthleteEffort={StravaActivityAthleteEffort}
+                      StravaActivityAthleteEffort={StravaActivityAthleteEffort}
+                      StravaActivityOwnerId={StravaActivityOwnerId}
                     />
                   </div>
                 );
