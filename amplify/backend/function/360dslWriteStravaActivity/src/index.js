@@ -208,7 +208,7 @@ exports.handler = async (event) => {
     httpRequest.end();
   });
 
-  console.log("API result: ", data);
+  console.log("API result : ", data);
 
   return {
     statusCode: 200,
