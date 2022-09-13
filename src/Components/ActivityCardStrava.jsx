@@ -47,7 +47,9 @@ function MetresPerSecondToMinsPerKm(MetresPerSecond, StravaActivityType) {
   } else {
     var MetresPerMinute = MetresPerSecond * 60;
     var MinutesPerKm = 1000 / MetresPerMinute;
-    return MinutesPerKm;
+
+    var MinutesPerKmFormatted = MinPerKmFraction(MinutesPerKm.toFixed(2),"Run");
+    return MinutesPerKmFormatted;
   }
   /*
             switch (StravaActivityType) {
