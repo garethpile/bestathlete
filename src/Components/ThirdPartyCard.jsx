@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "antd";
 
 export default function ThirdPartyCard(props) {
-  let customerUserId = props.customerData.id;
+  let customerUserId = props.customerEntity.id;
   //console.log("Customer userId: ", customerUserId);
   return (
     <Card className="maincardDiv">

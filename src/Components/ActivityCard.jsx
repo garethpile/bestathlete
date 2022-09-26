@@ -156,10 +156,8 @@ export default function ActivityCard(props) {
         >
           <Option selected disabled value="">Please Select ActivityEffort</Option>
           <Option value="SuperEasy">Super easy</Option>
-
-          <Option value="GoodSweat">Good sweat</Option>
-          <Option value="Great">Great workout</Option>
-          <Option value="Hurt">That hurt!</Option>
+          <Option value="SolidWorkout">Solid workout</Option>
+          <Option value="Struggled">Struggled</Option>
           <Option value="Broke">Broke me!</Option>
         </Select>
       </Box>
@@ -173,11 +171,10 @@ export default function ActivityCard(props) {
           style={{ width: "100%" }}
         >
           <Option selected disabled value="">Please Select BodyFeedback</Option>
-          <Option value="SuperStrong">Super strong</Option>
-          <Option value="FeelGreat">Feels great</Option>
-          <Option value="NotBad">Not too bad</Option>
+          <Option value="FeelGreat">Feels great!</Option>
+          <Option value="SlightlyFatigued">Slightly fatigued</Option>
+          <Option value="ReallyTired">Really tired!</Option>
           <Option value="Sore">I'm sore!</Option>
-          <Option value="Broken">Broken!</Option>
         </Select>
       </Box>
       <Divider light />

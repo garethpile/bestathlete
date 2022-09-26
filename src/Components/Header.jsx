@@ -11,8 +11,11 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import "antd/dist/antd.min.css";
 import { Avatar } from "antd";
 import { Auth } from 'aws-amplify';
+import { useEffect } from "react";
 
-export default function Header({user}) {
+export default function Header(props) {
+
+ // export default function Header({user} , {customer}) {
   const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -20,6 +23,9 @@ export default function Header({user}) {
   const open = Boolean(anchorEl);
   const thidPartyMenu = Boolean(thirdanchorEl);
 
+  console.log("Header props.customerId: ",   props.customerId)  ;
+  console.log("Header props.cognitoEntity: ", props.cognitoEntity)  ;
+  console.log("Header props.customerEntity: ", props.customerEntity)  ;
   
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -41,6 +47,11 @@ export default function Header({user}) {
   const handleCloseThirdParty = () => {
     setTHirdAnchorEl(null);
   };
+
+  useEffect(() => {
+    //console.log("props.stravaData.PartyId: ", props.stravaData.PartyId);
+    //fetchActivities(props.stravaData.PartyId);
+  }, [props]);
 
   return (
     <AppBar className="headerDiv">
@@ -135,7 +146,7 @@ export default function Header({user}) {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <MenuItem onClick={() => navigate("Profile")}>Profile</MenuItem>
+                <MenuItem onClick={() => navigate("Profile", {state:{customerEntity:props.customerEntity}}  )}>Profile</MenuItem>
                 <MenuItem onClick={signOut}>Logout</MenuItem>
               </Menu>
             </div>

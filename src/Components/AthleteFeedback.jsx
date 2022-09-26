@@ -13,7 +13,7 @@ import Modal from "./Modal/Modal"
 const { Option } = Select;
 
 export default function AthleteFeedback(props) {
-  const [dropdownSleep, setDropdownSleep] = React.useState(props.customerData.metricSleep);
+  const [dropdownSleep, setDropdownSleep] = React.useState(props.customerEntity.metricSleep);
   const [dropdownWorkLifeStress, setDropdownWorkLifeStress] =
     React.useState("");
   const [dropdownInjury, setDropdownInjury] = React.useState("");
@@ -28,23 +28,23 @@ export default function AthleteFeedback(props) {
     if(!form.startDate || !form.endDate){
       return alert("Please enter start and end date");
     }
-    let currentCustomerDataVersion = "";
+    let currentCustomerEntityVersion = "";
     try {
-      currentCustomerDataVersion = props.customerData._version;
+      currentCustomerEntityVersion = props.customerEntity._version;
       console.log(
-        "Function updateAthleteMetrics executing with parameter id: " + props.customerData.id
+        "Function updateAthleteMetrics executing with parameter id: " + props.customerEntity.id
       );
       
-      console.log("AthleteFeedback Component - customerVersion: " + currentCustomerDataVersion);
+      console.log("AthleteFeedback Component - customerVersion: " + currentCustomerEntityVersion);
 
       const updateAthleteMetricsResponse = await API.graphql(
         graphqlOperation(updateNonTrainingDays, {
-          id: props.customerData.id,
+          id: props.customerEntity.id,
           startDate: form.startDate,
           endDate: form.endDate,
           valid: true,
-          EmailAddress: props.customerData.EmailAddress,
-          _version: currentCustomerDataVersion
+          EmailAddress: props.customerEntity.EmailAddress,
+          _version: currentCustomerEntityVersion
         })
       );
       console.log(
@@ -55,15 +55,15 @@ export default function AthleteFeedback(props) {
       console.log("Error updating Athlete metrics", err);
     }
   }
-  async function updateAthleteMetrics(userId,customerData) {
-    let currentCustomerDataVersion = "";
+  async function updateAthleteMetrics(userId,customerEntity) {
+    let currentCustomerEntityVersion = "";
     try {
-      currentCustomerDataVersion = customerData._version;
+      currentCustomerEntityVersion = customerEntity._version;
       console.log(
         "Function updateAthleteMetrics executing with parameter id: " + userId
       );
       
-      console.log("AthleteFeedback Component - customerVersion: " + currentCustomerDataVersion);
+      console.log("AthleteFeedback Component - customerVersion: " + currentCustomerEntityVersion);
 
       const updateAthleteMetricsResponse = await API.graphql(
         graphqlOperation(updateAthleteMetricsMutation, {
@@ -73,7 +73,7 @@ export default function AthleteFeedback(props) {
           MetricSick: dropdownSick,
           MetricWorkLifeBalance: dropdownWorkLifeStress,
           MetricsDateCapture: moment(new Date()).format("YYYY-MM-DD"),
-          _version: currentCustomerDataVersion
+          _version: currentCustomerEntityVersion
         })
       );
       console.log(
@@ -192,7 +192,7 @@ export default function AthleteFeedback(props) {
             </Select>
           </Box>
           <p></p>
-          <Button onClick={() => updateAthleteMetrics(props.customerData.id,props.customerData._version)}>Save</Button>
+          <Button onClick={() => updateAthleteMetrics(props.customerEntity.id,props.customerEntity._version)}>Save</Button>
         </Col>
       </Row>
     </Card>
