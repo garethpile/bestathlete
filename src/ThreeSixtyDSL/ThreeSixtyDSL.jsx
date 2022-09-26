@@ -64,7 +64,7 @@ function ThreeSixtyDSL(props) {
             >
               Activity Feedback Corner
             </h1>
-            <AthleteCard customerData={props.customerData} />
+            <AthleteCard customerEntity={props.customerEntity} />
             <TermsConditions />
           </Col>
           <Col className="secondCol" span={8} xs={24} sm={24} lg={8} xl={8}>
@@ -107,7 +107,7 @@ function ThreeSixtyDSL(props) {
           </Col>
 
           <Col className="thirdCol" span={8} xs={24} sm={24}>
-            <AthleteFeedback customerData={props.customerData} />
+            <AthleteFeedback customerEntity={props.customerEntity} />
             <div
               style={{
                 marginRight: "40px",
