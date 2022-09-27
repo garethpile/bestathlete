@@ -105,7 +105,7 @@ export default function Header(props) {
   
           
      
-                <MenuItem onClick={() => navigate("ThirdParty")}>Connect 3rd Parties</MenuItem>
+                <MenuItem onClick={() => navigate("ThirdParty", {state:{customerEntity:props.customerEntity}}  )}>Connect 3rd Parties</MenuItem>
               </Menu>
               
             </div>

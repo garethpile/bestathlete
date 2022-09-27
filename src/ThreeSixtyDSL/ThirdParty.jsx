@@ -3,12 +3,31 @@ import "./ThreeSixtyDSL.css";
 import "antd/dist/antd.min.css";
 import { Row, Col } from "antd";
 import ThirdPartyCard from "../Components/ThirdPartyCard";
+import { useLocation } from "react-router-dom";
 
 
 
 function ThirdParty(props) {
-  let customerUserId = props.customerData.id;
-  //console.log("Customer userId: ", customerUserId);
+
+  let location = useLocation();
+  //let locationStateCustomerEntity;
+  let customerEntity;
+ 
+
+  try{
+    
+    console.log("location in ThirdPartyCard: ", location);
+    customerEntity = location.state.customerEntity;
+    console.log("customerEntity: ",customerEntity);
+    }
+    catch(error){
+      console.log("Error: ", error);
+    }
+   // let customerUserId = "123";
+
+   
+  //let customerUserId = props.customerData.id;
+  // console.log("Customer userId: ", customerUserId);
 
   return (
     <div>
@@ -35,7 +54,7 @@ function ThirdParty(props) {
             </h1>
 
             <div className="cardSpacingDiv">
-              <ThirdPartyCard customerData={props.customerData} />
+              <ThirdPartyCard customerEntity={customerEntity} />
             </div>
           </Col>
 
