@@ -158,6 +158,7 @@ exports.handler = async (event) => {
 
   const item = {
     input: {
+      StravaActivityAthleteFeedback: false,
       StravaActivityAverageCadence: activityAverageCadence,
       StravaActivityAverageHeartRate: activityAverageHeartRate,
       StravaActivityAverageSpeed: activityAverageSpeed,
@@ -174,8 +175,7 @@ exports.handler = async (event) => {
       StravaActivitySufferScore: activitySufferScore,
       StravaActivityType: activityType,
       StravaActivityLocation: activityLocation,
-      StravaActivity:jsonResponseParse,
-      StravaActivityAthleteFeedback: false
+      StravaActivity:jsonResponseParse
       //StravaActivityZones:activityZones
     }
   };
