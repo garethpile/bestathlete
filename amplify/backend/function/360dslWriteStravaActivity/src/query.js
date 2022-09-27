@@ -17,6 +17,7 @@ module.exports = {
         StravaActivityOwnerId
         StravaActivitySufferScore
         StravaActivityType
+        StravaActivityAthleteFeedback
       }
     }
   `
