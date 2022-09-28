@@ -106,6 +106,7 @@ exports.handler = async (event, context, callback) => {
     strava_expires_at: new_strava_expires_at,
     LastName:strava_last_name,
     FirstName:strava_first_name,
+    strava_connected: true,
     customer360dslId:customer360DslId
   };
 

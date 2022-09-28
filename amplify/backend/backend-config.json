@@ -549,6 +549,11 @@
           ]
         }
       ]
+    },
+    "360dslPartyTPGetByEmailAddress": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "hosting": {

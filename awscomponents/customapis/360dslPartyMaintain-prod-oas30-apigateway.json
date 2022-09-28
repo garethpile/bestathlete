@@ -1,11 +1,11 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "360dslPartyMaintain",
-    "version" : "2021-12-05 04:57:12UTC"
+    "title" : "360dslParty",
+    "version" : "2022-09-28 12:46:57UTC"
   },
   "servers" : [ {
-    "url" : "https://h9hcxir6wh.execute-api.eu-west-1.amazonaws.com/{basePath}",
+    "url" : "https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/{basePath}",
     "variables" : {
       "basePath" : {
         "default" : "prod"
@@ -13,48 +13,48 @@
     }
   } ],
   "paths" : {
-    "/garmin" : {
-      "put" : {
-        "responses" : {
-          "default" : {
-            "description" : "Default response for PUT /garmin"
-          }
-        },
-        "x-amazon-apigateway-integration" : {
-          "payloadFormatVersion" : "2.0",
-          "type" : "aws_proxy",
-          "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyGarminMaintain-prod/invocations",
-          "connectionType" : "INTERNET"
-        }
-      },
+    "/tp" : {
       "post" : {
         "responses" : {
           "default" : {
-            "description" : "Default response for POST /garmin"
+            "description" : "Default response for POST /tp"
           }
         },
         "x-amazon-apigateway-integration" : {
           "payloadFormatVersion" : "2.0",
           "type" : "aws_proxy",
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyGarminMaintain-prod/invocations",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyTPMaintain-prod/invocations",
+          "connectionType" : "INTERNET"
+        }
+      },
+      "x-amazon-apigateway-any-method" : {
+        "responses" : {
+          "default" : {
+            "description" : "Default response for ANY /tp"
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "payloadFormatVersion" : "2.0",
+          "type" : "aws_proxy",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyTPMaintain-prod/invocations",
           "connectionType" : "INTERNET"
         }
       }
     },
     "/strava" : {
-      "put" : {
+      "get" : {
         "responses" : {
           "default" : {
-            "description" : "Default response for PUT /strava"
+            "description" : "Default response for GET /strava"
           }
         },
         "x-amazon-apigateway-integration" : {
           "payloadFormatVersion" : "2.0",
           "type" : "aws_proxy",
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyStravaMaintain-prod/invocations",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyStravaGetByCustomer360dslId-prod/invocations",
           "connectionType" : "INTERNET"
         }
       },
@@ -73,36 +73,48 @@
         }
       }
     },
-    "/tp" : {
-      "put" : {
-        "responses" : {
-          "default" : {
-            "description" : "Default response for PUT /tp"
-          }
-        },
-        "x-amazon-apigateway-integration" : {
-          "payloadFormatVersion" : "2.0",
-          "type" : "aws_proxy",
-          "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyTPMaintain-prod/invocations",
-          "connectionType" : "INTERNET"
-        }
-      },
+    "/garmin" : {
       "post" : {
         "responses" : {
           "default" : {
-            "description" : "Default response for POST /tp"
+            "description" : "Default response for POST /garmin"
           }
         },
         "x-amazon-apigateway-integration" : {
           "payloadFormatVersion" : "2.0",
           "type" : "aws_proxy",
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyTPMaintain-prod/invocations",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyGarminMaintain-prod/invocations",
           "connectionType" : "INTERNET"
         }
       }
     }
+  },
+  "components" : {
+    "x-amazon-apigateway-integrations" : {
+      "unusedIntegration_gkku4gv" : {
+        "payloadFormatVersion" : "2.0",
+        "type" : "aws_proxy",
+        "httpMethod" : "POST",
+        "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyStravaMaintain-prod/invocations",
+        "connectionType" : "INTERNET",
+        "timeoutInMillis" : 30000
+      },
+      "unusedIntegration_e83upra" : {
+        "payloadFormatVersion" : "2.0",
+        "type" : "aws_proxy",
+        "httpMethod" : "POST",
+        "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslPartyGarminMaintain-prod/invocations",
+        "connectionType" : "INTERNET",
+        "timeoutInMillis" : 30000
+      }
+    }
+  },
+  "x-amazon-apigateway-cors" : {
+    "allowHeaders" : [ "*" ],
+    "maxAge" : 0,
+    "allowCredentials" : false,
+    "allowOrigins" : [ "*" ]
   },
   "x-amazon-apigateway-importexport-version" : "1.0"
 }
