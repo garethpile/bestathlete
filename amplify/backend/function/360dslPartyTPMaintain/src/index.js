@@ -9,17 +9,16 @@ module.exports.handler = (event, context, callback) => {
 
   var TPAccessToken;
   var TPRefreshToken;
+  var TPConnected;
 
   try {
     TPAccessToken = body.tp_access_token;
-  } catch (e) {
-    console.log(e);
-  }
-  try {
     TPRefreshToken = body.tp_refresh_token;
+    TPConnected = body.tp_connected;
   } catch (e) {
     console.log(e);
   }
+
 
   var params;
 
@@ -33,6 +32,7 @@ module.exports.handler = (event, context, callback) => {
         EmailAddress: body.EmailAddress,
         tp_access_token: TPAccessToken,
         tp_refresh_token: TPRefreshToken,
+        tp_connected: TPConnected,
         updateAt: new Date().getTime(),
       },
     };

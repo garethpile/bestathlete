@@ -229,7 +229,8 @@ exports.handler = function (event, context, callback) {
               strava_access_token: strava_access_token,
               strava_refresh_token: strava_refresh_token,
               strava_expires_at: expires_at,
-              customer360dslId:customer360dslId
+              customer360dslId:customer360dslId,
+              strava_connected: true
             };
              
             console.log("Calling 360dslParty to update Strava info ...");

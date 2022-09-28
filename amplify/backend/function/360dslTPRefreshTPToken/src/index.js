@@ -88,7 +88,8 @@ exports.handler = async (event, context, callback) => {
       LastName: tp_lastname,
       FirstName: tp_firstname,
       EmailAddress: tp_emailaddress,
-      tp_expires_in: expires_in
+      tp_expires_in: expires_in,
+      tp_connected: true
     };
   } catch (error) {
     let errorMessage = "ERROR invoking TP Token Exchange Post:  " + error;

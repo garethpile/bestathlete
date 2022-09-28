@@ -25,6 +25,7 @@ module.exports.handler = (event, context, callback) => {
     var StravaLastName;
     var StravaFirstName;
     var Customer360dslId;
+    var StravaConnected;
 
     try {
       StravaPartyId = body.PartyId;
@@ -35,6 +36,7 @@ module.exports.handler = (event, context, callback) => {
       StravaAccessToken = body.strava_access_token;
       StravaRefreshToken = body.strava_refresh_token;
       Customer360dslId = body.customer360dslId;
+      StravaConnected = body.strava_connected;
     } catch (error) {
       errorMessage = "Error retrieving Strava token parameters: " + error;
       console.log(errorMessage);
@@ -52,6 +54,7 @@ module.exports.handler = (event, context, callback) => {
         strava_refresh_token: StravaRefreshToken,
         strava_expires_at: StravaExpiresAt,
         customer360dslId: Customer360dslId,
+        strava_connectedStravaConnected,
         updateAt: new Date().getTime(),
       },
     };
