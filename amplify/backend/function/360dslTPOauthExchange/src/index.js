@@ -15,7 +15,7 @@ exports.handler = function (event, context, callback) {
     "https://p7v775qaqh.execute-api.eu-west-1.amazonaws.com/prod/tp";
 
   const tp_redirect_uri =
-    "https://cisx9pt2th.execute-api.us-east-1.amazonaws.com/dev/tpnotification";
+    "https://44vyjr3o2g.execute-api.eu-west-1.amazonaws.com/prod/tpnotification";
   const tp_client_id = "m360";
   const tp_client_secret = "alnaSgMPslcwvfcV2vunOifl81AX9zciC932imPny4";
   var tp_grant_type = "authorization_code";
@@ -98,6 +98,7 @@ exports.handler = function (event, context, callback) {
               FirstName: tp_athlete_firstname,
               tp_access_token: tp_access_token,
               tp_refresh_token: tp_refresh_token,
+              tp_connected: true
             };
 
             const m360TPTokenconfig = {
@@ -125,7 +126,7 @@ exports.handler = function (event, context, callback) {
                     "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Headers": "*",
                   },
-                  body: `<meta http-equiv="refresh" content="0; url='https://main.d2ehwfu8n9t09f.amplifyapp.com'" />`,
+                  body: `<meta http-equiv="refresh" content="0; url='https://www.bestathlete.net'" />`,
                 };
 
                 callback(null, success_response);

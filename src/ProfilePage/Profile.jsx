@@ -240,15 +240,15 @@ const Profile = ({ setRedirect }) => {
       // Ensure latest version of DB entity is known in case we update again ....
       setUser({ ...user, _version: user._version + 1 });
 
-      /*
-          if (customer.FirstName === "-" || customer.LastName === "-") {
+      
+          if (user.FirstName === "-" || user.LastName === "-") {
             alert(`Please fill all the fields`);
           } else {
-            setRedirect(false);
+            //setRedirect(true);
             //props.setRedirect(false);
             window.location.reload();
           }
-          */
+          
     } else {
       alert(`Please fill all the fields`);
     }
