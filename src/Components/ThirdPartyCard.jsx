@@ -34,7 +34,7 @@ export default function ThirdPartyCard(props) {
       </b>
       <p></p>
       <div>
-        <a href="https://oauth.sandbox.trainingpeaks.com/OAuth/Authorize?client_id=m360&response_type=code&scope=workouts athlete:profile&redirect_uri=https://cisx9pt2th.execute-api.us-east-1.amazonaws.com/dev/tpnotification">
+        <a href="https://oauth.sandbox.trainingpeaks.com/OAuth/Authorize?client_id=m360&response_type=code&scope=workouts athlete:profile&redirect_uri=https://44vyjr3o2g.execute-api.eu-west-1.amazonaws.com/prod/tpnotification">
           Connect your TP account
         </a>
       </div>
