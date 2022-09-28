@@ -175,7 +175,7 @@ export const createCustomer360DSL = `mutation createCustomerMutation($id: ID!, $
   }
 }`;
 
-export const updateCustomer360DSL = `mutation updateCustomerMutation($id: ID!, $EmailAddress: AWSEmail!, $FirstName: String!, $LastName: String!, $MobileNumber: AWSPhone!, $Male: Boolean!, $DateOfBirth: AWSDate!, $Country: String!,$MondayTrain: Boolean! ,  $MondayTrainHours: Int ,  $TuesdayTrain: Boolean! ,  $TuesdayTrainHours: Int ,  $WednesdayTrain: Boolean! ,$WednesdayTrainHours: Int ,  $ThursdayTrain: Boolean! , $ThursdayTrainHours: Int , $FridayTrain: Boolean! ,$FridayTrainHours: Int , $SaturdayTrain: Boolean! , $SaturdayTrainHours: Int ,$SundayTrain: Boolean! ,  $SundayTrainHours: Int , $_version: Int){
+export const updateCustomer360DSL = `mutation updateCustomerMutation($id: ID!, $EmailAddress: AWSEmail!, $FirstName: String!, $LastName: String!, $MobileNumber: AWSPhone!, $Male: Boolean!, $DateOfBirth: AWSDate!, $Country: String!, $MondayTrain: Boolean! ,  $MondayTrainHours: Int ,  $TuesdayTrain: Boolean! ,  $TuesdayTrainHours: Int ,  $WednesdayTrain: Boolean! ,$WednesdayTrainHours: Int ,  $ThursdayTrain: Boolean! , $ThursdayTrainHours: Int , $FridayTrain: Boolean! ,$FridayTrainHours: Int , $SaturdayTrain: Boolean! , $SaturdayTrainHours: Int ,$SundayTrain: Boolean! ,  $SundayTrainHours: Int, $_version: Int){
   updateCUSTOMER360DSL(input: {
     id : $id,
     EmailAddress: $EmailAddress,

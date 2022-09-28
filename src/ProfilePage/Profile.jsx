@@ -157,7 +157,7 @@ const Profile = ({ setRedirect }) => {
     const userData = customerData.data.getCUSTOMER360DSL;
     if (customerData.data.getCUSTOMER360DSL) {
       //setCustomer(customerData);
-      //console.log("customerData: ",customerData);
+      console.log("customerData: ",customerData);
       setUser({
         ...user,
         id: userData.id,
@@ -170,7 +170,7 @@ const Profile = ({ setRedirect }) => {
         DateOfBirth: userData.DateOfBirth,
         SaturdayTrain: userData.TrainingDays.SaturdayTrain,
         SaturdayTrainHours: Number(userData.TrainingDays.SundayTrainHours),
-        SundayTrain: userData.TrainingDays.SundayTrain || true,
+        SundayTrain: userData.TrainingDays.SundayTrain,
         SundayTrainHours: Number(userData.TrainingDays.SundayTrainHours),
         MondayTrain: userData.TrainingDays.MondayTrain,
         MondayTrainHours: Number(userData.TrainingDays.MondayTrainHours),
@@ -367,7 +367,7 @@ const Profile = ({ setRedirect }) => {
             <br />
             <TextField
               type="number"
-              defaultValue={user.FridayTrainHours}
+              value={user.FridayTrainHours}
               name="FridayTrainHours"
               label="Friday Train Hours"
               onChange={handleChange}
@@ -388,7 +388,7 @@ const Profile = ({ setRedirect }) => {
             <br />
             <TextField
               type="number"
-              defaultValue={user.SaturdayTrainHours}
+              value={user.SaturdayTrainHours}
               name="SaturdayTrainHours"
               label="Saturday Train Hours"
               onChange={handleChange}
@@ -409,7 +409,7 @@ const Profile = ({ setRedirect }) => {
             <br />
             <TextField
               type="number"
-              defaultValue={user.SundayTrainHours}
+              value={user.SundayTrainHours}
               name="SundayTrainHours"
               label="Sunday Train Hours"
               onChange={handleChange}
@@ -430,7 +430,7 @@ const Profile = ({ setRedirect }) => {
             <br />
             <TextField
               type="number"
-              defaultValue={user.MondayTrainHours}
+              value={user.MondayTrainHours}
               name="MondayTrainHours"
               label="Monday Train Hours"
               onChange={handleChange}
@@ -451,7 +451,7 @@ const Profile = ({ setRedirect }) => {
             <br />
             <TextField
               type="number"
-              defaultValue={user.TuesdayTrainHours}
+              value={user.TuesdayTrainHours}
               name="TuesdayTrainHours"
               label="Tuesday Train Hours"
               onChange={handleChange}
@@ -472,7 +472,7 @@ const Profile = ({ setRedirect }) => {
             <br />
             <TextField
               type="number"
-              defaultValue={user.WednesdayTrainHours}
+              value={user.WednesdayTrainHours}
               name="WednesdayTrainHours"
               label="Wednesday Train Hours"
               onChange={handleChange}
@@ -493,7 +493,7 @@ const Profile = ({ setRedirect }) => {
             <br />
             <TextField
               type="number"
-              defaultValue={user.ThursdayTrainHours}
+              value={user.ThursdayTrainHours}
               name="ThursdayTrainHours"
               label="Thursday Train Hours"
               onChange={handleChange}
