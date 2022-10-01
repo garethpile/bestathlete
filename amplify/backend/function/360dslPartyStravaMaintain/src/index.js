@@ -54,7 +54,7 @@ module.exports.handler = (event, context, callback) => {
         strava_refresh_token: StravaRefreshToken,
         strava_expires_at: StravaExpiresAt,
         customer360dslId: Customer360dslId,
-        strava_connectedStravaConnected,
+        strava_connected: StravaConnected,
         updateAt: new Date().getTime(),
       },
     };
