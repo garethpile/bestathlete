@@ -179,7 +179,7 @@ type TrainingDays {
 }
 
 type NonTrainingPeriod {
-  id: String!
+  NonTrainingPeriodId: String!
   valid: Boolean
   startDate: AWSDate
   endDate: AWSDate
