@@ -170,7 +170,7 @@ type NonTrainingDays
   id: ID!
   UserId360DSL: String
   Valid: Boolean
-  NonTraingType: String
+  NonTrainingType: String
   StartDate: AWSDate
   EndDate: AWSDate
 }
