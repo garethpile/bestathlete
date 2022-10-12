@@ -173,6 +173,7 @@ type NonTrainingDays
   NonTrainingType: String
   StartDate: AWSDate
   EndDate: AWSDate
+  _deleted: Boolean
 }
 
 type Events
