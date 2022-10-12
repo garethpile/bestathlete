@@ -190,6 +190,7 @@ type Events
   EventDate: AWSDate
   EventType: String
   EventDistance: Float
+  EventPriority: String
   Description: String
   GoalTime: Float
   GoalDistance: Float
@@ -197,6 +198,7 @@ type Events
   GoalFinish: Boolean
   GoalPB: Boolean
   GoalOther: String
+  _deleted: Boolean
 }
 
 type TrainingDays {
