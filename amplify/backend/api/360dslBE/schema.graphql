@@ -173,7 +173,6 @@ type NonTrainingDays
   NonTrainingType: String
   StartDate: AWSDate
   EndDate: AWSDate
-  _deleted: Boolean
 }
 
 type Events
@@ -198,7 +197,6 @@ type Events
   GoalFinish: Boolean
   GoalPB: Boolean
   GoalOther: String
-  _deleted: Boolean
 }
 
 type TrainingDays {
