@@ -179,9 +179,9 @@ type Events
   @model
   @auth(rules: [{ allow: public }])
   @key(
-    name: "nonTrainingDaysBy360dslId"
+    name: "eventsBy360dslId"
     fields: ["UserId360DSL"]
-    queryField: "nonTrainingDaysBy360dslId"
+    queryField: "eventsBy360dslId"
   ) {
   id: ID!
   UserId360DSL: String
