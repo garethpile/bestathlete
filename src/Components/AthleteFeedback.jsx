@@ -167,8 +167,9 @@ export default function AthleteFeedback(props) {
             <Select
               value={dropdownSleep}
               onChange={(e) => setDropdownSleep(e)}
-              placeholder="SleepFeedback"
+              placeholder={props.customerEntity.MetricSleep }
               style={{ width: 200 }}
+              defaulValue={props.customerEntity.MetricSleep }
             >
               <Option value="HardlyAny">Hardly any</Option>
               <Option value="6Less">Less Than 6</Option>
@@ -191,7 +192,8 @@ export default function AthleteFeedback(props) {
               <Option value="InsaneStress">Insanely stressed!</Option>
             </Select>
           </Box>
-          <p></p>
+     
+<p></p>
           <Button onClick={() => updateAthleteMetrics(props.customerEntity.id,props.customerEntity._version)}>Save</Button>
         </Col>
       </Row>

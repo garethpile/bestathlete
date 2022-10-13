@@ -6,8 +6,10 @@ import { API, graphqlOperation } from "aws-amplify";
 import { StravaActivityQuery } from "../Apollo/queries";
 import TermsConditions from "../Components/TermsConditions";
 import AthleteFeedback from "../Components/AthleteFeedback";
+import NonTrainingDays from "../Components/NonTrainingDays";
 import AthleteCard from "../Components/AthleteCard";
 import ActivityCardStrava from "../Components/ActivityCardStrava";
+import Events from "../Components/Events";
 
 function ThreeSixtyDSL(props) {
 
@@ -26,10 +28,7 @@ function ThreeSixtyDSL(props) {
   async function fetchActivities(stravaPartyId) {
     try {
       const stravaActivities = await API.graphql(graphqlOperation(StravaActivityQuery,{StravaActivityOwnerId: stravaPartyId }));
-      console.log(
-        "Strava activity items returned:" +
-        stravaActivities.data.activitiesStravaByStravaActivityOwnerId.items
-      );
+      // console.log( "Strava activity items returned:" + stravaActivities.data.activitiesStravaByStravaActivityOwnerId.items);
       let sorted =
       stravaActivities.data.activitiesStravaByStravaActivityOwnerId.items.sort(
           sortDesByDate
@@ -45,8 +44,13 @@ function ThreeSixtyDSL(props) {
     }
   }
   useEffect(() => {
-    console.log("props.stravaData.PartyId: ", props.stravaData.PartyId);
-    fetchActivities(props.stravaData.PartyId);
+    if (props.stravaData.PartyId){
+      // console.log("props.stravaData.PartyId: ", props.stravaData.PartyId);
+      fetchActivities(props.stravaData.PartyId);
+    }
+    else {
+      console.log("props.stravaData.PartyId does not exist...")
+    }
   }, [props]);
   return (
     <div>
@@ -65,6 +69,8 @@ function ThreeSixtyDSL(props) {
               Activity Feedback Corner
             </h1>
             <AthleteCard customerEntity={props.customerEntity} />
+            <Events customerId={props.customerId}/>
+            <NonTrainingDays customerId={props.customerId}/>
             <TermsConditions />
           </Col>
           <Col className="secondCol" span={8} xs={24} sm={24} lg={8} xl={8}>
@@ -105,7 +111,6 @@ function ThreeSixtyDSL(props) {
               }
             )}
           </Col>
-
           <Col className="thirdCol" span={8} xs={24} sm={24}>
             <AthleteFeedback customerEntity={props.customerEntity} />
             <div

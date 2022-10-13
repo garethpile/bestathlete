@@ -68,16 +68,119 @@ export const updateGarminActivity = `
     }
   }`;
 
-  export const updateNonTrainingDays = `
-  mutation MyMutation ($id: ID!, $startDate: AWSDate!, $endDate: AWSDate!, $valid: Boolean!, $EmailAddress : String!, $_version: Int) {
-    updateCUSTOMER360DSL(condition: {EmailAddress: {eq: $EmailAddress}},input : {id: $id, NonTrainingPeriod: {endDate: $endDate, startDate: $startDate, valid: $valid} ,_version: $_version}) {
-      NonTrainingPeriod {
-        endDate
-        startDate
-        valid
-      }
+  export const createNonTrainingDays = `
+  mutation createNonTrainingDaysMutation ( $UserId360DSL: String, $StartDate: AWSDate, $EndDate: AWSDate, $Valid: Boolean, $NonTrainingType : String, $_version: Int) {
+    createNonTrainingDays(input : {UserId360DSL: $UserId360DSL EndDate: $EndDate, StartDate: $StartDate, Valid: $Valid ,NonTrainingType:$NonTrainingType,_version: $_version}) {
+      id
+      UserId360DSL
+      Valid
+      NonTrainingType
+      StartDate
+      EndDate
+      _version
     }
   }`;
+
+  export const updateNonTrainingDays = `
+  mutation updateNonTrainingDaysMutation ($id:ID!, $UserId360DSL: String, $StartDate: AWSDate, $EndDate: AWSDate, $Valid: Boolean, $NonTrainingType : String, $_version: Int) {
+    updateNonTrainingDays(input : {id: $id,UserId360DSL: $UserId360DSL EndDate: $EndDate, StartDate: $StartDate, Valid: $Valid ,NonTrainingType:$NonTrainingType,_version: $_version}) {
+      id
+      UserId360DSL
+      Valid
+      NonTrainingType
+      StartDate
+      EndDate
+      _version
+    }
+  }`;
+
+  export const createEventsEntry = `
+  mutation createEventsMutation ( $UserId360DSL: String, $EventDate: AWSDate, $EventName: String, $EventType: String, $EventPriority : String, $EventDistance: Float, $Description:String, $_version: Int) {
+    createEvents(input : {UserId360DSL: $UserId360DSL,EventDate: $EventDate, EventName: $EventName, EventType: $EventType ,EventPriority:$EventPriority,EventDistance: $EventDistance, Description:$Description, _version: $_version}) {
+      id
+      UserId360DSL  
+      EventDate
+      EventName
+      EventType
+      EventPriority
+      EventDistance
+      Description
+      _version
+    }
+  }`;
+
+  export const updateEventsById = `
+  mutation updateNonTrainingDaysMutation ($id:ID!, $UserId360DSL: String, $StartDate: AWSDate, $EndDate: AWSDate, $Valid: Boolean, $NonTrainingType : String, $_version: Int) {
+    updateNonTrainingDays(input : {id: $id,UserId360DSL: $UserId360DSL EndDate: $EndDate, StartDate: $StartDate, Valid: $Valid ,NonTrainingType:$NonTrainingType,_version: $_version}) {
+      id
+      UserId360DSL
+      Valid
+      NonTrainingType
+      StartDate
+      EndDate
+      _version
+    }
+  }`;
+
+  export const getNonTrainingDaysBy360dslId = `query getNonTrainingDaysBy360dslId  ($UserId360DSL: String) {
+    nonTrainingDaysBy360dslId(UserId360DSL: $UserId360DSL,filter: {Valid: {eq: true}}){
+      items {
+        id
+        UserId360DSL
+        Valid
+        NonTrainingType
+        StartDate
+        EndDate
+        _version
+        _deleted
+      }
+  }
+}`;
+
+export const deleteNonTrainingDaysById = `mutation deleteNonTrainingDaysById  ($id: ID!, $_version : Int) {
+  deleteNonTrainingDays(input : {id: $id, _version:$_version}) {
+    id
+  }
+}`;
+
+
+
+
+
+
+
+
+
+
+
+export const getEventsBy360dslId = `query getEventsBy360dslIdQuery  ($UserId360DSL: String) {
+  eventsBy360dslId(UserId360DSL: $UserId360DSL){
+    items {
+      id
+      UserId360DSL  
+      EventDate
+      EventName
+      EventType
+      EventPriority
+      EventDistance
+      Description
+      GoalDistance
+      GoalFinish
+      GoalOther
+      GoalPB
+      GoalPlace
+      GoalTime
+      _version
+      _deleted
+    }
+}
+}`;
+
+export const deleteEventsById = `mutation deleteEventsById  ($id: ID!, $_version : Int) {
+  deleteEvents(input : {id: $id, _version:$_version}) {
+    id
+  }
+}`;
 
 export const getCustomerByID = `query myCustomerQuery($id: ID!) {
     getCUSTOMER360DSL(id: $id) {
@@ -117,6 +220,7 @@ export const getCustomerByID = `query myCustomerQuery($id: ID!) {
        MetricWorkLifeBalance
        _version
       NonTrainingPeriod {
+        NonTrainingPeriodId
         endDate
         startDate
         valid

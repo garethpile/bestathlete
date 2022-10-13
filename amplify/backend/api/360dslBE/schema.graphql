@@ -159,7 +159,45 @@ type CUSTOMER360DSL
     @connection(keyName: "byCUSTOMER360DSL", fields: ["id"])
 }
 
+type NonTrainingDays
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(
+    name: "nonTrainingDaysBy360dslId"
+    fields: ["UserId360DSL"]
+    queryField: "nonTrainingDaysBy360dslId"
+  ) {
+  id: ID!
+  UserId360DSL: String
+  Valid: Boolean
+  NonTrainingType: String
+  StartDate: AWSDate
+  EndDate: AWSDate
+}
 
+type Events
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(
+    name: "eventsBy360dslId"
+    fields: ["UserId360DSL"]
+    queryField: "eventsBy360dslId"
+  ) {
+  id: ID!
+  UserId360DSL: String
+  EventName: String
+  EventDate: AWSDate
+  EventType: String
+  EventDistance: Float
+  EventPriority: String
+  Description: String
+  GoalTime: Float
+  GoalDistance: Float
+  GoalPlace: Int
+  GoalFinish: Boolean
+  GoalPB: Boolean
+  GoalOther: String
+}
 
 type TrainingDays {
   MondayTrain: Boolean
@@ -179,6 +217,7 @@ type TrainingDays {
 }
 
 type NonTrainingPeriod {
+  NonTrainingPeriodId: String
   valid: Boolean
   startDate: AWSDate
   endDate: AWSDate
