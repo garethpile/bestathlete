@@ -23,9 +23,9 @@ export default function Header(props) {
   const open = Boolean(anchorEl);
   const thidPartyMenu = Boolean(thirdanchorEl);
 
-  console.log("Header props.customerId: ",   props.customerId)  ;
-  console.log("Header props.cognitoEntity: ", props.cognitoEntity)  ;
-  console.log("Header props.customerEntity: ", props.customerEntity)  ;
+  // console.log("Header props.customerId: ",   props.customerId)  ;
+  // console.log("Header props.cognitoEntity: ", props.cognitoEntity)  ;
+  // console.log("Header props.customerEntity: ", props.customerEntity)  ;
   
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

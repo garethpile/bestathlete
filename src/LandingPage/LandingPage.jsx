@@ -53,7 +53,7 @@ const LandingPage = () => {
 
   const getCustomer = async (authenticatedUser) => {
     try {
-      console.log("cognitoEntity inside getCustomer: ", cognitoEntity);
+      // console.log("cognitoEntity inside getCustomer: ", cognitoEntity);
       const userEmail = authenticatedUser.attributes.email;
       const userName = authenticatedUser.username;
       // Attempt to get 360DSL Customer .....
@@ -62,9 +62,7 @@ const LandingPage = () => {
       );
       // If the 360 Customer does not exist ....
       if (!customerData.data.getCUSTOMER360DSL) {
-        console.log(
-          "Customer does not exist .... Lets' create new customer ...."
-        );
+       //  console.log( "Customer does not exist .... Lets' create new customer ...." );
 
         const newCustomer = await API.graphql(
           graphqlOperation(createCustomer360DSL, {
@@ -93,17 +91,6 @@ const LandingPage = () => {
           })
         );
 
-        /*
-        const newCustomer = await API.graphql(
-          graphqlOperation(createCustomer360DSLWithEmail, {
-            id: userName,
-            EmailAddress: userEmail,
-          })
-        );
-        */
-        console.log("360DSL Customer created: ", newCustomer);
-
-        // setCustomerEntity(newCustomer.data.createCUSTOMER360DSL);
         setCustomerEntity({
           ...customerEntity,
           id: userName,
@@ -128,20 +115,14 @@ const LandingPage = () => {
           ThursdayTrainHours: 1,
           FridayTrain: true,
           FridayTrainHours: 1,
-          _version: 1
+          _version: 1,
         });
-        console.log(
-          "Newly created customer copied into customerEntity: ",
-          customerEntity
-        );
+       // console.log( "Newly created customer copied into customerEntity: ",customerEntity);
         setRedirect(true);
       } else {
         // Else Customer exists ....
-        console.log("Customer exsists ....");
-         console.log(
-          "Customer Data returned: ",
-          customerData.data.getCUSTOMER360DSL
-        );
+       // console.log("Customer exsists ....");
+         console.log( "Customer Data returned: ", customerData.data.getCUSTOMER360DSL );
         setCustomerEntity({
           ...customerEntity,
           id: userName,
@@ -152,23 +133,38 @@ const LandingPage = () => {
           LastName: customerData.data.getCUSTOMER360DSL.LastName,
           Country: customerData.data.getCUSTOMER360DSL.Country,
           DateOfBirth: customerData.data.getCUSTOMER360DSL.DateOfBirth,
-          SaturdayTrain: customerData.data.getCUSTOMER360DSL.TrainingDays.SaturdayTrain,
-          SaturdayTrainHours: customerData.data.getCUSTOMER360DSL.TrainingDays.SaturdayTrainHours,
-          SundayTrain: customerData.data.getCUSTOMER360DSL.TrainingDays.SundayTrain,
-          SundayTrainHours: customerData.data.getCUSTOMER360DSL.TrainingDays.SundayTrainHours,
-          MondayTrain: customerData.data.getCUSTOMER360DSL.TrainingDays.MondayTrain,
-          MondayTrainHours: customerData.data.getCUSTOMER360DSL.TrainingDays.MondayTrainHours,
-          TuesdayTrain: customerData.data.getCUSTOMER360DSL.TrainingDays.TuesdayTrain,
-          TuesdayTrainHours: customerData.data.getCUSTOMER360DSL.TrainingDays.TuesdayTrainHours,
-          WednesdayTrain: customerData.data.getCUSTOMER360DSL.TrainingDays.WednesdayTrain,
-          WednesdayTrainHours: customerData.data.getCUSTOMER360DSL.TrainingDays.WednesdayTrainHours,
-          ThursdayTrain: customerData.data.getCUSTOMER360DSL.TrainingDays.ThursdayTrain,
-          ThursdayTrainHours: customerData.data.getCUSTOMER360DSL.TrainingDays.ThursdayTrainHours,
-          FridayTrain: customerData.data.getCUSTOMER360DSL.TrainingDays.FridayTrain,
-          FridayTrainHours: customerData.data.getCUSTOMER360DSL.TrainingDays.FridayTrainHours,
+          SaturdayTrain:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.SaturdayTrain,
+          SaturdayTrainHours:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.SaturdayTrainHours,
+          SundayTrain:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.SundayTrain,
+          SundayTrainHours:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.SundayTrainHours,
+          MondayTrain:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.MondayTrain,
+          MondayTrainHours:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.MondayTrainHours,
+          TuesdayTrain:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.TuesdayTrain,
+          TuesdayTrainHours:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.TuesdayTrainHours,
+          WednesdayTrain:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.WednesdayTrain,
+          WednesdayTrainHours:
+            customerData.data.getCUSTOMER360DSL.TrainingDays
+              .WednesdayTrainHours,
+          ThursdayTrain:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.ThursdayTrain,
+          ThursdayTrainHours:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.ThursdayTrainHours,
+          FridayTrain:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.FridayTrain,
+          FridayTrainHours:
+            customerData.data.getCUSTOMER360DSL.TrainingDays.FridayTrainHours,
           _version: customerData.data.getCUSTOMER360DSL._version,
         });
-        
+
         customerDataVersion = customerData.data.getCUSTOMER360DSL?._version;
         console.log("Customer version (Landing Page): ", customerDataVersion);
       }
@@ -189,13 +185,21 @@ const LandingPage = () => {
       //console.log("Strava Party Information retrieved: ", stravaInformation);
       //console.log("Strava Party Information body retrieved: ", stravaInformation.data.body);
       //console.log("Strava Party Information Item[0] retrieved: ", stravaInformation.data.body.Items[0]);
-      stravaPartyId = stravaInformation.data.body.Items[0].PartyId;
-      console.log(
-        "Strava Party Id retrieved: ",
-        stravaInformation.data.body.Items[0].PartyId
-      );
-      setStravaInfo(stravaInformation.data.body.Items[0]);
-      console.log("stravaInfo: ", stravaInfo);
+
+      if (
+        stravaInformation.data.body.Items[0]?.PartyId === undefined ||
+        stravaInformation.data.body.Items[0]?.PartyId === null
+      ) {
+        console.log("Strava Party Id could not be retrieved ...");
+      } else {
+        stravaPartyId = stravaInformation.data.body.Items[0].PartyId;
+        console.log(
+          "Strava Party Id retrieved: ",
+          stravaInformation.data.body.Items[0].PartyId
+        );
+        setStravaInfo(stravaInformation.data.body.Items[0]);
+        // console.log("stravaInfo: ", stravaInfo);
+      }
     } catch (error) {
       console.log("Error retrieving Strava Party info ....", error);
     }
@@ -209,18 +213,15 @@ const LandingPage = () => {
         setCustomerId(authenticatedUser.username);
         setCognitoEntity(authenticatedUser);
 
-        console.log("Cognito user: ", authenticatedUser);
-        console.log("Cognito email: ", authenticatedUser.attributes.email);
-        console.log("Cognito username: ", authenticatedUser.username);
+        // console.log("Cognito user: ", authenticatedUser);
+        // console.log("Cognito email: ", authenticatedUser.attributes.email);
+        // console.log("Cognito username: ", authenticatedUser.username);
 
-        console.log("cognitoEntity set to: ", { cognitoEntity });
+        // console.log("cognitoEntity set to: ", { cognitoEntity });
 
-        console.log(
-          "Get customer data of current logged in user: ",
-          authenticatedUser.username
-        );
+        // console.log("Get customer data of current logged in user: ",authenticatedUser.username);
         getCustomer(authenticatedUser);
-        console.log("Retrieve Strava Party Id ...");
+        // console.log("Retrieve Strava Party Id ...");
         getStravaPartyId(authenticatedUser.username);
       })
       .catch((err) => console.log(err));
@@ -246,6 +247,7 @@ const LandingPage = () => {
             path="/"
             element={
               <ThreeSixtyDSL
+                customerId={customerId}
                 customerEntity={customerEntity}
                 stravaData={stravaInfo}
               />
