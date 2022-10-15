@@ -212,6 +212,7 @@ export default function ActivityCardStrava(props) {
             Please Select ActivityEffort
           </Option>
           <Option value="SuperEasy">Super easy</Option>
+          <Option value="GoodWorkout">Good Workout</Option>
           <Option value="SolidWorkout">Solid workout</Option>
           <Option value="Struggled">Struggled</Option>
           <Option value="Broke">Broke me!</Option>
@@ -229,9 +230,10 @@ export default function ActivityCardStrava(props) {
           <Option selected disabled value="">
             Please Select BodyFeedback
           </Option>
-          <Option value="FeelGreat">Feels great!</Option>
-          <Option value="SlightlyFatigued">Slightly fatigued</Option>
-          <Option value="ReallyTired">Really tired!</Option>
+          <Option value="Awesome">Awesome!</Option>
+          <Option value="Good">Feels good!</Option>
+          <Option value="Tired">Quite tired</Option>
+          <Option value="Fatigued">Seriously fatigued!</Option>
           <Option value="Sore">I'm sore!</Option>
         </Select>
       </Box>
