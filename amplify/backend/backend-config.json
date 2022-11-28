@@ -1,565 +1,565 @@
 {
-  "api": {
-    "360dslBE": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
+    "api": {
+        "360dslBE": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY",
+                        "apiKeyConfig": {
+                            "apiKeyExpirationDays": 30,
+                            "description": "api key description"
+                        }
+                    },
+                    "additionalAuthenticationProviders": [
+                        {
+                            "authenticationType": "AWS_IAM"
+                        },
+                        {
+                            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+                            "userPoolConfig": {
+                                "userPoolId": "auth360dslbe919a24f3"
+                            }
+                        }
+                    ]
+                }
             }
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            },
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "auth360dslbe919a24f3"
-              }
-            }
-          ]
+        },
+        "Garmin360dsl": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslGarminNotificationBodyComposition",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslGarminOauthReqTok",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslGarminOauthCallback",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslGarminOauthStartStepFunction",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslGarminNotificationActivityManual",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslGarminNotificationActivity",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslGarminNotificationActivityDetails",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslGarminNotificationSleeps",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "Strava360dsl": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslStravaTransformInput",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslStravaOauthExchange",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
         }
-      }
     },
-    "Garmin360dsl": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslGarminNotificationBodyComposition",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslGarminOauthReqTok",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslGarminOauthCallback",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslGarminOauthStartStepFunction",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslGarminNotificationActivityManual",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslGarminNotificationActivity",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslGarminNotificationActivityDetails",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslGarminNotificationSleeps",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
+    "auth": {
+        "360dslbe919a24f3": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "customAuth": false
         }
-      ]
     },
-    "Strava360dsl": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslStravaTransformInput",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
+    "function": {
+        "360dslRetrieveStravaActivity": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "360dslBE",
+                    "attributes": [
+                        "GraphQLAPIIdOutput"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
         },
-        {
-          "category": "function",
-          "resourceName": "360dslStravaOauthExchange",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
+        "360dslLayer01": {
+            "providerPlugin": "awscloudformation",
+            "service": "LambdaLayer",
+            "build": true
+        },
+        "360dslRetrieveStravaToken": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslWriteStravaActivity": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "360dslBE",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslStravaOauthExchange": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "360dslBE",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslStravaOathCallbackValidation": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslPartyUpdate": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslStravaTransformInput": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslStravaRefreshStravaToken": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslTPOauthExchange": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslPartyTPMaintain": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslPartyStravaMaintain": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslTPRefreshTPToken": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslTPGetActivity": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslStravaGetAthlete": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslTPcreateACTIVITIESTP": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "360dslBE",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslTPCreateWorkout": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslStravaNotificationCreate": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslPartyGarminMaintain": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminOauthTransformInput": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminNotificationActivity": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "360dslBE",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                }
+            ]
+        },
+        "360dslGarminNotificationBodyComposition": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminOauthCallback": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminOauthStartStepFunction": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminOauthReqTok": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminOauthReqUserAccTok": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminNotificationActivityManual": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "360dslBE",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                }
+            ]
+        },
+        "360dslGarminOauthReqUserAccTokStartStepFunction": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminOauthReqUserAccTokGetRequestSecret": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarmin360dslPartyGarminGetByUserAccessToken": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslGarminNotificationActivityDetails": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "360dslBE",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                }
+            ]
+        },
+        "360dslGarminNotificationSleeps": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "360dslStravaGetActivityZones": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        },
+        "activities360dslMaintain": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "360dslBE",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslPartyStravaGetByCustomer360dslId": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "360dslLayer01",
+                    "attributes": [
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "360dslPartyTPGetByEmailAddress": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
         }
-      ]
+    },
+    "hosting": {
+        "amplifyhosting": {
+            "service": "amplifyhosting",
+            "type": "cicd"
+        }
     }
-  },
-  "auth": {
-    "360dslbe919a24f3": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false
-    }
-  },
-  "function": {
-    "360dslRetrieveStravaActivity": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "360dslBE",
-          "attributes": [
-            "GraphQLAPIIdOutput"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslLayer01": {
-      "providerPlugin": "awscloudformation",
-      "service": "LambdaLayer",
-      "build": true
-    },
-    "360dslRetrieveStravaToken": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslWriteStravaActivity": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "360dslBE",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslStravaOauthExchange": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "360dslBE",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslStravaOathCallbackValidation": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslPartyUpdate": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslStravaTransformInput": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslStravaRefreshStravaToken": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslTPOauthExchange": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslPartyTPMaintain": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslPartyStravaMaintain": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslTPRefreshTPToken": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslTPGetActivity": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslStravaGetAthlete": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslTPcreateACTIVITIESTP": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "360dslBE",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslTPCreateWorkout": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslStravaNotificationCreate": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslPartyGarminMaintain": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminOauthTransformInput": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminNotificationActivity": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "360dslBE",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        }
-      ]
-    },
-    "360dslGarminNotificationBodyComposition": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminOauthCallback": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminOauthStartStepFunction": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminOauthReqTok": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminOauthReqUserAccTok": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminNotificationActivityManual": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "360dslBE",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        }
-      ]
-    },
-    "360dslGarminOauthReqUserAccTokStartStepFunction": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminOauthReqUserAccTokGetRequestSecret": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarmin360dslPartyGarminGetByUserAccessToken": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslGarminNotificationActivityDetails": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "360dslBE",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        }
-      ]
-    },
-    "360dslGarminNotificationSleeps": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "360dslStravaGetActivityZones": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "activities360dslMaintain": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "360dslBE",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslPartyStravaGetByCustomer360dslId": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "360dslLayer01",
-          "attributes": [
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "360dslPartyTPGetByEmailAddress": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
-  "hosting": {
-    "amplifyhosting": {
-      "service": "amplifyhosting",
-      "type": "cicd"
-    }
-  }
 }

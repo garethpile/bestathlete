@@ -21,6 +21,7 @@ export declare class TrainingDays {
 }
 
 export declare class NonTrainingPeriod {
+  readonly NonTrainingPeriodId?: string | null;
   readonly valid?: boolean | null;
   readonly startDate?: string | null;
   readonly endDate?: string | null;
@@ -38,6 +39,42 @@ export declare class ThirdPartyApplications {
   readonly applicationUserOauthRefreshToken?: string | null;
   readonly applicationUserOauthTokenExpiryDate?: string | null;
   constructor(init: ModelInit<ThirdPartyApplications>);
+}
+
+type ACTIVITIESGARMINMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type CUSTOMER3RDPARTYMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type ACTIVITIESTPMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type ACTIVITIES360DSLMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type ACTIVITIES360DSLCUSTOMER360DSLMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type CUSTOMER360DSLMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type ACTIVITIESSTRAVAMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type NonTrainingDaysMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type EventsMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
 export declare class ACTIVITIESGARMIN {
@@ -59,8 +96,10 @@ export declare class ACTIVITIESGARMIN {
   readonly GarminActivityAthleteFeedback?: boolean | null;
   readonly GarminActivityAthleteEffort?: string | null;
   readonly GarminActivityAthleteBody?: string | null;
-  constructor(init: ModelInit<ACTIVITIESGARMIN>);
-  static copyOf(source: ACTIVITIESGARMIN, mutator: (draft: MutableModel<ACTIVITIESGARMIN>) => MutableModel<ACTIVITIESGARMIN> | void): ACTIVITIESGARMIN;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<ACTIVITIESGARMIN, ACTIVITIESGARMINMetaData>);
+  static copyOf(source: ACTIVITIESGARMIN, mutator: (draft: MutableModel<ACTIVITIESGARMIN, ACTIVITIESGARMINMetaData>) => MutableModel<ACTIVITIESGARMIN, ACTIVITIESGARMINMetaData> | void): ACTIVITIESGARMIN;
 }
 
 export declare class CUSTOMER3RDPARTY {
@@ -71,8 +110,10 @@ export declare class CUSTOMER3RDPARTY {
   readonly ApplicationTokenExpiryDate?: string | null;
   readonly ApplicationAccessToken?: string | null;
   readonly customer360dslID?: string | null;
-  constructor(init: ModelInit<CUSTOMER3RDPARTY>);
-  static copyOf(source: CUSTOMER3RDPARTY, mutator: (draft: MutableModel<CUSTOMER3RDPARTY>) => MutableModel<CUSTOMER3RDPARTY> | void): CUSTOMER3RDPARTY;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<CUSTOMER3RDPARTY, CUSTOMER3RDPARTYMetaData>);
+  static copyOf(source: CUSTOMER3RDPARTY, mutator: (draft: MutableModel<CUSTOMER3RDPARTY, CUSTOMER3RDPARTYMetaData>) => MutableModel<CUSTOMER3RDPARTY, CUSTOMER3RDPARTYMetaData> | void): CUSTOMER3RDPARTY;
 }
 
 export declare class ACTIVITIESTP {
@@ -92,11 +133,12 @@ export declare class ACTIVITIESTP {
   readonly TPActivityAverageSpeed?: number | null;
   readonly TPActivityAverageCadence?: number | null;
   readonly TPActivityAverageTemp?: number | null;
-  readonly ACTIVITIES360DSL?: ACTIVITIES360DSL | null;
   readonly TPActivityLocation?: string | null;
   readonly TPActivity?: string | null;
-  constructor(init: ModelInit<ACTIVITIESTP>);
-  static copyOf(source: ACTIVITIESTP, mutator: (draft: MutableModel<ACTIVITIESTP>) => MutableModel<ACTIVITIESTP> | void): ACTIVITIESTP;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<ACTIVITIESTP, ACTIVITIESTPMetaData>);
+  static copyOf(source: ACTIVITIESTP, mutator: (draft: MutableModel<ACTIVITIESTP, ACTIVITIESTPMetaData>) => MutableModel<ACTIVITIESTP, ACTIVITIESTPMetaData> | void): ACTIVITIESTP;
 }
 
 export declare class ACTIVITIES360DSL {
@@ -107,8 +149,6 @@ export declare class ACTIVITIES360DSL {
   readonly ActivityDate: string;
   readonly ActivityMovingTime: number;
   readonly ActivityDistance: number;
-  readonly ACTIVITIES360DSLCUSTOMER360DSLS?: (ACTIVITIES360DSLCUSTOMER360DSL | null)[] | null;
-  readonly ACTIVITIESSTRAVA?: ACTIVITIESSTRAVA | null;
   readonly ActivityAverageHeartRate?: number | null;
   readonly ActivityStressScore?: number | null;
   readonly ActivityCalories?: number | null;
@@ -122,16 +162,20 @@ export declare class ACTIVITIES360DSL {
   readonly ActivityPhysicalLevel?: string | null;
   readonly ActivityStravaActivityId?: string | null;
   readonly ActivityStravaOwnerId?: string | null;
-  constructor(init: ModelInit<ACTIVITIES360DSL>);
-  static copyOf(source: ACTIVITIES360DSL, mutator: (draft: MutableModel<ACTIVITIES360DSL>) => MutableModel<ACTIVITIES360DSL> | void): ACTIVITIES360DSL;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<ACTIVITIES360DSL, ACTIVITIES360DSLMetaData>);
+  static copyOf(source: ACTIVITIES360DSL, mutator: (draft: MutableModel<ACTIVITIES360DSL, ACTIVITIES360DSLMetaData>) => MutableModel<ACTIVITIES360DSL, ACTIVITIES360DSLMetaData> | void): ACTIVITIES360DSL;
 }
 
 export declare class ACTIVITIES360DSLCUSTOMER360DSL {
   readonly id: string;
-  readonly activities360dsl: ACTIVITIES360DSL;
-  readonly customer360dsl: CUSTOMER360DSL;
-  constructor(init: ModelInit<ACTIVITIES360DSLCUSTOMER360DSL>);
-  static copyOf(source: ACTIVITIES360DSLCUSTOMER360DSL, mutator: (draft: MutableModel<ACTIVITIES360DSLCUSTOMER360DSL>) => MutableModel<ACTIVITIES360DSLCUSTOMER360DSL> | void): ACTIVITIES360DSLCUSTOMER360DSL;
+  readonly activities360dslID: string;
+  readonly customer360dslID: string;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<ACTIVITIES360DSLCUSTOMER360DSL, ACTIVITIES360DSLCUSTOMER360DSLMetaData>);
+  static copyOf(source: ACTIVITIES360DSLCUSTOMER360DSL, mutator: (draft: MutableModel<ACTIVITIES360DSLCUSTOMER360DSL, ACTIVITIES360DSLCUSTOMER360DSLMetaData>) => MutableModel<ACTIVITIES360DSLCUSTOMER360DSL, ACTIVITIES360DSLCUSTOMER360DSLMetaData> | void): ACTIVITIES360DSLCUSTOMER360DSL;
 }
 
 export declare class CUSTOMER360DSL {
@@ -152,10 +196,10 @@ export declare class CUSTOMER360DSL {
   readonly MetricInjury?: string | null;
   readonly MetricSleep?: string | null;
   readonly MetricWorkLifeBalance?: string | null;
-  readonly activities360dsls?: (ACTIVITIES360DSLCUSTOMER360DSL | null)[] | null;
-  readonly CUSTOMER3RDPARTIES?: (CUSTOMER3RDPARTY | null)[] | null;
-  constructor(init: ModelInit<CUSTOMER360DSL>);
-  static copyOf(source: CUSTOMER360DSL, mutator: (draft: MutableModel<CUSTOMER360DSL>) => MutableModel<CUSTOMER360DSL> | void): CUSTOMER360DSL;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<CUSTOMER360DSL, CUSTOMER360DSLMetaData>);
+  static copyOf(source: CUSTOMER360DSL, mutator: (draft: MutableModel<CUSTOMER360DSL, CUSTOMER360DSLMetaData>) => MutableModel<CUSTOMER360DSL, CUSTOMER360DSLMetaData> | void): CUSTOMER360DSL;
 }
 
 export declare class ACTIVITIESSTRAVA {
@@ -178,6 +222,47 @@ export declare class ACTIVITIESSTRAVA {
   readonly StravaActivityLocation?: string | null;
   readonly StravaActivity?: string | null;
   readonly StravaActivityZones?: string | null;
-  constructor(init: ModelInit<ACTIVITIESSTRAVA>);
-  static copyOf(source: ACTIVITIESSTRAVA, mutator: (draft: MutableModel<ACTIVITIESSTRAVA>) => MutableModel<ACTIVITIESSTRAVA> | void): ACTIVITIESSTRAVA;
+  readonly StravaActivityAthleteFeedback?: boolean | null;
+  readonly StravaActivityRPE?: number | null;
+  readonly StravaActivityFatigue?: number | null;
+  readonly StravaActivityAthleteEffort?: string | null;
+  readonly StravaActivityAthleteBody?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<ACTIVITIESSTRAVA, ACTIVITIESSTRAVAMetaData>);
+  static copyOf(source: ACTIVITIESSTRAVA, mutator: (draft: MutableModel<ACTIVITIESSTRAVA, ACTIVITIESSTRAVAMetaData>) => MutableModel<ACTIVITIESSTRAVA, ACTIVITIESSTRAVAMetaData> | void): ACTIVITIESSTRAVA;
+}
+
+export declare class NonTrainingDays {
+  readonly id: string;
+  readonly UserId360DSL?: string | null;
+  readonly Valid?: boolean | null;
+  readonly NonTrainingType?: string | null;
+  readonly StartDate?: string | null;
+  readonly EndDate?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<NonTrainingDays, NonTrainingDaysMetaData>);
+  static copyOf(source: NonTrainingDays, mutator: (draft: MutableModel<NonTrainingDays, NonTrainingDaysMetaData>) => MutableModel<NonTrainingDays, NonTrainingDaysMetaData> | void): NonTrainingDays;
+}
+
+export declare class Events {
+  readonly id: string;
+  readonly UserId360DSL?: string | null;
+  readonly EventName?: string | null;
+  readonly EventDate?: string | null;
+  readonly EventType?: string | null;
+  readonly EventDistance?: number | null;
+  readonly EventPriority?: string | null;
+  readonly Description?: string | null;
+  readonly GoalTime?: number | null;
+  readonly GoalDistance?: number | null;
+  readonly GoalPlace?: number | null;
+  readonly GoalFinish?: boolean | null;
+  readonly GoalPB?: boolean | null;
+  readonly GoalOther?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<Events, EventsMetaData>);
+  static copyOf(source: Events, mutator: (draft: MutableModel<Events, EventsMetaData>) => MutableModel<Events, EventsMetaData> | void): Events;
 }

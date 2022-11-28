@@ -4,7 +4,7 @@ import { schema } from './schema';
 
 
 
-const { ACTIVITIESGARMIN, CUSTOMER3RDPARTY, ACTIVITIESTP, ACTIVITIES360DSL, ACTIVITIES360DSLCUSTOMER360DSL, CUSTOMER360DSL, ACTIVITIESSTRAVA, TrainingDays, NonTrainingPeriod, ThirdPartyApplications } = initSchema(schema);
+const { ACTIVITIESGARMIN, CUSTOMER3RDPARTY, ACTIVITIESTP, ACTIVITIES360DSL, ACTIVITIES360DSLCUSTOMER360DSL, CUSTOMER360DSL, ACTIVITIESSTRAVA, NonTrainingDays, Events, TrainingDays, NonTrainingPeriod, ThirdPartyApplications } = initSchema(schema);
 
 export {
   ACTIVITIESGARMIN,
@@ -14,6 +14,8 @@ export {
   ACTIVITIES360DSLCUSTOMER360DSL,
   CUSTOMER360DSL,
   ACTIVITIESSTRAVA,
+  NonTrainingDays,
+  Events,
   TrainingDays,
   NonTrainingPeriod,
   ThirdPartyApplications
