@@ -272,19 +272,19 @@
         },
         "360dslGarminOauthCallback": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthCallback-4277385942566c6b335a-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthCallback-7736502b423072774254-build.zip"
         },
         "360dslGarminOauthStartStepFunction": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthStartStepFunction-484b4e38796e3133522f-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthStartStepFunction-444774736c6135434a6c-build.zip"
         },
         "360dslGarminOauthReqTok": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthReqTok-7038766d4c6868676f37-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthReqTok-31486d53657a6862744f-build.zip"
         },
         "360dslGarminOauthReqUserAccTok": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthReqUserAccTok-526158565239567a5033-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthReqUserAccTok-4366323665334f31577a-build.zip"
         },
         "360dslGarminNotificationActivityManual": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
@@ -292,7 +292,7 @@
         },
         "360dslGarminOauthReqUserAccTokStartStepFunction": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslGarminOauthReqUserAccTokStartStepFunction-516138395766374f4942-build.zip"
+          "s3Key": "amplify-builds/360dslGarminOauthReqUserAccTokStartStepFunction-7a654533394863777042-build.zip"
         },
         "360dslGarminOauthReqUserAccTokGetRequestSecret": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
@@ -317,7 +317,10 @@
         "360dslLayer01": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
           "s3Key": "amplify-builds/360dslLayer01-LambdaLayerVersione03b840a-build.zip"
-        }
+        },
+        "360dslPartyStravaGetByCustomer360dslId": {},
+        "360dslPartyTPGetByEmailAddress": {},
+        "activities360dslMaintain": {}
       },
       "hosting": {
         "amplifyhosting": {
