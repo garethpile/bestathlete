@@ -4,8 +4,9 @@
     "serviceName": "AppSync",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "keyDescription": "api key description",
-      "expirationTime": 30
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2024-07-18T12:44:18.255Z",
+      "keyDescription": "api key description"
     },
     "additionalAuthTypes": [
       {
@@ -21,7 +22,6 @@
         "type": "AUTOMERGE"
       }
     },
-    "apiName": "360dslBE",
-    "gqlSchemaPath": "/tmp/amplify-c9a7fe30-eef1-4793-b29d-2c340d761499/amplify/backend/api/360dslBE/schema.graphql"
+    "apiName": "360dslBE"
   }
 }

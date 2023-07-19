@@ -150,7 +150,7 @@
         },
         "activities360dslMaintain": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
-          "s3Key": "amplify-builds/activities360dslMaintain-5a3345483775664d672b-build.zip"
+          "s3Key": "amplify-builds/activities360dslMaintain-314c54304c6663365845-build.zip"
         },
         "360dslPartyStravaGetByCustomer360dslId": {
           "deploymentBucketName": "amplify-uberpmtauto-dev-125954-deployment",
