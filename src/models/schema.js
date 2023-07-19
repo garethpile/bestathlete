@@ -128,22 +128,6 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
                 }
             },
             "syncable": true,
@@ -242,22 +226,6 @@ export const schema = {
                     "type": "ID",
                     "isRequired": false,
                     "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
                 }
             },
             "syncable": true,
@@ -409,6 +377,19 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "ACTIVITIES360DSL": {
+                    "name": "ACTIVITIES360DSL",
+                    "isArray": false,
+                    "type": {
+                        "model": "ACTIVITIES360DSL"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "activitiestpActivities360DslId"
+                    }
+                },
                 "TPActivityLocation": {
                     "name": "TPActivityLocation",
                     "isArray": false,
@@ -422,22 +403,6 @@ export const schema = {
                     "type": "AWSJSON",
                     "isRequired": false,
                     "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
                 }
             },
             "syncable": true,
@@ -516,6 +481,33 @@ export const schema = {
                     "type": "Float",
                     "isRequired": true,
                     "attributes": []
+                },
+                "ACTIVITIES360DSLCUSTOMER360DSLS": {
+                    "name": "ACTIVITIES360DSLCUSTOMER360DSLS",
+                    "isArray": true,
+                    "type": {
+                        "model": "ACTIVITIES360DSLCUSTOMER360DSL"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "activities360dsl"
+                    }
+                },
+                "ACTIVITIESSTRAVA": {
+                    "name": "ACTIVITIESSTRAVA",
+                    "isArray": false,
+                    "type": {
+                        "model": "ACTIVITIESSTRAVA"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "activities360DslActivitiesstravaId"
+                    }
                 },
                 "ActivityAverageHeartRate": {
                     "name": "ActivityAverageHeartRate",
@@ -607,22 +599,6 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
                 }
             },
             "syncable": true,
@@ -660,35 +636,31 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "activities360dslID": {
-                    "name": "activities360dslID",
+                "activities360dsl": {
+                    "name": "activities360dsl",
                     "isArray": false,
-                    "type": "ID",
+                    "type": {
+                        "model": "ACTIVITIES360DSL"
+                    },
                     "isRequired": true,
-                    "attributes": []
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "activities360dslID"
+                    }
                 },
-                "customer360dslID": {
-                    "name": "customer360dslID",
+                "customer360dsl": {
+                    "name": "customer360dsl",
                     "isArray": false,
-                    "type": "ID",
+                    "type": {
+                        "model": "CUSTOMER360DSL"
+                    },
                     "isRequired": true,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
                     "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "customer360dslID"
+                    }
                 }
             },
             "syncable": true,
@@ -877,21 +849,33 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
+                "activities360dsls": {
+                    "name": "activities360dsls",
+                    "isArray": true,
+                    "type": {
+                        "model": "ACTIVITIES360DSLCUSTOMER360DSL"
+                    },
                     "isRequired": false,
                     "attributes": [],
-                    "isReadOnly": true
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "customer360dsl"
+                    }
                 },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
+                "CUSTOMER3RDPARTIES": {
+                    "name": "CUSTOMER3RDPARTIES",
+                    "isArray": true,
+                    "type": {
+                        "model": "CUSTOMER3RDPARTY"
+                    },
                     "isRequired": false,
                     "attributes": [],
-                    "isReadOnly": true
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "customer360dslID"
+                    }
                 }
             },
             "syncable": true,
@@ -1099,22 +1083,6 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
                 }
             },
             "syncable": true,
@@ -1196,22 +1164,6 @@ export const schema = {
                     "type": "AWSDate",
                     "isRequired": false,
                     "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
                 }
             },
             "syncable": true,
@@ -1349,22 +1301,6 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
                 }
             },
             "syncable": true,
@@ -1610,5 +1546,5 @@ export const schema = {
             }
         }
     },
-    "version": "cffd2b23ceb24f56516219ddbb074bd2"
+    "version": "159402a5276f292aa5a673197135d041"
 };
