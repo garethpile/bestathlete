@@ -101,8 +101,6 @@ exports.handler = async (event) => {
   ) {
     activityAverageCadence = jsonResponse.average_cadence;
     activityAverageCadenceInt = Math.floor(activityAverageCadence);
-
-    )
   }
   if (
     typeof jsonResponse.location !== "undefined" &&
