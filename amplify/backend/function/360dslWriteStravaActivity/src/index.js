@@ -44,6 +44,7 @@ exports.handler = async (event) => {
   let activitySufferScore;
   let activityCalories;
   let activityTotalElevationGain;
+  let activityTotalElevationGainInt;
   let activityAverageSpeed;
   let activityAverageTemp;
   let activityAverageCadence;
@@ -85,6 +86,7 @@ exports.handler = async (event) => {
     jsonResponse.total_elevation_gain !== null
   ) {
     activityTotalElevationGain = jsonResponse.total_elevation_gain;
+    activityTotalElevationGainInt - Math.floor(activityTotalElevationGain);
   }
   activityAverageSpeed = jsonResponse.average_speed;
   if (
@@ -167,7 +169,7 @@ exports.handler = async (event) => {
       StravaActivityDate: activityStartDate,
       StravaActivityDescription: activityName,
       StravaActivityDistance: activityDistance,
-      StravaActivityElevationGain: activityTotalElevationGain,
+      StravaActivityElevationGain: activityTotalElevationGainInt,
       StravaActivityId: activityID,
       StravaActivityLocation: activityLocation,
       StravaActivityMovingTime: activityMovingTime,
