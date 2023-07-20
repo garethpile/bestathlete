@@ -48,6 +48,7 @@ exports.handler = async (event) => {
   let activityAverageSpeed;
   let activityAverageTemp;
   let activityAverageCadence;
+  let activityAverageCadenceInt;
   let activityLocation;
   //let activityZones;
 
@@ -100,6 +101,7 @@ exports.handler = async (event) => {
     jsonResponse.average_cadence !== null
   ) {
     activityAverageCadence = jsonResponse.average_cadence;
+    activityAverageCadenceInt = Math.floor(activityAverageCadence);
   }
   if (
     typeof jsonResponse.location !== "undefined" &&
@@ -161,7 +163,7 @@ exports.handler = async (event) => {
   const item = {
     input: {
       StravaActivityAthleteFeedback: false,
-      StravaActivityAverageCadence: activityAverageCadence,
+      StravaActivityAverageCadence: activityAverageCadenceInt,
       StravaActivityAverageHeartRate: activityAverageHeartRate,
       StravaActivityAverageSpeed: activityAverageSpeed,
       StravaActivityAvergeTemp: activityAverageTemp,
