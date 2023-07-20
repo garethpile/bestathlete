@@ -103,7 +103,7 @@ exports.handler = async (event) => {
     jsonResponse.average_cadence !== null
   ) {
     activityAverageCadence = jsonResponse.average_cadence;
-    activityAverageCadenceInt = Math.floor(activityAverageCadence);
+    //  activityAverageCadenceInt = Math.floor(activityAverageCadence);
   }
   if (
     typeof jsonResponse.location !== "undefined" &&
@@ -165,7 +165,7 @@ exports.handler = async (event) => {
   const item = {
     input: {
       StravaActivityAthleteFeedback: false,
-      StravaActivityAverageCadence: activityAverageCadenceInt,
+      StravaActivityAverageCadence: activityAverageCadence,
       StravaActivityAverageHeartRate: activityAverageHeartRate,
       StravaActivityAverageSpeed: activityAverageSpeed,
       StravaActivityAvergeTemp: activityAverageTemp,
