@@ -43,7 +43,6 @@ exports.handler = async (event) => {
   let activitySufferScore;
   let activityCalories;
   let activityTotalElevationGain;
-  let activityTotalElevationGainInt;
   let activityAverageSpeed;
   let activityAverageTemp;
   let activityAverageCadence;
@@ -85,7 +84,6 @@ exports.handler = async (event) => {
     jsonResponse.total_elevation_gain !== null
   ) {
     activityTotalElevationGain = jsonResponse.total_elevation_gain;
-    activityTotalElevationGainInt - Math.floor(activityTotalElevationGain);
   }
   activityAverageSpeed = jsonResponse.average_speed;
   if (
@@ -153,7 +151,7 @@ exports.handler = async (event) => {
       ActivityDate: activityStartDate,
       ActivityDescription: activityName,
       ActivityDistance: activityDistance,
-      ActivityElevationGain: activityTotalElevationGainInt,
+      ActivityElevationGain: activityTotalElevationGain,
       ActivityLocation: activityLocation,
       ActivityMovingTime: activityMovingTime,
       ActivityStressScore: activitySufferScore,

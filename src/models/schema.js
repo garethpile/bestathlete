@@ -387,7 +387,7 @@ export const schema = {
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
-                        "targetName": "activitiestpActivities360DslId"
+                        "targetName": "aCTIVITIESTPACTIVITIES360DSLId"
                     }
                 },
                 "TPActivityLocation": {
@@ -411,489 +411,6 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "ACTIVITIES360DSL": {
-            "name": "ACTIVITIES360DSL",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "UserId360DSL": {
-                    "name": "UserId360DSL",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityDescription": {
-                    "name": "ActivityDescription",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "ActivityType": {
-                    "name": "ActivityType",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "ActivityDate": {
-                    "name": "ActivityDate",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "ActivityMovingTime": {
-                    "name": "ActivityMovingTime",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "ActivityDistance": {
-                    "name": "ActivityDistance",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "ACTIVITIES360DSLCUSTOMER360DSLS": {
-                    "name": "ACTIVITIES360DSLCUSTOMER360DSLS",
-                    "isArray": true,
-                    "type": {
-                        "model": "ACTIVITIES360DSLCUSTOMER360DSL"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "activities360dsl"
-                    }
-                },
-                "ACTIVITIESSTRAVA": {
-                    "name": "ACTIVITIESSTRAVA",
-                    "isArray": false,
-                    "type": {
-                        "model": "ACTIVITIESSTRAVA"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "activities360DslActivitiesstravaId"
-                    }
-                },
-                "ActivityAverageHeartRate": {
-                    "name": "ActivityAverageHeartRate",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityStressScore": {
-                    "name": "ActivityStressScore",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityCalories": {
-                    "name": "ActivityCalories",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityElevationGain": {
-                    "name": "ActivityElevationGain",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityAverageSpeed": {
-                    "name": "ActivityAverageSpeed",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityAverageCadence": {
-                    "name": "ActivityAverageCadence",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityAverageTemp": {
-                    "name": "ActivityAverageTemp",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityLocation": {
-                    "name": "ActivityLocation",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityRPE": {
-                    "name": "ActivityRPE",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityFatigueLevel": {
-                    "name": "ActivityFatigueLevel",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityPhysicalLevel": {
-                    "name": "ActivityPhysicalLevel",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityStravaActivityId": {
-                    "name": "ActivityStravaActivityId",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "ActivityStravaOwnerId": {
-                    "name": "ActivityStravaOwnerId",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                }
-            },
-            "syncable": true,
-            "pluralName": "ACTIVITIES360DSLS",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "ACTIVITIES360DSLCUSTOMER360DSL": {
-            "name": "ACTIVITIES360DSLCUSTOMER360DSL",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "activities360dsl": {
-                    "name": "activities360dsl",
-                    "isArray": false,
-                    "type": {
-                        "model": "ACTIVITIES360DSL"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "activities360dslID"
-                    }
-                },
-                "customer360dsl": {
-                    "name": "customer360dsl",
-                    "isArray": false,
-                    "type": {
-                        "model": "CUSTOMER360DSL"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "customer360dslID"
-                    }
-                }
-            },
-            "syncable": true,
-            "pluralName": "ACTIVITIES360DSLCUSTOMER360DSLS",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {
-                        "queries": null
-                    }
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byACTIVITIES360DSL",
-                        "fields": [
-                            "activities360dslID",
-                            "customer360dslID"
-                        ]
-                    }
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byCUSTOMER360DSL",
-                        "fields": [
-                            "customer360dslID",
-                            "activities360dslID"
-                        ]
-                    }
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            },
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "CUSTOMER360DSL": {
-            "name": "CUSTOMER360DSL",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "UserId360DSL": {
-                    "name": "UserId360DSL",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "LastName": {
-                    "name": "LastName",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "FirstName": {
-                    "name": "FirstName",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "EmailAddress": {
-                    "name": "EmailAddress",
-                    "isArray": false,
-                    "type": "AWSEmail",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "MobileNumber": {
-                    "name": "MobileNumber",
-                    "isArray": false,
-                    "type": "AWSPhone",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "Male": {
-                    "name": "Male",
-                    "isArray": false,
-                    "type": "Boolean",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "DateOfBirth": {
-                    "name": "DateOfBirth",
-                    "isArray": false,
-                    "type": "AWSDate",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "Country": {
-                    "name": "Country",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "TrainingDays": {
-                    "name": "TrainingDays",
-                    "isArray": false,
-                    "type": {
-                        "nonModel": "TrainingDays"
-                    },
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "NonTrainingPeriod": {
-                    "name": "NonTrainingPeriod",
-                    "isArray": true,
-                    "type": {
-                        "nonModel": "NonTrainingPeriod"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "ThirdPartyApplications": {
-                    "name": "ThirdPartyApplications",
-                    "isArray": true,
-                    "type": {
-                        "nonModel": "ThirdPartyApplications"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "MetricsDateCapture": {
-                    "name": "MetricsDateCapture",
-                    "isArray": false,
-                    "type": "AWSDate",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "MetricSick": {
-                    "name": "MetricSick",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "MetricInjury": {
-                    "name": "MetricInjury",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "MetricSleep": {
-                    "name": "MetricSleep",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "MetricWorkLifeBalance": {
-                    "name": "MetricWorkLifeBalance",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "activities360dsls": {
-                    "name": "activities360dsls",
-                    "isArray": true,
-                    "type": {
-                        "model": "ACTIVITIES360DSLCUSTOMER360DSL"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "customer360dsl"
-                    }
-                },
-                "CUSTOMER3RDPARTIES": {
-                    "name": "CUSTOMER3RDPARTIES",
-                    "isArray": true,
-                    "type": {
-                        "model": "CUSTOMER3RDPARTY"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "customer360dslID"
-                    }
-                }
-            },
-            "syncable": true,
-            "pluralName": "CUSTOMER360DSLS",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "customer360dslByEmail",
-                        "fields": [
-                            "EmailAddress"
-                        ],
-                        "queryField": "customer360dslByEmail"
-                    }
                 },
                 {
                     "type": "auth",
@@ -1100,6 +617,396 @@ export const schema = {
                             "StravaActivityOwnerId"
                         ],
                         "queryField": "activitiesStravaByStravaActivityOwnerId"
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "ACTIVITIES360DSL": {
+            "name": "ACTIVITIES360DSL",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "UserId360DSL": {
+                    "name": "UserId360DSL",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityDescription": {
+                    "name": "ActivityDescription",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "ActivityType": {
+                    "name": "ActivityType",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "ActivityDate": {
+                    "name": "ActivityDate",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "ActivityMovingTime": {
+                    "name": "ActivityMovingTime",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "ActivityDistance": {
+                    "name": "ActivityDistance",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "ACTIVITIES360DSLCUSTOMER360DSLS": {
+                    "name": "ACTIVITIES360DSLCUSTOMER360DSLS",
+                    "isArray": true,
+                    "type": {
+                        "model": "ACTIVITIES360DSLCUSTOMER360DSL"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "activities360dsl"
+                    }
+                },
+                "ACTIVITIESSTRAVA": {
+                    "name": "ACTIVITIESSTRAVA",
+                    "isArray": false,
+                    "type": {
+                        "model": "ACTIVITIESSTRAVA"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "aCTIVITIES360DSLACTIVITIESSTRAVAId"
+                    }
+                },
+                "ActivityAverageHeartRate": {
+                    "name": "ActivityAverageHeartRate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityStressScore": {
+                    "name": "ActivityStressScore",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityCalories": {
+                    "name": "ActivityCalories",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityElevationGain": {
+                    "name": "ActivityElevationGain",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityAverageSpeed": {
+                    "name": "ActivityAverageSpeed",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityAverageCadence": {
+                    "name": "ActivityAverageCadence",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityAverageTemp": {
+                    "name": "ActivityAverageTemp",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityLocation": {
+                    "name": "ActivityLocation",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityRPE": {
+                    "name": "ActivityRPE",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityFatigueLevel": {
+                    "name": "ActivityFatigueLevel",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityPhysicalLevel": {
+                    "name": "ActivityPhysicalLevel",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityStravaActivityId": {
+                    "name": "ActivityStravaActivityId",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ActivityStravaOwnerId": {
+                    "name": "ActivityStravaOwnerId",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            },
+            "syncable": true,
+            "pluralName": "ACTIVITIES360DSLS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "CUSTOMER360DSL": {
+            "name": "CUSTOMER360DSL",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "UserId360DSL": {
+                    "name": "UserId360DSL",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "LastName": {
+                    "name": "LastName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "FirstName": {
+                    "name": "FirstName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "EmailAddress": {
+                    "name": "EmailAddress",
+                    "isArray": false,
+                    "type": "AWSEmail",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "MobileNumber": {
+                    "name": "MobileNumber",
+                    "isArray": false,
+                    "type": "AWSPhone",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Male": {
+                    "name": "Male",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "DateOfBirth": {
+                    "name": "DateOfBirth",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Country": {
+                    "name": "Country",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "TrainingDays": {
+                    "name": "TrainingDays",
+                    "isArray": false,
+                    "type": {
+                        "nonModel": "TrainingDays"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "NonTrainingPeriod": {
+                    "name": "NonTrainingPeriod",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "NonTrainingPeriod"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "ThirdPartyApplications": {
+                    "name": "ThirdPartyApplications",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "ThirdPartyApplications"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "MetricsDateCapture": {
+                    "name": "MetricsDateCapture",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "MetricSick": {
+                    "name": "MetricSick",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "MetricInjury": {
+                    "name": "MetricInjury",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "MetricSleep": {
+                    "name": "MetricSleep",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "MetricWorkLifeBalance": {
+                    "name": "MetricWorkLifeBalance",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "activities360dsls": {
+                    "name": "activities360dsls",
+                    "isArray": true,
+                    "type": {
+                        "model": "ACTIVITIES360DSLCUSTOMER360DSL"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "customer360dsl"
+                    }
+                },
+                "CUSTOMER3RDPARTIES": {
+                    "name": "CUSTOMER3RDPARTIES",
+                    "isArray": true,
+                    "type": {
+                        "model": "CUSTOMER3RDPARTY"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "customer360dslID"
+                    }
+                }
+            },
+            "syncable": true,
+            "pluralName": "CUSTOMER360DSLS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "customer360dslByEmail",
+                        "fields": [
+                            "EmailAddress"
+                        ],
+                        "queryField": "customer360dslByEmail"
                     }
                 },
                 {
@@ -1337,6 +1244,99 @@ export const schema = {
                     }
                 }
             ]
+        },
+        "ACTIVITIES360DSLCUSTOMER360DSL": {
+            "name": "ACTIVITIES360DSLCUSTOMER360DSL",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "activities360dsl": {
+                    "name": "activities360dsl",
+                    "isArray": false,
+                    "type": {
+                        "model": "ACTIVITIES360DSL"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "activities360dslID"
+                    }
+                },
+                "customer360dsl": {
+                    "name": "customer360dsl",
+                    "isArray": false,
+                    "type": {
+                        "model": "CUSTOMER360DSL"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "customer360dslID"
+                    }
+                }
+            },
+            "syncable": true,
+            "pluralName": "ACTIVITIES360DSLCUSTOMER360DSLS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {
+                        "queries": null
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byACTIVITIES360DSL",
+                        "fields": [
+                            "activities360dslID",
+                            "customer360dslID"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byCUSTOMER360DSL",
+                        "fields": [
+                            "customer360dslID",
+                            "activities360dslID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     },
     "enums": {},
@@ -1546,5 +1546,6 @@ export const schema = {
             }
         }
     },
+    "codegenVersion": "3.4.4",
     "version": "159402a5276f292aa5a673197135d041"
 };
