@@ -87,7 +87,9 @@ exports.handler = async (event) => {
     jsonResponse.total_elevation_gain !== null
   ) {
     activityTotalElevationGain = jsonResponse.total_elevation_gain;
-    activityTotalElevationGainInt - Math.floor(activityTotalElevationGain);
+    console.log("activityTotalElevationGain: " + activityTotalElevationGain);
+    activityTotalElevationGainInt = Math.floor(activityTotalElevationGain);
+    console.log("activityTotalElevationGainInt: " + activityTotalElevationGainInt);
   }
   activityAverageSpeed = jsonResponse.average_speed;
   if (
