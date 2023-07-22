@@ -365,20 +365,6 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "360dslStravaOathCallbackValidation": {
-      "build": true,
-      "dependsOn": [
-        {
-          "attributes": [
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "360dslLayer01"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "360dslStravaOauthExchange": {
       "build": true,
       "dependsOn": [
@@ -928,22 +914,6 @@
         {
           "category": "function",
           "resourceName": "360dslStravaNotificationCreate"
-        }
-      ]
-    },
-    "AMPLIFY_function_360dslStravaOathCallbackValidation_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "360dslStravaOathCallbackValidation"
-        }
-      ]
-    },
-    "AMPLIFY_function_360dslStravaOathCallbackValidation_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "360dslStravaOathCallbackValidation"
         }
       ]
     },

@@ -202,10 +202,6 @@
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
           "s3Key": "amplify-builds/360dslStravaOauthExchange-77395a6348353535567a-build.zip"
         },
-        "360dslStravaOathCallbackValidation": {
-          "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
-          "s3Key": "amplify-builds/360dslStravaOathCallbackValidation-416b6e523450634c784c-build.zip"
-        },
         "360dslPartyUpdate": {
           "deploymentBucketName": "amplify-bestathlete-prod-71028-deployment",
           "s3Key": "amplify-builds/360dslPartyUpdate-39677458794f5a6e3963-build.zip"
