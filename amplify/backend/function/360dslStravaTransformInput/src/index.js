@@ -1,5 +1,5 @@
 exports.handler = async (event) => {
-  console.log(event);
+  //console.log(event);
 
   var object_id_string = event.object_id + "";
   var owner_id_string = event.owner_id + "";

@@ -10,9 +10,9 @@ const axios = require("axios");
 
 exports.handler = async (event, context, callback) => {
   try {
-    console.log("*** Extracting Event data ...");
+   // console.log("*** Extracting Event data ...");
 
-    console.log(event);
+   // console.log(event);
 
     var owner_id;
     var object_id;
@@ -53,7 +53,7 @@ exports.handler = async (event, context, callback) => {
 
       let response = await axios(config);
 
-      console.log( "Retrieved the following Strava Activity details: ",response.data );
+     // console.log( "Retrieved the following Strava Activity details: ",response.data );
 
       return response.data;
 

@@ -24,8 +24,8 @@ exports.handler = async (event, context, callback) => {
     }
 
   
-    console.log("Strava Owner ID: ", strava_owner_id);
-    console.log("Strava Access Token: ", strava_access_token);
+   // console.log("Strava Owner ID: ", strava_owner_id);
+   // console.log("Strava Access Token: ", strava_access_token);
  
 
    

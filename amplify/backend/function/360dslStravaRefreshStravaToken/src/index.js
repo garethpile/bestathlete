@@ -21,7 +21,7 @@ exports.handler = async (event, context, callback) => {
   var m360dslStravaRefreshTokenResult;
 
   try {
-    console.log(event);
+    //console.log(event);
 
     strava_party_id = event.owner_id;
     strava_refresh_token = event.stravaTokenData.Item.strava_refresh_token.S;
@@ -29,8 +29,8 @@ exports.handler = async (event, context, callback) => {
     strava_first_name = event.stravaTokenData.Item.FirstName.S;
     customer360DslId = event.stravaTokenData.Item.customer360dslId.S;
 
-    console.log("Strava Party ID: ", strava_party_id);
-    console.log("Strava Refresh Token: ", strava_refresh_token);
+   // console.log("Strava Party ID: ", strava_party_id);
+   // console.log("Strava Refresh Token: ", strava_refresh_token);
   } catch (error) {
     console.log("Invalid incoming data: ", error);
 
@@ -68,10 +68,7 @@ exports.handler = async (event, context, callback) => {
       stravaTokenRefreshConfig
     );
 
-    console.log(
-      "Strava Token Refresh Result Data: ",
-      stravaTokenRefreshResult.data
-    );
+   // console.log( "Strava Token Refresh Result Data: ",stravaTokenRefreshResult.data);
 
     new_strava_access_token = stravaTokenRefreshResult.data.access_token;
     new_strava_refresh_token = stravaTokenRefreshResult.data.refresh_token;
@@ -117,17 +114,14 @@ exports.handler = async (event, context, callback) => {
       m360dslTokenUpdateConfig
     );
 
-    console.log(
-      "m360 TOKEN UPDATE RESULT.DATA: ",
-      m360dslTokenUpdateResult.data
-    );
+   // console.log("m360 TOKEN UPDATE RESULT.DATA: ", m360dslTokenUpdateResult.data);
 
-    console.log("Strava Refresh Response: ", m360dslStravaRefreshTokenResult);
+   // console.log("Strava Refresh Response: ", m360dslStravaRefreshTokenResult);
 
-    console.log("Types");
+  //  console.log("Types");
 
-    console.log(typeof m360dslTokenUpdateResult.data);
-    console.log(typeof m360dslStravaRefreshTokenResult);
+  //  console.log(typeof m360dslTokenUpdateResult.data);
+   // console.log(typeof m360dslStravaRefreshTokenResult);
 
     return m360dslStravaRefreshTokenResult;
   } catch (error) {
