@@ -17,7 +17,7 @@ exports.handler = async (event, context, callback) => {
       //tp_start_date = tp_start_date_time.substring(0,10);
       // Set the date to a date we know there is an activity ....
 
-      tp_start_date = '2021-08-21';
+      tp_start_date = '2021-08-22';
 
     } catch (error) {
       console.log("Input data not present: ", error);
@@ -30,7 +30,7 @@ exports.handler = async (event, context, callback) => {
     var tpBearer = "Bearer ";
     tpBearer += tp_access_token;
 
-    var tpGetWorkoutAPIURL = "https://api.sandbox.trainingpeaks.com/v1/workouts/"+tp_start_date+"/"+tp_start_date;
+    var tpGetWorkoutAPIURL = "https://api.sandbox.trainingpeaks.com/v2/workouts/"+tp_start_date+"/"+tp_start_date;
     
     try {
       // Make API Call ...

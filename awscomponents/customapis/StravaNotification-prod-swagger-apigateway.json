@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "StravaActivityNotification",
-    "version" : "2022-08-29T08:33:35Z",
+    "version" : "2023-07-22T07:58:50Z",
     "title" : "StravaNotification"
   },
   "host" : "lm88c7efxc.execute-api.eu-west-1.amazonaws.com",
@@ -10,6 +10,29 @@
   "schemes" : [ "https" ],
   "paths" : {
     "/notification" : {
+      "get" : {
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:732439976770:function:360dslStravaOauthExchange-prod/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "passthroughBehavior" : "when_no_match",
+          "contentHandling" : "CONVERT_TO_TEXT",
+          "type" : "aws_proxy"
+        }
+      },
       "post" : {
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
