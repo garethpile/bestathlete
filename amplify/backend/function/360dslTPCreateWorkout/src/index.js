@@ -15,7 +15,7 @@ exports.handler = function (event, context, callback) {
   console.log("Today's date: " + todayDate);
 
   var incomingEventStringify = JSON.stringify(event);
-  console.log("Incoming event: " +incomingEventStringify);
+  console.log("Incoming event: " + incomingEventStringify);
 
   var tp_access_token;
   var tp_authorization_bearer;
@@ -175,13 +175,13 @@ exports.handler = function (event, context, callback) {
 
       body: tpCreateWorkoutBodyStringify,
     };
-console.log("Call TP API to create Workout .....");
+    console.log("Call TP API to create Workout .....");
 
     request.post(options, (err, res, body) => {
       if (err) {
         return console.log(err);
       }
-      console.log(JSON.parse(body));
+      //console.log(JSON.parse(body));
     });
   } catch (error) {
     console.log("TP Create Workout Error: ", error);
