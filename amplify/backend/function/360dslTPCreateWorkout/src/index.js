@@ -3,10 +3,16 @@
 const AWS = require("aws-sdk");
 const https = require("https");
 const request = require("request");
+const moment = require('moment');
 
 exports.handler = function (event, context, callback) {
   const axios = require("axios");
   const qsTP = require("querystring");
+
+  moment.locale('us');
+
+  const todayDate = moment();
+  console.log("Today's date: " + todayDate);
 
   var incomingEventStringify = JSON.stringify(event);
   console.log("Incoming event: " +incomingEventStringify);
@@ -145,7 +151,7 @@ exports.handler = function (event, context, callback) {
     var tpCreateWorkoutBody = {
       AthleteId: tpCreateWorkoutAthleteId,
       Title: tpCreateWorkoutTitle,
-      WorkoutDay: tpCreateWorkoutDay,
+      WorkoutDay: todayDate,
       TotalTimePlanned: tpCreateWorkoutTimePlanned,
       WorkoutType: tpCreateWorkoutType,
       Structure: 99999999,
