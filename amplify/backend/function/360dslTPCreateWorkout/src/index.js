@@ -11,7 +11,7 @@ exports.handler = function (event, context, callback) {
 
   moment.locale('us');
 
-  const todayDate = moment();
+  const todayDate = moment().format();
   console.log("Today's date: " + todayDate);
 
   var incomingEventStringify = JSON.stringify(event);
@@ -175,6 +175,7 @@ exports.handler = function (event, context, callback) {
 
       body: tpCreateWorkoutBodyStringify,
     };
+console.log("Call TP API to create Workout .....");
 
     request.post(options, (err, res, body) => {
       if (err) {
