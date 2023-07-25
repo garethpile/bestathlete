@@ -28,7 +28,7 @@ exports.handler = function (event, context, callback) {
   var tpCreateWorkoutStructure;
 
   const tpCreateWorkoutURL =
-    "https://api.sandbox.trainingpeaks.com/v1/workouts/plan";
+    "https://api.sandbox.trainingpeaks.com/v2/workouts/plan";
 
   try {
     tp_access_token = event.tpTokenData.tp_access_token;
