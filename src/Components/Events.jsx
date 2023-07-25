@@ -275,7 +275,7 @@ export default function Events(props) {
             {events.map((event) => {
               return (
                 <div key={event.id} className="cardSpacingDiv">
-                  {event.EventDate} : {event.EventName}
+                  {event.EventPriority} | {event.EventDate} | {event.EventName} | 
                   <button
                     type="button"
                     onClick={() => handleRemove(event.id, event._version)}
