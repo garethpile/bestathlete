@@ -176,6 +176,7 @@ exports.handler = function (event, context, callback) {
       body: tpCreateWorkoutBodyStringify,
     };
     console.log("Call TP API to create Workout .....");
+    console.log("TP Request: "+ options);
 
     request.post(options, (err, res, body) => {
       if (err) {
