@@ -24,6 +24,7 @@ exports.handler = function (event, context, callback) {
   var tpCreateWorkoutTitle;
 
   var tpCreateWorkoutTimePlanned;
+  var tpStartTimePlanned;
   var tpCreateWorkoutType;
   var tpCreateWorkoutStructure;
 
@@ -38,9 +39,11 @@ exports.handler = function (event, context, callback) {
 
     console.log("Authorization: " + tp_authorization_bearer);
 
-    tpCreateWorkoutDay = "2021-05-05T12:40:13-06:00";
+    tpCreateWorkoutDay = todayDate;
 
     tpCreateWorkoutTitle = "Great Run 1";
+
+    tpCreateWorkoutTimePlanned = todayDate;
 
     tpCreateWorkoutTimePlanned = 1 + "";
     tpCreateWorkoutType = "run";
@@ -147,13 +150,23 @@ exports.handler = function (event, context, callback) {
     //console.log(tpCreateWorkoutStructureFormatted);
 
     //var tpCreateWorkoutBody = "{\"AthleteId\":"+ tpCreateWorkoutAthleteId+",\"Title\":"+ tpCreateWorkoutTitle+",\"WorkoutDay\":"+ tpCreateWorkoutDay+",\"TotalTimePlanned\":"+ tpCreateWorkoutTimePlanned+",\"WorkoutType\":"+ tpCreateWorkoutType+",\"Structure\":"+ tpCreateWorkoutStructureStringify +"};";
+/*    var tpCreateWorkoutBody = {
+      AthleteId: tpCreateWorkoutAthleteId,
+      Title: tpCreateWorkoutTitle,
+      WorkoutDay: tpCreateWorkoutDay,
+      TotalTimePlanned: tpCreateWorkoutTimePlanned,
+      WorkoutType: tpCreateWorkoutType,
+      Structure: 99999999,
+    };
+    */
 
     var tpCreateWorkoutBody = {
       AthleteId: tpCreateWorkoutAthleteId,
       Title: tpCreateWorkoutTitle,
-      WorkoutDay: todayDate,
-      TotalTimePlanned: tpCreateWorkoutTimePlanned,
+      WorkoutDay: tpCreateWorkoutDay,
       WorkoutType: tpCreateWorkoutType,
+      CreateWorkoutTimePlanned: tpCreateWorkoutTimePlanned,
+      StartTimePlanned: tpStartTimePlanned,
       Structure: 99999999,
     };
 
