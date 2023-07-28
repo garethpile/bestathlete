@@ -71,7 +71,7 @@ function ThreeSixtyDSL(props) {
             <AthleteCard customerEntity={props.customerEntity} />
             <Events customerId={props.customerId}/>
             <NonTrainingDays customerId={props.customerId}/>
-            <TermsConditions />
+            
           </Col>
           <Col className="secondCol" span={8} xs={24} sm={24} lg={8} xl={8}>
             {activities.map(
@@ -113,6 +113,7 @@ function ThreeSixtyDSL(props) {
           </Col>
           <Col className="thirdCol" span={8} xs={24} sm={24}>
             <AthleteFeedback customerEntity={props.customerEntity} />
+            <TermsConditions />
             <div
               style={{
                 marginRight: "40px",
