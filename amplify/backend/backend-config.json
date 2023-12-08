@@ -789,6 +789,22 @@
         }
       ]
     },
+    "AMPLIFY_function_360dslPartyStravaGetByCustomer360dslId_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "360dslPartyStravaGetByCustomer360dslId"
+        }
+      ]
+    },
+    "AMPLIFY_function_360dslPartyStravaGetByCustomer360dslId_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "360dslPartyStravaGetByCustomer360dslId"
+        }
+      ]
+    },
     "AMPLIFY_function_360dslPartyStravaMaintain_deploymentBucketName": {
       "usedBy": [
         {
@@ -802,6 +818,22 @@
         {
           "category": "function",
           "resourceName": "360dslPartyStravaMaintain"
+        }
+      ]
+    },
+    "AMPLIFY_function_360dslPartyTPGetByEmailAddress_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "360dslPartyTPGetByEmailAddress"
+        }
+      ]
+    },
+    "AMPLIFY_function_360dslPartyTPGetByEmailAddress_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "360dslPartyTPGetByEmailAddress"
         }
       ]
     },
@@ -1058,6 +1090,22 @@
         {
           "category": "function",
           "resourceName": "360dslWriteStravaActivity"
+        }
+      ]
+    },
+    "AMPLIFY_function_activities360dslMaintain_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "activities360dslMaintain"
+        }
+      ]
+    },
+    "AMPLIFY_function_activities360dslMaintain_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "activities360dslMaintain"
         }
       ]
     },

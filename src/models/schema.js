@@ -387,7 +387,7 @@ export const schema = {
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
-                        "targetName": "activitiestpActivities360DslId"
+                        "targetName": "aCTIVITIESTPACTIVITIES360DSLId"
                     }
                 },
                 "TPActivityLocation": {
@@ -411,6 +411,213 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "ACTIVITIESSTRAVA": {
+            "name": "ACTIVITIESSTRAVA",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "UserId360DSL": {
+                    "name": "UserId360DSL",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityId": {
+                    "name": "StravaActivityId",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "StravaActivityOwnerId": {
+                    "name": "StravaActivityOwnerId",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "StravaActivityDescription": {
+                    "name": "StravaActivityDescription",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "StravaActivityType": {
+                    "name": "StravaActivityType",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "StravaActivityDate": {
+                    "name": "StravaActivityDate",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "StravaActivityMovingTime": {
+                    "name": "StravaActivityMovingTime",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "StravaActivityDistance": {
+                    "name": "StravaActivityDistance",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "StravaActivityAverageHeartRate": {
+                    "name": "StravaActivityAverageHeartRate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivitySufferScore": {
+                    "name": "StravaActivitySufferScore",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityCalories": {
+                    "name": "StravaActivityCalories",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityElevationGain": {
+                    "name": "StravaActivityElevationGain",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityAverageSpeed": {
+                    "name": "StravaActivityAverageSpeed",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityAverageCadence": {
+                    "name": "StravaActivityAverageCadence",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityAvergeTemp": {
+                    "name": "StravaActivityAvergeTemp",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityLocation": {
+                    "name": "StravaActivityLocation",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivity": {
+                    "name": "StravaActivity",
+                    "isArray": false,
+                    "type": "AWSJSON",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityZones": {
+                    "name": "StravaActivityZones",
+                    "isArray": false,
+                    "type": "AWSJSON",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityAthleteFeedback": {
+                    "name": "StravaActivityAthleteFeedback",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityRPE": {
+                    "name": "StravaActivityRPE",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityFatigue": {
+                    "name": "StravaActivityFatigue",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityAthleteEffort": {
+                    "name": "StravaActivityAthleteEffort",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "StravaActivityAthleteBody": {
+                    "name": "StravaActivityAthleteBody",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            },
+            "syncable": true,
+            "pluralName": "ACTIVITIESSTRAVAS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "StravaActivityOwnerId-index",
+                        "fields": [
+                            "StravaActivityOwnerId"
+                        ],
+                        "queryField": "activitiesStravaByStravaActivityOwnerId"
+                    }
                 },
                 {
                     "type": "auth",
@@ -506,7 +713,7 @@ export const schema = {
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
-                        "targetName": "activities360DslActivitiesstravaId"
+                        "targetName": "aCTIVITIES360DSLACTIVITIESSTRAVAId"
                     }
                 },
                 "ActivityAverageHeartRate": {
@@ -612,99 +819,6 @@ export const schema = {
                     "type": "auth",
                     "properties": {
                         "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "ACTIVITIES360DSLCUSTOMER360DSL": {
-            "name": "ACTIVITIES360DSLCUSTOMER360DSL",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "activities360dsl": {
-                    "name": "activities360dsl",
-                    "isArray": false,
-                    "type": {
-                        "model": "ACTIVITIES360DSL"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "activities360dslID"
-                    }
-                },
-                "customer360dsl": {
-                    "name": "customer360dsl",
-                    "isArray": false,
-                    "type": {
-                        "model": "CUSTOMER360DSL"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "customer360dslID"
-                    }
-                }
-            },
-            "syncable": true,
-            "pluralName": "ACTIVITIES360DSLCUSTOMER360DSLS",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {
-                        "queries": null
-                    }
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byACTIVITIES360DSL",
-                        "fields": [
-                            "activities360dslID",
-                            "customer360dslID"
-                        ]
-                    }
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byCUSTOMER360DSL",
-                        "fields": [
-                            "customer360dslID",
-                            "activities360dslID"
-                        ]
-                    }
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            },
                             {
                                 "allow": "public",
                                 "operations": [
@@ -913,8 +1027,8 @@ export const schema = {
                 }
             ]
         },
-        "ACTIVITIESSTRAVA": {
-            "name": "ACTIVITIESSTRAVA",
+        "NonTrainingDays": {
+            "name": "NonTrainingDays",
             "fields": {
                 "id": {
                     "name": "id",
@@ -930,137 +1044,286 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "StravaActivityId": {
-                    "name": "StravaActivityId",
+                "Valid": {
+                    "name": "Valid",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "StravaActivityOwnerId": {
-                    "name": "StravaActivityOwnerId",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "StravaActivityDescription": {
-                    "name": "StravaActivityDescription",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "StravaActivityType": {
-                    "name": "StravaActivityType",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "StravaActivityDate": {
-                    "name": "StravaActivityDate",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "StravaActivityMovingTime": {
-                    "name": "StravaActivityMovingTime",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "StravaActivityDistance": {
-                    "name": "StravaActivityDistance",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "StravaActivityAverageHeartRate": {
-                    "name": "StravaActivityAverageHeartRate",
-                    "isArray": false,
-                    "type": "Float",
+                    "type": "Boolean",
                     "isRequired": false,
                     "attributes": []
                 },
-                "StravaActivitySufferScore": {
-                    "name": "StravaActivitySufferScore",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "StravaActivityCalories": {
-                    "name": "StravaActivityCalories",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "StravaActivityElevationGain": {
-                    "name": "StravaActivityElevationGain",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "StravaActivityAverageSpeed": {
-                    "name": "StravaActivityAverageSpeed",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "StravaActivityAverageCadence": {
-                    "name": "StravaActivityAverageCadence",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "StravaActivityAvergeTemp": {
-                    "name": "StravaActivityAvergeTemp",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "StravaActivityLocation": {
-                    "name": "StravaActivityLocation",
+                "NonTrainingType": {
+                    "name": "NonTrainingType",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "StravaActivity": {
-                    "name": "StravaActivity",
+                "StartDate": {
+                    "name": "StartDate",
                     "isArray": false,
-                    "type": "AWSJSON",
+                    "type": "AWSDate",
                     "isRequired": false,
                     "attributes": []
                 },
-                "StravaActivityZones": {
-                    "name": "StravaActivityZones",
+                "EndDate": {
+                    "name": "EndDate",
                     "isArray": false,
-                    "type": "AWSJSON",
+                    "type": "AWSDate",
                     "isRequired": false,
                     "attributes": []
                 }
             },
             "syncable": true,
-            "pluralName": "ACTIVITIESSTRAVAS",
+            "pluralName": "NonTrainingDays",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
                 },
                 {
+                    "type": "key",
+                    "properties": {
+                        "name": "nonTrainingDaysBy360dslId",
+                        "fields": [
+                            "UserId360DSL"
+                        ],
+                        "queryField": "nonTrainingDaysBy360dslId"
+                    }
+                },
+                {
                     "type": "auth",
                     "properties": {
                         "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Events": {
+            "name": "Events",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "UserId360DSL": {
+                    "name": "UserId360DSL",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "EventName": {
+                    "name": "EventName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "EventDate": {
+                    "name": "EventDate",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "EventType": {
+                    "name": "EventType",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "EventDistance": {
+                    "name": "EventDistance",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "EventPriority": {
+                    "name": "EventPriority",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Description": {
+                    "name": "Description",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "GoalTime": {
+                    "name": "GoalTime",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "GoalDistance": {
+                    "name": "GoalDistance",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "GoalPlace": {
+                    "name": "GoalPlace",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "GoalFinish": {
+                    "name": "GoalFinish",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "GoalPB": {
+                    "name": "GoalPB",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "GoalOther": {
+                    "name": "GoalOther",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            },
+            "syncable": true,
+            "pluralName": "Events",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "eventsBy360dslId",
+                        "fields": [
+                            "UserId360DSL"
+                        ],
+                        "queryField": "eventsBy360dslId"
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "ACTIVITIES360DSLCUSTOMER360DSL": {
+            "name": "ACTIVITIES360DSLCUSTOMER360DSL",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "activities360dsl": {
+                    "name": "activities360dsl",
+                    "isArray": false,
+                    "type": {
+                        "model": "ACTIVITIES360DSL"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "activities360dslID"
+                    }
+                },
+                "customer360dsl": {
+                    "name": "customer360dsl",
+                    "isArray": false,
+                    "type": {
+                        "model": "CUSTOMER360DSL"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "customer360dslID"
+                    }
+                }
+            },
+            "syncable": true,
+            "pluralName": "ACTIVITIES360DSLCUSTOMER360DSLS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {
+                        "queries": null
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byACTIVITIES360DSL",
+                        "fields": [
+                            "activities360dslID",
+                            "customer360dslID"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byCUSTOMER360DSL",
+                        "fields": [
+                            "customer360dslID",
+                            "activities360dslID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
                             {
                                 "allow": "public",
                                 "operations": [
@@ -1184,6 +1447,13 @@ export const schema = {
         "NonTrainingPeriod": {
             "name": "NonTrainingPeriod",
             "fields": {
+                "NonTrainingPeriodId": {
+                    "name": "NonTrainingPeriodId",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "valid": {
                     "name": "valid",
                     "isArray": false,
@@ -1276,5 +1546,6 @@ export const schema = {
             }
         }
     },
-    "version": "7a74c615611f538ae650920eff6585ed"
+    "codegenVersion": "3.4.4",
+    "version": "159402a5276f292aa5a673197135d041"
 };
